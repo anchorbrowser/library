@@ -19,6 +19,16 @@ export const AuthFlowSchema = z.object({
 export type AuthFlow = z.infer<typeof AuthFlowSchema>;
 
 /**
+ * Defines a generic authentication flow that is method-agnostic.
+ * Used for flows that work with any stored identity credentials.
+ */
+export const GenericAuthFlowSchema = z.object({
+  name: z.string().min(1),
+  description: z.string(),
+});
+export type GenericAuthFlow = z.infer<typeof GenericAuthFlowSchema>;
+
+/**
  * A tool that can be used with an application.
  * Extend this interface as tool requirements become clearer.
  */
@@ -42,8 +52,18 @@ export const ApplicationSchema = z.object({
 export type Application = z.infer<typeof ApplicationSchema>;
 
 /**
- * Registry of all applications, keyed by app identifier.
- * Using a Record enables O(1) lookup by app id.
+ * Registry entry can be either an Application or a nested registry (for vendors with multiple products).
+ * Examples:
+ *   apps.linkedin -> Application
+ *   apps.complyAdvantage.mesh -> Application
+ *   apps.complyAdvantage.legacy -> Application
  */
-export const AppRegistrySchema = z.record(z.string(), ApplicationSchema);
-export type AppRegistry = z.infer<typeof AppRegistrySchema>;
+export interface AppRegistry {
+  [key: string]: Application | AppRegistry;
+}
+
+const baseAppRegistrySchema: z.ZodType<AppRegistry> = z.lazy(() =>
+  z.record(z.string(), z.union([ApplicationSchema, baseAppRegistrySchema])),
+);
+
+export const AppRegistrySchema = baseAppRegistrySchema;
