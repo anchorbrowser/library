@@ -13,8 +13,8 @@ export type AuthMethodType = z.infer<typeof AuthMethodTypeSchema>;
 export const AuthFlowSchema = z.object({
   name: z.string().min(1),
   description: z.string(),
-  requiredMethods: z.array(AuthMethodTypeSchema),
-  optionalMethods: z.array(AuthMethodTypeSchema),
+  requiredCredentials: z.array(AuthMethodTypeSchema),
+  optionalCredentials: z.array(AuthMethodTypeSchema),
 });
 export type AuthFlow = z.infer<typeof AuthFlowSchema>;
 
@@ -45,7 +45,7 @@ export const ApplicationSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   description: z.string(),
-  domain: z.string().min(1),
+  allowedDomains: z.array(z.string().min(1)),
   authFlows: z.record(z.string(), AuthFlowSchema),
   tools: z.record(z.string(), AppToolSchema),
 });
