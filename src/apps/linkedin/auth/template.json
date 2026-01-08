@@ -1,5 +1,5 @@
 {
-  "slug": "linkedin-basic-2fa-login",
+  "slug": "linkedin-casic-2fa-login",
   "name": "Basic 2FA Login",
   "description": "Login to LinkedIn using a username and password; 2FA is optional.",
   "type": "auth",
