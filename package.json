@@ -30,7 +30,6 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
-    "validate-templates": "npx tsx scripts/validate-templates.ts",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
@@ -61,7 +60,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
-    "tsx": "^4.21.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.57.0",
