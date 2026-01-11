@@ -23,7 +23,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc -p tsconfig.json",
+    "validate": "node scripts/validate-templates.mjs",
+    "generate:exports": "node scripts/generate-exports.mjs",
+    "build": "npm run validate && npm run generate:exports && npx tsc -p tsconfig.json",
     "clean": "rm -rf dist",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",

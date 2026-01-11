@@ -1,2 +1,2 @@
-export * from './generic';
-export * from './apps';
+// Re-export SDK
+export * from './sdk';

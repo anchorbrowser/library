@@ -1,0 +1,9 @@
+{
+  "slug": "basic-login",
+  "name": "Basic Login",
+  "description": "Login to ComplyAdvantage Mesh using an organization, username, and password via Auth0.",
+  "type": "auth",
+  "file": "basic-login.ts",
+  "requiredCredentials": ["username_password", "custom"],
+  "optionalCredentials": []
+}
