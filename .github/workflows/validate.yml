@@ -7,12 +7,14 @@ on:
       - 'src/apps/**/*.json'
       - 'src/apps/**/*.ts'
       - 'scripts/validate-templates.mjs'
+      - 'scripts/utils.mjs'
   push:
     branches: [main]
     paths:
       - 'src/apps/**/*.json'
       - 'src/apps/**/*.ts'
       - 'scripts/validate-templates.mjs'
+      - 'scripts/utils.mjs'
   workflow_dispatch:
 
 jobs:
@@ -30,4 +32,3 @@ jobs:
 
       - name: Validate templates
         run: node scripts/validate-templates.mjs
-

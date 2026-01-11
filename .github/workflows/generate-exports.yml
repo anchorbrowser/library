@@ -7,6 +7,7 @@ on:
       - 'src/apps/**/*.template.json'
       - 'src/apps/**/app.json'
       - 'scripts/generate-exports.mjs'
+      - 'scripts/utils.mjs'
   workflow_dispatch:
 
 jobs:
@@ -14,26 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+
+      - name: Validate templates
+        run: node scripts/validate-templates.mjs
+
       - name: Generate exports
         run: node scripts/generate-exports.mjs
-      
+
       - name: Check for changes
         id: changes
         run: |
           git diff --quiet || echo "has_changes=true" >> $GITHUB_OUTPUT
-      
+
       - name: Commit and push
         if: steps.changes.outputs.has_changes == 'true'
         run: |
@@ -42,4 +46,3 @@ jobs:
           git add -A
           git commit -m "chore: auto-generate SDK exports [skip ci]"
           git push
-
