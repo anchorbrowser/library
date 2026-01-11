@@ -5,10 +5,11 @@
  * Rules:
  * - Every template.json must have a corresponding app.json in its directory tree
  * - app.json must have: id, name, description, allowedDomains
- * - template.json must have: slug, name, type, file
+ * - template.json must have: slug, name, type, file, app
  * - template.file must point to an existing .ts file
  * - template.type must match the parent directory (auth, tool)
  * - template.slug must match the filename (without .template.json)
+ * - template.app must match the nearest app.json's id
  *
  * Usage: node scripts/validate-templates.mjs
  */
@@ -18,7 +19,7 @@ import { basename, dirname, join, relative } from 'path';
 import { APPS_DIR, findFilesRecursive, findNearestAppJson } from './utils.mjs';
 
 const APP_REQUIRED_FIELDS = ['id', 'name', 'description', 'allowedDomains'];
-const TEMPLATE_REQUIRED_FIELDS = ['slug', 'name', 'type', 'file'];
+const TEMPLATE_REQUIRED_FIELDS = ['slug', 'name', 'type', 'file', 'app'];
 const VALID_TEMPLATE_TYPES = ['auth', 'tool'];
 
 function validateAppJson(filePath) {
@@ -130,10 +131,20 @@ function validateTemplateJson(filePath) {
       }
     }
 
-    // Must have app.json in tree
+    // App field must be a string
+    if (json.app && typeof json.app !== 'string') {
+      errors.push('Field "app" must be a string');
+    }
+
+    // Must have app.json in tree and app field must match
     const appJsonPath = findNearestAppJson(templateDir);
     if (!appJsonPath) {
       errors.push('No app.json found in directory tree');
+    } else if (json.app) {
+      const appJson = JSON.parse(readFileSync(appJsonPath, 'utf-8'));
+      if (json.app !== appJson.id) {
+        errors.push(`App mismatch: template says "${json.app}" but app.json has id "${appJson.id}"`);
+      }
     }
   } catch (error) {
     errors.push(error instanceof Error ? error.message : 'Unknown parse error');

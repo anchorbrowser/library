@@ -4,6 +4,7 @@
   "description": "Login to ComplyAdvantage Mesh using an organization, username, and password via Auth0.",
   "type": "auth",
   "file": "basic-login.ts",
+  "app": "comply-advantage-mesh",
   "requiredCredentials": ["username_password", "custom"],
   "optionalCredentials": []
 }
