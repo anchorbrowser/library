@@ -6,6 +6,5 @@
   "file": "basic-2fa-login.ts",
   "app": "linkedin",
   "requiredCredentials": ["username_password"],
-  "optionalCredentials": ["authenticator"],
-  "tags": ["login", "2fa", "social"]
+  "optionalCredentials": ["authenticator"]
 }
