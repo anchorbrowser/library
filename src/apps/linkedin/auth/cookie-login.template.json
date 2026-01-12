@@ -1,0 +1,12 @@
+{
+  "slug": "cookie-login",
+  "name": "Cookie Login",
+  "description": "Login to LinkedIn using stored cookies for session persistence.",
+  "type": "auth",
+  "file": "cookie-login.ts",
+  "app": "linkedin",
+  "requiredCredentials": ["cookies"],
+  "optionalCredentials": [],
+  "tags": ["login", "cookies", "session"]
+}
+
