@@ -19,5 +19,5 @@ jobs:
       - run: npm run build
 
       - name: Verify SDK works
-        run: node -e "import('./dist/index.js').then(m => console.log('SDK exports:', Object.keys(m)))"
+        run: node -e "import('./dist/index.mjs').then(m => console.log('SDK exports:', Object.keys(m)))"
 
