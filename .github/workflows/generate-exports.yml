@@ -1,0 +1,48 @@
+name: Generate SDK Exports
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/apps/**/*.template.json'
+      - 'src/apps/**/app.json'
+      - 'scripts/generate-exports.mjs'
+      - 'scripts/utils.mjs'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate templates
+        run: node scripts/validate-templates.mjs
+
+      - name: Generate exports
+        run: node scripts/generate-exports.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet || echo "has_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "chore: auto-generate SDK exports [skip ci]"
+          git push

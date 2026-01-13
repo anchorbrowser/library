@@ -1,0 +1,34 @@
+name: Validate Templates
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/apps/**/*.json'
+      - 'src/apps/**/*.ts'
+      - 'scripts/validate-templates.mjs'
+      - 'scripts/utils.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'src/apps/**/*.json'
+      - 'src/apps/**/*.ts'
+      - 'scripts/validate-templates.mjs'
+      - 'scripts/utils.mjs'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate templates
+        run: node scripts/validate-templates.mjs
