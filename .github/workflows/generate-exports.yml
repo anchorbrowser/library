@@ -19,19 +19,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: Validate templates
-        run: node scripts/validate-templates.mjs
+      - run: npm ci
 
-      - name: Generate exports
-        run: node scripts/generate-exports.mjs
+      - name: Build (validate, generate, compile)
+        run: npm run build
 
       - name: Check for changes
         id: changes
