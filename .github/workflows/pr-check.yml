@@ -1,0 +1,23 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Verify SDK works
+        run: node -e "import('./dist/index.mjs').then(m => console.log('SDK exports:', Object.keys(m)))"
+
