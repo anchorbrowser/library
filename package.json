@@ -1,5 +1,5 @@
 {
-  "name": "@anchorforge/library",
+  "name": "@anchorbrowser/library",
   "version": "0.0.1",
   "description": "Open-source library of browser automation templates for popular web apps. Actions, authentication flows, and metadata. Compatible with Playwright and Anchor SDK.",
   "type": "module",
