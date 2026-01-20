@@ -1,9 +1,9 @@
 {
-  "slug": "like-first-post",
-  "name": "Like First Post",
+  "slug": "like-my-first-post",
+  "name": "Like My First Post",
   "description": "Navigate to a LinkedIn profile and like their first post. Requires an authenticated LinkedIn identity.",
   "type": "tool",
-  "file": "likeMyFirstPost.ts",
+  "file": "like-my-first-post.ts",
   "app": "linkedin",
   "inputSchema": [
     {
