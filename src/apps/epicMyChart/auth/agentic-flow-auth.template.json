@@ -1,0 +1,10 @@
+{
+  "slug": "epicmychart-agentic-flow-auth",
+  "name": "Epic MyChart Agentic Login",
+  "description": "Agent-based login to Epic MyChart healthcare portal using username and password credentials.",
+  "type": "auth",
+  "file": "agentic-flow-auth.ts",
+  "app": "epicMyChart",
+  "requiredCredentials": ["username_password"],
+  "optionalCredentials": []
+}
