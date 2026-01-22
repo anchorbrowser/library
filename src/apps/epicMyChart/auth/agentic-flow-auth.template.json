@@ -1,5 +1,5 @@
 {
-  "slug": "epicmychart-agentic-flow-auth",
+  "slug": "agentic-flow-auth",
   "name": "Epic MyChart Agentic Login",
   "description": "Agent-based login to Epic MyChart healthcare portal using username and password credentials.",
   "type": "auth",
