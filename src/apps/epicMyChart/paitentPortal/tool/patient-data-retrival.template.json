@@ -1,0 +1,8 @@
+{
+    "slug": "patient-data-retrival",
+    "name": "Patient Data Retrival",
+    "description": "Retrieve patient data from Epic MyChart",
+    "type": "tool",
+    "file": "patient-data-retrival.ts",
+    "app": "epicMyChart"
+}
