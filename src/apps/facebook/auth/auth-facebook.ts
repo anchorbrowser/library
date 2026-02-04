@@ -10,6 +10,7 @@ let _config: {
   identityId: string | undefined;
   timeoutMs: number;
   loginUrl: string;
+  humanInterventionTimeoutMs: number;
 } | null = null;
 
 function getConfig() {
@@ -19,6 +20,8 @@ function getConfig() {
       identityId: process.env['ANCHOR_IDENTITY_ID'],
       timeoutMs: parseInt(process.env['ANCHOR_TIMEOUT_MS'] || '30000', 10),
       loginUrl: 'https://www.facebook.com/login',
+      // Human intervention timeout: default 5 minutes (300 seconds)
+      humanInterventionTimeoutMs: parseInt(process.env['ANCHOR_HUMAN_INTERVENTION_TIMEOUT_MS'] || '300000', 10),
     };
   }
   return _config;
@@ -126,7 +129,6 @@ async function handleCookieConsent(page: Page): Promise<void> {
   console.log('[STEP 2] ▶ Checking for cookie consent dialog...');
 
   try {
-    // Facebook cookie consent button selectors
     const consentSelectors = [
       'button[data-cookiebanner="accept_button"]',
       'button[data-testid="cookie-policy-manage-dialog-accept-button"]',
@@ -153,13 +155,11 @@ async function handleCookieConsent(page: Page): Promise<void> {
 async function enterCredentials(page: Page, creds: FacebookCredentials): Promise<void> {
   console.log('[STEP 3] ▶ Entering credentials...');
 
-  // Email/Phone input
   const emailSelector = 'input#email, input[name="email"]';
   await waitForVisible(page, emailSelector);
   await page.locator(emailSelector).fill(creds.username);
   console.log(`[STEP 3] ✓ Email entered: ${creds.username}`);
 
-  // Password input
   const passwordSelector = 'input#pass, input[name="pass"]';
   await waitForVisible(page, passwordSelector);
   await page.locator(passwordSelector).fill(creds.password);
@@ -189,18 +189,168 @@ async function submitLogin(page: Page): Promise<void> {
     }
   }
 
-  // Fallback: press Enter on password field
   await page.locator('input#pass, input[name="pass"]').press('Enter');
   console.log('[STEP 4] ✓ Login submitted via Enter key');
+}
+
+/**
+ * Detects if Facebook is showing a verification challenge
+ * (email verification, phone verification, Instagram/WhatsApp code, etc.)
+ */
+async function detectVerificationChallenge(page: Page): Promise<{ detected: boolean; type: string }> {
+  const currentUrl = page.url();
+
+  // Check URL patterns for verification flows
+  const verificationUrlPatterns = [
+    { pattern: /checkpoint/, type: 'checkpoint' },
+    { pattern: /confirmemail/, type: 'email_verification' },
+    { pattern: /recover/, type: 'recovery' },
+    { pattern: /login_identify/, type: 'identity_verification' },
+    { pattern: /two_step_verification/, type: '2fa' },
+    { pattern: /code_confirm/, type: 'code_confirmation' },
+  ];
+
+  for (const { pattern, type } of verificationUrlPatterns) {
+    if (pattern.test(currentUrl)) {
+      return { detected: true, type };
+    }
+  }
+
+  // Check for verification UI elements
+  const verificationIndicators = [
+    { selector: 'div:has-text("Check your email")', type: 'email_verification' },
+    { selector: 'div:has-text("Enter the code")', type: 'code_verification' },
+    { selector: 'div:has-text("Confirm your identity")', type: 'identity_verification' },
+    { selector: 'div:has-text("We sent a code to")', type: 'code_sent' },
+    { selector: 'div:has-text("Check your Instagram")', type: 'instagram_verification' },
+    { selector: 'div:has-text("Check WhatsApp")', type: 'whatsapp_verification' },
+    { selector: 'div:has-text("Approve from another device")', type: 'device_approval' },
+    { selector: 'div:has-text("Review recent login")', type: 'login_review' },
+    { selector: 'input[name="approvals_code"]', type: 'approvals_code' },
+    { selector: 'form[action*="checkpoint"]', type: 'checkpoint_form' },
+  ];
+
+  for (const { selector, type } of verificationIndicators) {
+    if (await page.locator(selector).first().isVisible({ timeout: 1000 }).catch(() => false)) {
+      return { detected: true, type };
+    }
+  }
+
+  return { detected: false, type: 'none' };
+}
+
+/**
+ * Waits for human intervention to complete a verification challenge.
+ * The human can interact with the browser via live_view URL.
+ */
+async function waitForHumanInterventionOnVerification(
+  page: Page,
+  challengeType: string
+): Promise<{ success: boolean; message: string }> {
+  const config = getConfig();
+  const timeoutMs = config.humanInterventionTimeoutMs;
+  const checkIntervalMs = 5000; // Check every 5 seconds
+  const maxChecks = Math.ceil(timeoutMs / checkIntervalMs);
+
+  console.log('\n========================================');
+  console.log('🚨 HUMAN INTERVENTION REQUIRED 🚨');
+  console.log('========================================');
+  console.log(`Challenge Type: ${challengeType}`);
+  console.log(`Timeout: ${timeoutMs / 1000} seconds (${timeoutMs / 60000} minutes)`);
+  console.log('');
+  console.log('📺 Please open the Live View URL in your browser');
+  console.log('   and complete the verification manually.');
+  console.log('');
+  console.log('The automation will resume once:');
+  console.log('  - You complete the verification and reach the homepage');
+  console.log('  - Or the timeout expires');
+  console.log('========================================\n');
+
+  const startTime = Date.now();
+  let checkCount = 0;
+
+  while (checkCount < maxChecks) {
+    checkCount++;
+    const elapsedSeconds = Math.round((Date.now() - startTime) / 1000);
+    const remainingSeconds = Math.round((timeoutMs - (Date.now() - startTime)) / 1000);
+
+    console.log(`[WAITING] Check ${checkCount}/${maxChecks} - Elapsed: ${elapsedSeconds}s, Remaining: ${remainingSeconds}s`);
+
+    // Check if we're now on the Facebook home/feed (verification completed)
+    const isAuthenticated = await checkIfAuthenticated(page);
+
+    if (isAuthenticated) {
+      console.log('[WAITING] ✓ Verification completed by human! User is now authenticated.');
+      return {
+        success: true,
+        message: `Human completed ${challengeType} verification successfully`,
+      };
+    }
+
+    // Check if still on verification page
+    const { detected } = await detectVerificationChallenge(page);
+    if (!detected) {
+      // No longer on verification page - check if authenticated
+      if (isAuthenticated) {
+        return {
+          success: true,
+          message: `Verification completed, user authenticated`,
+        };
+      }
+    }
+
+    // Wait before next check
+    await page.waitForTimeout(checkIntervalMs);
+  }
+
+  // Timeout reached
+  console.log('[WAITING] ✗ Human intervention timeout reached');
+  return {
+    success: false,
+    message: `Human intervention timeout after ${timeoutMs / 1000} seconds. Challenge type: ${challengeType}`,
+  };
+}
+
+/**
+ * Checks if user is authenticated (on Facebook home/feed)
+ */
+async function checkIfAuthenticated(page: Page): Promise<boolean> {
+  const currentUrl = page.url();
+
+  // Success URL patterns
+  const successPatterns = [
+    /facebook\.com\/?$/,
+    /facebook\.com\/\?/,
+    /facebook\.com\/home/,
+    /facebook\.com\/feed/,
+  ];
+
+  if (successPatterns.some((pattern) => pattern.test(currentUrl))) {
+    return true;
+  }
+
+  // Check for authenticated UI elements
+  const authIndicators = [
+    '[aria-label="Your profile"]',
+    '[aria-label="Account"]',
+    '[data-pagelet="LeftRail"]',
+    'div[role="navigation"] a[href*="/me/"]',
+  ];
+
+  for (const selector of authIndicators) {
+    if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 async function handle2FA(page: Page, identityId: string): Promise<void> {
   console.log('[STEP 5] ▶ Checking for 2FA prompt...');
 
-  // Wait a moment for potential 2FA redirect
   await page.waitForTimeout(3000);
 
-  // Check for 2FA input
   const twoFaSelectors = [
     'input#approvals_code',
     'input[name="approvals_code"]',
@@ -212,7 +362,6 @@ async function handle2FA(page: Page, identityId: string): Promise<void> {
     if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
       console.log('[STEP 5] 2FA required, fetching fresh OTP...');
 
-      // Fetch fresh credentials with updated OTP
       const freshCreds = await fetchIdentityCredentials(identityId);
       const parsed = parseFacebookCredentials(freshCreds.credentials);
 
@@ -223,7 +372,6 @@ async function handle2FA(page: Page, identityId: string): Promise<void> {
       await page.locator(selector).first().fill(parsed.otp);
       console.log('[STEP 5] ✓ OTP entered');
 
-      // Submit 2FA
       const submitBtn = page.locator('button[type="submit"], button:has-text("Continue")').first();
       await Promise.all([
         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => null),
@@ -238,40 +386,15 @@ async function handle2FA(page: Page, identityId: string): Promise<void> {
 }
 
 async function verifyLogin(page: Page): Promise<boolean> {
-  console.log('[STEP 6] ▶ Verifying login success...');
+  console.log('[STEP 7] ▶ Verifying login success...');
 
-  // Wait for navigation to settle
   await page.waitForTimeout(3000);
 
-  const currentUrl = page.url();
-  console.log(`[STEP 6] Current URL: ${currentUrl}`);
+  const isAuthenticated = await checkIfAuthenticated(page);
 
-  // Success indicators
-  const successPatterns = [
-    /facebook\.com\/?$/,
-    /facebook\.com\/\?/,
-    /facebook\.com\/home/,
-    /facebook\.com\/feed/,
-  ];
-
-  if (successPatterns.some((pattern) => pattern.test(currentUrl))) {
-    console.log('[STEP 6] ✓ URL indicates successful login');
+  if (isAuthenticated) {
+    console.log('[STEP 7] ✓ User is authenticated');
     return true;
-  }
-
-  // Check for authenticated UI elements
-  const authIndicators = [
-    '[aria-label="Your profile"]',
-    '[aria-label="Account"]',
-    '[data-pagelet="LeftRail"]',
-    'div[role="navigation"] a[href*="/me/"]',
-  ];
-
-  for (const selector of authIndicators) {
-    if (await page.locator(selector).first().isVisible({ timeout: 5000 }).catch(() => false)) {
-      console.log('[STEP 6] ✓ Authenticated UI element found');
-      return true;
-    }
   }
 
   // Check for error messages
@@ -290,13 +413,14 @@ async function verifyLogin(page: Page): Promise<boolean> {
     }
   }
 
-  console.log('[STEP 6] ⚠ Could not confirm login status');
+  console.log('[STEP 7] ⚠ Could not confirm login status');
   return false;
 }
 
 export default async function LoginToFacebook() {
   console.log('\n========================================');
   console.log('  Facebook Login Automation');
+  console.log('  (with Human Intervention Support)');
   console.log('========================================\n');
 
   const config = getConfig();
@@ -308,6 +432,7 @@ export default async function LoginToFacebook() {
     return { success: false, message: msg };
   }
   console.log('[VALIDATE] ✓ Identity ID present');
+  console.log(`[VALIDATE] Human intervention timeout: ${config.humanInterventionTimeoutMs / 1000}s`);
 
   // Fetch credentials
   console.log('\n[CREDENTIALS] Fetching credentials...');
@@ -335,7 +460,7 @@ export default async function LoginToFacebook() {
     await handleCookieConsent(page);
 
     // Check if already logged in
-    const alreadyLoggedIn = await verifyLogin(page).catch(() => false);
+    const alreadyLoggedIn = await checkIfAuthenticated(page);
     if (alreadyLoggedIn) {
       return { success: true, message: 'Already authenticated' };
     }
@@ -349,7 +474,33 @@ export default async function LoginToFacebook() {
     // Step 5: Handle 2FA if needed
     await handle2FA(page, config.identityId);
 
-    // Step 6: Verify login
+    // Step 6: CHECK FOR VERIFICATION CHALLENGE (Human Intervention)
+    console.log('[STEP 6] ▶ Checking for verification challenges...');
+    await page.waitForTimeout(3000); // Wait for redirect
+
+    const challenge = await detectVerificationChallenge(page);
+
+    if (challenge.detected) {
+      console.log(`[STEP 6] ⚠ Verification challenge detected: ${challenge.type}`);
+
+      // Wait for human to complete the verification
+      const interventionResult = await waitForHumanInterventionOnVerification(page, challenge.type);
+
+      if (!interventionResult.success) {
+        return {
+          success: false,
+          message: interventionResult.message,
+          requiresHumanIntervention: true,
+          challengeType: challenge.type,
+        };
+      }
+
+      console.log(`[STEP 6] ✓ ${interventionResult.message}`);
+    } else {
+      console.log('[STEP 6] ✓ No verification challenge detected');
+    }
+
+    // Step 7: Verify login
     const loggedIn = await verifyLogin(page);
 
     if (!loggedIn) {
