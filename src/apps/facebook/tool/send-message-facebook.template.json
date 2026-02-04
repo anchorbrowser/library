@@ -1,0 +1,10 @@
+{
+  "slug": "send-message-facebook",
+  "name": "Send Facebook Message",
+  "description": "Send a message to a Facebook user via Messenger.",
+  "type": "tool",
+  "file": "send-message-facebook.ts",
+  "app": "facebook",
+  "requiredCredentials": [],
+  "optionalCredentials": []
+}
