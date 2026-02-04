@@ -7,22 +7,22 @@
   "app": "facebook",
   "inputSchema": [
     {
-      "displayName": "recipientName",
+      "display_name": "recipientName",
       "type": "string",
       "required": true,
       "description": "The name of the Facebook user to send a message to"
     },
     {
-      "displayName": "message",
+      "display_name": "message",
       "type": "string",
       "required": false,
       "description": "The message to send (defaults to 'Hi!')",
-      "defaultValue": "Hi!"
+      "default_value": "Hi!"
     }
   ],
   "outputSchema": [
     {
-      "displayName": "messageSent",
+      "display_name": "messageSent",
       "type": "boolean",
       "required": true,
       "description": "Whether the message was successfully sent"
