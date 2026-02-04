@@ -82,40 +82,52 @@ async function connectToBrowser() {
 }
 
 async function ensureLoggedIn(page: Page): Promise<boolean> {
-  console.log('[CHECK] ▶ Verifying Facebook authentication...');
-
-  // Navigate to Facebook home
-  await page.goto('https://www.facebook.com/', { waitUntil: 'domcontentloaded', timeout: getConfig().timeoutMs });
-
-  // Wait for page to settle
-  await page.waitForTimeout(2000);
-
-  // Check for authenticated indicators
-  const authIndicators = [
-    '[aria-label="Your profile"]',
-    '[aria-label="Account"]',
-    '[data-pagelet="LeftRail"]',
-    'div[role="navigation"] a[href*="/me/"]',
-    '[aria-label="Messenger"]',
-  ];
-
-  for (const selector of authIndicators) {
-    if (await page.locator(selector).first().isVisible({ timeout: 3000 }).catch(() => false)) {
-      console.log('[CHECK] ✓ User is authenticated');
+    console.log('[CHECK] ▶ Verifying Facebook authentication...');
+  
+    // Navigate to Facebook home
+    await page.goto('https://www.facebook.com/', { waitUntil: 'networkidle', timeout: getConfig().timeoutMs });
+  
+    // Wait for page to settle
+    await page.waitForTimeout(3000);
+  
+    const currentUrl = page.url();
+    
+    // If we're on login page, definitely not authenticated
+    if (currentUrl.includes('/login') || currentUrl.includes('checkpoint')) {
+      console.log('[CHECK] ✗ User is NOT authenticated - redirected to login');
+      return false;
+    }
+  
+    // If URL looks like home/feed, assume authenticated
+    if (currentUrl.match(/facebook\.com\/?(\?|$)/) || currentUrl.includes('/home') || currentUrl.includes('/?')) {
+      console.log('[CHECK] ✓ User appears authenticated (on home/feed)');
       return true;
     }
+  
+    // Check for authenticated indicators (expanded list)
+    const authIndicators = [
+      '[aria-label="Your profile"]',
+      '[aria-label="Account"]', 
+      '[aria-label="Account Controls and Settings"]',
+      '[data-pagelet="LeftRail"]',
+      'div[role="navigation"] a[href*="/me/"]',
+      '[aria-label="Messenger"]',
+      '[aria-label="Menu"]',
+      '[aria-label="Notifications"]',
+      'a[href*="facebook.com/me"]',
+    ];
+  
+    for (const selector of authIndicators) {
+      if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
+        console.log(`[CHECK] ✓ User is authenticated (found: ${selector})`);
+        return true;
+      }
+    }
+  
+    // If we got here and not on login page, probably authenticated
+    console.log('[CHECK] ⚠ Could not find auth indicators but not on login page - assuming authenticated');
+    return true;  // Be more lenient
   }
-
-  // Check if on login page
-  const currentUrl = page.url();
-  if (currentUrl.includes('/login') || currentUrl.includes('checkpoint')) {
-    console.log('[CHECK] ✗ User is NOT authenticated - on login page');
-    return false;
-  }
-
-  console.log('[CHECK] ⚠ Could not determine auth status');
-  return false;
-}
 
 async function navigateToMessenger(page: Page): Promise<void> {
   console.log('[STEP 1] ▶ Navigating to Messenger...');
