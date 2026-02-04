@@ -1,0 +1,6 @@
+{
+  "id": "facebook",
+  "name": "Facebook",
+  "description": "Facebook is a social networking platform for connecting with friends and family.",
+  "allowedDomains": ["facebook.com", "www.facebook.com", "m.facebook.com"]
+}

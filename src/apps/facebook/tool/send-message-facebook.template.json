@@ -1,0 +1,33 @@
+{
+  "slug": "send-message-facebook",
+  "name": "Send Facebook Message",
+  "description": "Send a message to a Facebook user via Messenger.",
+  "type": "tool",
+  "file": "send-message-facebook.ts",
+  "app": "facebook",
+  "inputSchema": [
+    {
+      "display_name": "recipientName",
+      "type": "string",
+      "required": true,
+      "description": "The name of the Facebook user to send a message to"
+    },
+    {
+      "display_name": "message",
+      "type": "string",
+      "required": false,
+      "description": "The message to send (defaults to 'Hi!')",
+      "default_value": "Hi!"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "messageSent",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the message was successfully sent"
+    }
+  ],
+  "requiredCredentials": [],
+  "optionalCredentials": []
+}
