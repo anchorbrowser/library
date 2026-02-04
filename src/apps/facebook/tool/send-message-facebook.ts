@@ -85,7 +85,7 @@ async function ensureLoggedIn(page: Page): Promise<boolean> {
     console.log('[CHECK] ▶ Verifying Facebook authentication...');
   
     // Navigate to Facebook home
-    await page.goto('https://www.facebook.com/', { waitUntil: 'networkidle', timeout: getConfig().timeoutMs });
+    await page.goto('https://www.facebook.com/', { waitUntil: 'domcontentloaded', timeout: getConfig().timeoutMs });
   
     // Wait for page to settle
     await page.waitForTimeout(3000);
