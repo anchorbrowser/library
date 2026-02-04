@@ -14,17 +14,28 @@ let _config: {
 } | null = null;
 
 function getConfig() {
-  if (!_config) {
-    _config = {
-      sessionId: process.env['ANCHOR_SESSION_ID'] || '',
-      identityId: process.env['ANCHOR_IDENTITY_ID'],
-      recipientName: process.env['ANCHOR_RECIPIENT_NAME'] || '',
-      message: process.env['ANCHOR_MESSAGE'] || 'Hi!',
-      timeoutMs: parseInt(process.env['ANCHOR_TIMEOUT_MS'] || '30000', 10),
-    };
+    if (!_config) {
+      // Parse ANCHOR_TOOL_INPUT if provided (from tool execution)
+      let toolInput: Record<string, string> = {};
+      try {
+        const toolInputStr = process.env['ANCHOR_TOOL_INPUT'];
+        if (toolInputStr) {
+          toolInput = JSON.parse(toolInputStr);
+        }
+      } catch (e) {
+        // Ignore parse errors
+      }
+  
+      _config = {
+        sessionId: process.env['ANCHOR_SESSION_ID'] || '',
+        identityId: process.env['ANCHOR_IDENTITY_ID'],
+        recipientName: toolInput['Recipient Name'] || process.env['ANCHOR_RECIPIENT_NAME'] || '',
+        message: toolInput['Message Text'] || process.env['ANCHOR_MESSAGE'] || 'Hi!',
+        timeoutMs: parseInt(process.env['ANCHOR_TIMEOUT_MS'] || '30000', 10),
+      };
+    }
+    return _config;
   }
-  return _config;
-}
 
 function getAnchorClient() {
   if (!_anchorClient) {
