@@ -5,6 +5,14 @@
   "type": "auth",
   "file": "basic-2fa-login.ts",
   "app": "linkedin",
+  "inputSchema": [
+    {
+      "display_name": "username",
+      "type": "strink",
+      "required": true,
+      "description": "The username to login with"
+    }
+  ],
   "requiredCredentials": ["username_password"],
   "optionalCredentials": ["authenticator"]
 }
