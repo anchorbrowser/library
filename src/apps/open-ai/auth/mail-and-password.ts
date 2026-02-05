@@ -1,77 +1,190 @@
-import anchorBrowser from 'anchorbrowser';
+import AnchorBrowser, { type Anchorbrowser } from 'anchorbrowser';
 import type { Browser } from 'playwright';
 
-const RUN_AGENTIC_VALIDATION_PROMPT = `Use a 3-way result so "invalid credentials" is separated from "could not attempt".
+const LOGIN_URL = 'https://auth.openai.com/log-in';
+const PLATFORM_URL = 'https://platform.openai.com/';
 
-Attempt to log in using the provided credentials. You are allowed to perform AT MOST ONE submit action (one click on "Log in", "Sign in", or "Submit", or one Enter-key submit on a login form). Do not submit twice, unless the password has it's own button (the second click on "Log in", "Sign in", "Submit", "Next", "Continue", "Continue with Password", "Sign up", or one Enter-key submit on a login form). Do not submit a third time, only if it is for 2fa - that will be the second or third click and also the last click (the third click on "Log in", "Sign in", "Submit", "Next", "Continue", "Verify", "Sign up", or one Enter-key submit on a login form).
+const RUN_AGENTIC_LOGIN_PROMPT = `You are logging into OpenAI platform. Follow these steps precisely:
 
-After navigation settles (wait for network and DOM to become stable), classify the outcome and respond with EXACTLY ONE of the following strings:
+1. You should already be on the OpenAI login page (auth.openai.com/log-in)
+2. Enter the email address in the email field
+3. Click "Continue" button
+4. Wait for the password field to appear
+5. Enter the password in the password field
+6. Click "Continue" or "Log in" button
+7. Wait for navigation to complete
 
-- "true" - Login succeeded: you can confirm authenticated state (e.g., redirected away from login, user avatar or name visible, logout button present, or access to a known authenticated-only page or element).
-- "false" - Login attempt was executed but credentials were rejected: you see an authentication error (e.g., "invalid password", "incorrect email", "wrong credentials"), or you remain on the login page with a clear credentials-related error.
-- "attempt_failed" - You could not complete a login attempt: required fields or submit control not found, submit disabled, CAPTCHA/2FA/SSO blocks progress, page crashes, unexpected modal blocks interaction, timeout, or any other automation or UX issue prevented the single submit action.
+After login attempt, classify the outcome and respond with EXACTLY ONE of these strings:
+- "true" - Login succeeded: you see the OpenAI platform dashboard, organization selector, or any authenticated page
+- "false" - Login failed: credentials were rejected, you see an error message about invalid email/password
+- "attempt_failed" - Could not complete login: CAPTCHA appeared, page didn't load, elements not found, or other technical issue
 
 Rules:
-- Only return one of: "true", "false", "attempt_failed" (lowercase, no extra text).
-- If you did not actually perform a submit action, you MUST return "attempt_failed".
-- If you performed a submit action and there is no clear success signal AND no clear credentials error, return "attempt_failed".`;
+- Return only one of: "true", "false", "attempt_failed" (lowercase, no extra text)
+- Be patient and wait for elements to load before interacting
+- Do not click any button more than once unless clearly necessary (e.g., separate Continue for email and password)
+`;
 
-// Lazy-loaded config and client - only initialized when needed
-let _anchorClient: InstanceType<typeof anchorBrowser> | null = null;
+interface LoginResult {
+  success: boolean;
+  message: string;
+}
+
+let _anchorClient: Anchorbrowser | null = null;
 let _config: {
   sessionId: string;
   identityId: string;
+  timeoutMs: number;
 } | null = null;
 
 function getConfig() {
   if (!_config) {
+    const identityId = process.env['ANCHOR_IDENTITY_ID'];
+    if (!identityId) {
+      throw new Error('ANCHOR_IDENTITY_ID is required');
+    }
     _config = {
-      sessionId: process.env['ANCHOR_SESSION_ID']!,
-      identityId: process.env['ANCHOR_IDENTITY_ID']!,
+      sessionId: process.env['ANCHOR_SESSION_ID'] || '',
+      identityId,
+      timeoutMs: parseInt(process.env['ANCHOR_TIMEOUT_MS'] || '30000', 10),
     };
   }
   return _config;
 }
 
-function getAnchorClient() {
+function getAnchorClient(): Anchorbrowser {
   if (!_anchorClient) {
-    _anchorClient = new anchorBrowser();
+    _anchorClient = new AnchorBrowser();
   }
   return _anchorClient;
 }
 
-async function setupBrowser() {
-  const config = getConfig();
+async function getAnchorBrowser(sessionId: string): Promise<Browser> {
   const client = getAnchorClient();
-  console.log(`[BROWSER] Connecting to existing session: ${config.sessionId}`);
-  return await client.browser.connect(config.sessionId);
-}
-
-async function safelyGoto(browser: Browser, url: string): Promise<void> {
-  try {
-    await browser.contexts()[0]?.pages()[0]?.goto(url);
-  } catch (error) {
-    console.error('Error in safelyGoto:', error);
+  if (sessionId) {
+    console.log(`[BROWSER] Connecting to existing session: ${sessionId}`);
+    return client.browser.connect(sessionId);
   }
+  throw new Error('ANCHOR_SESSION_ID is required for auth tasks');
 }
 
-export default async function loginWithAgent() {
+async function fetchIdentityCredentials(identityId: string) {
+  const client = getAnchorClient();
+  return client.identities.retrieveCredentials(identityId);
+}
+
+function parseCredentials(credentials: { type: string; username?: string; password?: string }[]) {
+  let username = '';
+  let password = '';
+
+  for (const cred of credentials) {
+    if (cred.type === 'username_password') {
+      username = cred.username || '';
+      password = cred.password || '';
+    }
+  }
+
+  if (!username || !password) {
+    throw new Error('Missing username_password credentials');
+  }
+
+  return { username, password };
+}
+
+export default async function LoginToOpenAI(): Promise<LoginResult> {
+  console.log('\n========================================');
+  console.log('  OpenAI Platform Login Automation');
+  console.log('========================================\n');
+
   try {
-    const client = getAnchorClient();
     const config = getConfig();
+    const client = getAnchorClient();
 
-    const credentials = await client.identities.retrieveCredentials(config.identityId);
+    console.log('[VALIDATE] ✓ IDENTITY_ID present');
 
-    const browser = await setupBrowser();
+    // Fetch credentials
+    console.log('[CREDENTIALS] Fetching credentials...');
+    const identityResponse = await fetchIdentityCredentials(config.identityId);
+    const credentials = parseCredentials(identityResponse.credentials);
+    console.log(`[CREDENTIALS] ✓ Fetched for: ${identityResponse.name}`);
+    console.log(`[CREDENTIALS] Email: ${credentials.username}`);
 
-    await safelyGoto(browser, `https://${credentials.source}`);
+    // Setup browser
+    const browser = await getAnchorBrowser(config.sessionId);
+    const context = browser.contexts()[0];
+    if (!context) {
+      return { success: false, message: 'Failed to get browser context' };
+    }
+    const page = context.pages()[0];
+    if (!page) {
+      return { success: false, message: 'Failed to get browser page' };
+    }
+    console.log('[BROWSER] ✓ Browser ready\n');
 
-    await client.agent.task(RUN_AGENTIC_VALIDATION_PROMPT, { sessionId: config.sessionId });
+    // Check if already logged in
+    console.log('[STEP 1] ▶ Checking if already authenticated...');
+    await page.goto(PLATFORM_URL, { waitUntil: 'domcontentloaded', timeout: config.timeoutMs });
+    await page.waitForTimeout(3000);
 
-    console.log('Placeholder for agent-based login implementation');
-    return { success: true, message: 'Agent-based login placeholder' };
+    const currentUrl = page.url();
+    if (!currentUrl.includes('auth.openai.com') && !currentUrl.includes('/login')) {
+      // Check for authenticated indicators
+      const authIndicators = [
+        '[data-testid="user-menu"]',
+        '[aria-label="Open settings"]',
+        'nav[aria-label]',
+        'a[href*="/settings"]',
+      ];
+
+      for (const selector of authIndicators) {
+        if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
+          console.log('[STEP 1] ✓ Already authenticated');
+          return { success: true, message: 'Already authenticated' };
+        }
+      }
+    }
+    console.log('[STEP 1] ⚠ Not logged in, proceeding to login');
+
+    // Navigate to login page
+    console.log('[STEP 2] ▶ Navigating to login page...');
+    await page.goto(LOGIN_URL, { waitUntil: 'domcontentloaded', timeout: config.timeoutMs });
+    await page.waitForTimeout(2000);
+    console.log('[STEP 2] ✓ Login page loaded');
+
+    // Use agent to perform login with credentials
+    console.log('[STEP 3] ▶ Performing login via agent...');
+    const agentPrompt = `${RUN_AGENTIC_LOGIN_PROMPT}
+
+Credentials to use:
+- Email: ${credentials.username}
+- Password: ${credentials.password}
+
+Start by entering the email and clicking Continue.`;
+
+    const result = await client.agent.task(agentPrompt, { sessionId: config.sessionId });
+    console.log(`[STEP 3] Agent result: ${result}`);
+
+    // Parse agent result
+    const resultStr = String(result).toLowerCase().trim();
+
+    if (resultStr === 'true') {
+      const successMsg = `Logged in to OpenAI as ${credentials.username}`;
+      console.log('\n========================================');
+      console.log('[RESULT] ✓ SUCCESS!');
+      console.log(successMsg);
+      console.log('========================================\n');
+      return { success: true, message: successMsg };
+    }
+
+    if (resultStr === 'false') {
+      return { success: false, message: 'Login failed: Invalid credentials' };
+    }
+
+    return { success: false, message: `Login attempt failed: ${result}` };
   } catch (error) {
-    console.error('Error in agent-based login:', error);
-    return { success: false, message: 'Agent-based login failed' };
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('\n[RESULT] ✗ FAILED');
+    console.error('OpenAI login failed:', errorMessage);
+    return { success: false, message: errorMessage };
   }
 }
