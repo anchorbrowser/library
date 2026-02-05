@@ -1,6 +1,0 @@
-{
-  "id": "gitlab",
-  "name": "GitLab",
-  "description": "GitLab is a DevOps platform for the entire software development lifecycle.",
-  "allowedDomains": ["gitlab.com"]
-}

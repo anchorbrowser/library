@@ -1,6 +1,0 @@
-{
-  "id": "twilio",
-  "name": "Twilio",
-  "description": "Twilio is a cloud communications platform for SMS, voice, and messaging.",
-  "allowedDomains": ["twilio.com", "console.twilio.com"]
-}
