@@ -1,0 +1,6 @@
+{
+  "id": "close",
+  "name": "Close",
+  "description": "Close is a sales CRM built for high-velocity sales teams.",
+  "allowedDomains": ["close.com", "app.close.com"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "monday",
+  "name": "Monday.com",
+  "description": "Monday.com is a work operating system for project management.",
+  "allowedDomains": ["monday.com"]
+}

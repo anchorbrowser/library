@@ -1,0 +1,6 @@
+{
+  "id": "lever",
+  "name": "Lever",
+  "description": "Lever is a modern applicant tracking system and recruiting platform.",
+  "allowedDomains": ["lever.co", "hire.lever.co"]
+}

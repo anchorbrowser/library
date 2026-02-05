@@ -1,0 +1,17 @@
+{
+  "slug": "get-traffic-report",
+  "name": "Get Traffic Report",
+  "description": "Get website traffic report from Google Analytics.",
+  "type": "tool",
+  "file": "get-traffic-report.ts",
+  "app": "google-analytics",
+  "inputSchema": [
+    { "displayName": "dateRange", "type": "string", "required": false, "description": "Date range", "defaultValue": "Last 7 days" },
+    { "displayName": "propertyId", "type": "string", "required": false, "description": "GA4 property ID" }
+  ],
+  "outputSchema": [
+    { "displayName": "users", "type": "number", "required": true, "description": "Total users" },
+    { "displayName": "sessions", "type": "number", "required": true, "description": "Total sessions" },
+    { "displayName": "pageviews", "type": "number", "required": true, "description": "Total pageviews" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "send-message",
+  "name": "Send Message",
+  "description": "Send a message to a conversation in Drift.",
+  "type": "tool",
+  "file": "send-message.ts",
+  "app": "drift",
+  "inputSchema": [
+    { "displayName": "conversationId", "type": "string", "required": true, "description": "Conversation ID or contact email" },
+    { "displayName": "message", "type": "string", "required": true, "description": "Message content" }
+  ],
+  "outputSchema": [
+    { "displayName": "messageId", "type": "string", "required": true, "description": "Sent message ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether message was sent" }
+  ]
+}

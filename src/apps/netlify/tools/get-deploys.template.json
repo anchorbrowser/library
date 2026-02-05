@@ -1,0 +1,16 @@
+{
+  "slug": "get-deploys",
+  "name": "Get Deploys",
+  "description": "Get recent deploys from Netlify.",
+  "type": "tool",
+  "file": "get-deploys.ts",
+  "app": "netlify",
+  "inputSchema": [
+    { "displayName": "siteName", "type": "string", "required": false, "description": "Site name to filter" },
+    { "displayName": "limit", "type": "number", "required": false, "description": "Max deploys to return", "defaultValue": "10" }
+  ],
+  "outputSchema": [
+    { "displayName": "deploys", "type": "string", "required": true, "description": "JSON array of deploys" },
+    { "displayName": "totalCount", "type": "number", "required": true, "description": "Total count" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "create-item",
+  "name": "Create Item",
+  "description": "Create a new item in a Monday.com board.",
+  "type": "tool",
+  "file": "create-item.ts",
+  "app": "monday",
+  "inputSchema": [
+    { "displayName": "boardName", "type": "string", "required": true, "description": "Board name" },
+    { "displayName": "itemName", "type": "string", "required": true, "description": "Item name" },
+    { "displayName": "groupName", "type": "string", "required": false, "description": "Group name within the board" },
+    { "displayName": "status", "type": "string", "required": false, "description": "Status column value" }
+  ],
+  "outputSchema": [
+    { "displayName": "itemId", "type": "string", "required": true, "description": "Created item ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether item was created" }
+  ]
+}

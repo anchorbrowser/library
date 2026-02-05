@@ -1,0 +1,20 @@
+{
+  "slug": "create-task",
+  "name": "Create Task",
+  "description": "Create a new task in ClickUp.",
+  "type": "tool",
+  "file": "create-task.ts",
+  "app": "clickup",
+  "inputSchema": [
+    { "displayName": "listName", "type": "string", "required": true, "description": "List name" },
+    { "displayName": "taskName", "type": "string", "required": true, "description": "Task name" },
+    { "displayName": "description", "type": "string", "required": false, "description": "Task description" },
+    { "displayName": "assignee", "type": "string", "required": false, "description": "Assignee name" },
+    { "displayName": "dueDate", "type": "date", "required": false, "description": "Due date" },
+    { "displayName": "priority", "type": "string", "required": false, "description": "Priority (Urgent, High, Normal, Low)" }
+  ],
+  "outputSchema": [
+    { "displayName": "taskId", "type": "string", "required": true, "description": "Created task ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether task was created" }
+  ]
+}

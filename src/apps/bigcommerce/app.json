@@ -1,0 +1,6 @@
+{
+  "id": "bigcommerce",
+  "name": "BigCommerce",
+  "description": "BigCommerce is an e-commerce platform for online stores.",
+  "allowedDomains": ["bigcommerce.com", "mybigcommerce.com"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "segment",
+  "name": "Segment",
+  "description": "Segment is a customer data platform.",
+  "allowedDomains": ["segment.com", "app.segment.com"]
+}

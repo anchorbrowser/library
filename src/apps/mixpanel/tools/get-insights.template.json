@@ -1,0 +1,16 @@
+{
+  "slug": "get-insights",
+  "name": "Get Insights",
+  "description": "Get event insights from Mixpanel.",
+  "type": "tool",
+  "file": "get-insights.ts",
+  "app": "mixpanel",
+  "inputSchema": [
+    { "displayName": "eventName", "type": "string", "required": true, "description": "Event name to analyze" },
+    { "displayName": "dateRange", "type": "string", "required": false, "description": "Date range", "defaultValue": "Last 30 days" }
+  ],
+  "outputSchema": [
+    { "displayName": "totalEvents", "type": "number", "required": true, "description": "Total event count" },
+    { "displayName": "uniqueUsers", "type": "number", "required": true, "description": "Unique users" }
+  ]
+}

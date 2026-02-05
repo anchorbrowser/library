@@ -1,0 +1,17 @@
+{
+  "slug": "create-campaign",
+  "name": "Create Campaign",
+  "description": "Create a new email campaign in Klaviyo.",
+  "type": "tool",
+  "file": "create-campaign.ts",
+  "app": "klaviyo",
+  "inputSchema": [
+    { "displayName": "campaignName", "type": "string", "required": true, "description": "Campaign name" },
+    { "displayName": "subject", "type": "string", "required": true, "description": "Email subject" },
+    { "displayName": "listId", "type": "string", "required": true, "description": "List/segment to send to" }
+  ],
+  "outputSchema": [
+    { "displayName": "campaignId", "type": "string", "required": true, "description": "Created campaign ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether campaign was created" }
+  ]
+}

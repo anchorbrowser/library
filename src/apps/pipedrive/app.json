@@ -1,0 +1,6 @@
+{
+  "id": "pipedrive",
+  "name": "Pipedrive",
+  "description": "Pipedrive is a sales CRM and pipeline management software.",
+  "allowedDomains": ["pipedrive.com"]
+}

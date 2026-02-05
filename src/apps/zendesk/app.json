@@ -1,0 +1,6 @@
+{
+  "id": "zendesk",
+  "name": "Zendesk",
+  "description": "Zendesk is a customer service and support ticketing platform.",
+  "allowedDomains": ["zendesk.com"]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "create-bill",
+  "name": "Create Bill",
+  "description": "Create a new bill/expense in Xero.",
+  "type": "tool",
+  "file": "create-bill.ts",
+  "app": "xero",
+  "inputSchema": [
+    { "displayName": "contactName", "type": "string", "required": true, "description": "Supplier/vendor name" },
+    { "displayName": "description", "type": "string", "required": true, "description": "Bill description" },
+    { "displayName": "amount", "type": "number", "required": true, "description": "Bill amount" },
+    { "displayName": "dueDate", "type": "date", "required": false, "description": "Due date" },
+    { "displayName": "accountCode", "type": "string", "required": false, "description": "Account code" }
+  ],
+  "outputSchema": [
+    { "displayName": "billId", "type": "string", "required": true, "description": "Created bill ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether bill was created" }
+  ]
+}

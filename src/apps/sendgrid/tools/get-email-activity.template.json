@@ -1,0 +1,17 @@
+{
+  "slug": "get-email-activity",
+  "name": "Get Email Activity",
+  "description": "Get email activity and stats from SendGrid.",
+  "type": "tool",
+  "file": "get-email-activity.ts",
+  "app": "sendgrid",
+  "inputSchema": [
+    { "displayName": "dateRange", "type": "string", "required": false, "description": "Date range (today, week, month)", "defaultValue": "today" }
+  ],
+  "outputSchema": [
+    { "displayName": "delivered", "type": "number", "required": true, "description": "Delivered count" },
+    { "displayName": "opened", "type": "number", "required": true, "description": "Opened count" },
+    { "displayName": "clicked", "type": "number", "required": true, "description": "Clicked count" },
+    { "displayName": "bounced", "type": "number", "required": true, "description": "Bounced count" }
+  ]
+}
