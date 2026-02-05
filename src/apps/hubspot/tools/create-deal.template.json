@@ -6,13 +6,13 @@
   "file": "create-deal.ts",
   "app": "hubspot",
   "inputSchema": [
-    { "displayName": "dealName", "type": "string", "required": true, "description": "Name of the deal" },
-    { "displayName": "amount", "type": "number", "required": true, "description": "Deal amount" },
-    { "displayName": "stage", "type": "string", "required": false, "description": "Pipeline stage", "defaultValue": "Qualification" },
-    { "displayName": "contactEmail", "type": "string", "required": false, "description": "Associated contact email" }
+    { "display_name": "dealName", "type": "string", "required": true, "description": "Name of the deal" },
+    { "display_name": "amount", "type": "number", "required": true, "description": "Deal amount" },
+    { "display_name": "stage", "type": "string", "required": false, "description": "Pipeline stage", "defaultValue": "Qualification" },
+    { "display_name": "contactEmail", "type": "string", "required": false, "description": "Associated contact email" }
   ],
   "outputSchema": [
-    { "displayName": "dealId", "type": "string", "required": true, "description": "Created deal ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether deal was created" }
+    { "display_name": "dealId", "type": "string", "required": true, "description": "Created deal ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether deal was created" }
   ]
 }

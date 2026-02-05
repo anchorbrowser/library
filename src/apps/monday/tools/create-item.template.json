@@ -6,13 +6,13 @@
   "file": "create-item.ts",
   "app": "monday",
   "inputSchema": [
-    { "displayName": "boardName", "type": "string", "required": true, "description": "Board name" },
-    { "displayName": "itemName", "type": "string", "required": true, "description": "Item name" },
-    { "displayName": "groupName", "type": "string", "required": false, "description": "Group name within the board" },
-    { "displayName": "status", "type": "string", "required": false, "description": "Status column value" }
+    { "display_name": "boardName", "type": "string", "required": true, "description": "Board name" },
+    { "display_name": "itemName", "type": "string", "required": true, "description": "Item name" },
+    { "display_name": "groupName", "type": "string", "required": false, "description": "Group name within the board" },
+    { "display_name": "status", "type": "string", "required": false, "description": "Status column value" }
   ],
   "outputSchema": [
-    { "displayName": "itemId", "type": "string", "required": true, "description": "Created item ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether item was created" }
+    { "display_name": "itemId", "type": "string", "required": true, "description": "Created item ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether item was created" }
   ]
 }

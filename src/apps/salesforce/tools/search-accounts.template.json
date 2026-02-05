@@ -6,11 +6,11 @@
   "file": "search-accounts.ts",
   "app": "salesforce",
   "inputSchema": [
-    { "displayName": "searchQuery", "type": "string", "required": true, "description": "Search term for account name" },
-    { "displayName": "limit", "type": "number", "required": false, "description": "Maximum results to return", "defaultValue": "10" }
+    { "display_name": "searchQuery", "type": "string", "required": true, "description": "Search term for account name" },
+    { "display_name": "limit", "type": "number", "required": false, "description": "Maximum results to return", "defaultValue": "10" }
   ],
   "outputSchema": [
-    { "displayName": "accounts", "type": "string", "required": true, "description": "JSON array of matching accounts" },
-    { "displayName": "totalCount", "type": "number", "required": true, "description": "Total number of matches" }
+    { "display_name": "accounts", "type": "string", "required": true, "description": "JSON array of matching accounts" },
+    { "display_name": "totalCount", "type": "number", "required": true, "description": "Total number of matches" }
   ]
 }

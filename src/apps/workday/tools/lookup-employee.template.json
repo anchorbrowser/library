@@ -6,13 +6,13 @@
   "file": "lookup-employee.ts",
   "app": "workday",
   "inputSchema": [
-    { "displayName": "searchQuery", "type": "string", "required": true, "description": "Employee name or email to search" }
+    { "display_name": "searchQuery", "type": "string", "required": true, "description": "Employee name or email to search" }
   ],
   "outputSchema": [
-    { "displayName": "employeeId", "type": "string", "required": true, "description": "Employee ID" },
-    { "displayName": "name", "type": "string", "required": true, "description": "Full name" },
-    { "displayName": "email", "type": "string", "required": true, "description": "Email address" },
-    { "displayName": "department", "type": "string", "required": false, "description": "Department" },
-    { "displayName": "title", "type": "string", "required": false, "description": "Job title" }
+    { "display_name": "employeeId", "type": "string", "required": true, "description": "Employee ID" },
+    { "display_name": "name", "type": "string", "required": true, "description": "Full name" },
+    { "display_name": "email", "type": "string", "required": true, "description": "Email address" },
+    { "display_name": "department", "type": "string", "required": false, "description": "Department" },
+    { "display_name": "title", "type": "string", "required": false, "description": "Job title" }
   ]
 }

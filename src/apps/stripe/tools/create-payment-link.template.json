@@ -6,12 +6,12 @@
   "file": "create-payment-link.ts",
   "app": "stripe",
   "inputSchema": [
-    { "displayName": "productName", "type": "string", "required": true, "description": "Product or service name" },
-    { "displayName": "amount", "type": "number", "required": true, "description": "Amount in cents" },
-    { "displayName": "currency", "type": "string", "required": false, "description": "Currency code", "defaultValue": "usd" }
+    { "display_name": "productName", "type": "string", "required": true, "description": "Product or service name" },
+    { "display_name": "amount", "type": "number", "required": true, "description": "Amount in cents" },
+    { "display_name": "currency", "type": "string", "required": false, "description": "Currency code", "defaultValue": "usd" }
   ],
   "outputSchema": [
-    { "displayName": "paymentLinkUrl", "type": "string", "required": true, "description": "Payment link URL" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether link was created" }
+    { "display_name": "paymentLinkUrl", "type": "string", "required": true, "description": "Payment link URL" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether link was created" }
   ]
 }

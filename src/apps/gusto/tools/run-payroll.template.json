@@ -6,12 +6,12 @@
   "file": "run-payroll.ts",
   "app": "gusto",
   "inputSchema": [
-    { "displayName": "payPeriodEnd", "type": "date", "required": true, "description": "Pay period end date" },
-    { "displayName": "payDate", "type": "date", "required": true, "description": "Payment date" }
+    { "display_name": "payPeriodEnd", "type": "date", "required": true, "description": "Pay period end date" },
+    { "display_name": "payDate", "type": "date", "required": true, "description": "Payment date" }
   ],
   "outputSchema": [
-    { "displayName": "payrollId", "type": "string", "required": true, "description": "Payroll run ID" },
-    { "displayName": "totalAmount", "type": "number", "required": true, "description": "Total payroll amount" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether payroll was run" }
+    { "display_name": "payrollId", "type": "string", "required": true, "description": "Payroll run ID" },
+    { "display_name": "totalAmount", "type": "number", "required": true, "description": "Total payroll amount" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether payroll was run" }
   ]
 }

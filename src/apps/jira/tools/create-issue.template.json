@@ -6,15 +6,15 @@
   "file": "create-issue.ts",
   "app": "jira",
   "inputSchema": [
-    { "displayName": "projectKey", "type": "string", "required": true, "description": "Project key (e.g., PROJ)" },
-    { "displayName": "issueType", "type": "string", "required": true, "description": "Issue type (Bug, Story, Task, etc.)" },
-    { "displayName": "summary", "type": "string", "required": true, "description": "Issue summary/title" },
-    { "displayName": "description", "type": "string", "required": false, "description": "Issue description" },
-    { "displayName": "assignee", "type": "string", "required": false, "description": "Assignee email" },
-    { "displayName": "priority", "type": "string", "required": false, "description": "Priority level" }
+    { "display_name": "projectKey", "type": "string", "required": true, "description": "Project key (e.g., PROJ)" },
+    { "display_name": "issueType", "type": "string", "required": true, "description": "Issue type (Bug, Story, Task, etc.)" },
+    { "display_name": "summary", "type": "string", "required": true, "description": "Issue summary/title" },
+    { "display_name": "description", "type": "string", "required": false, "description": "Issue description" },
+    { "display_name": "assignee", "type": "string", "required": false, "description": "Assignee email" },
+    { "display_name": "priority", "type": "string", "required": false, "description": "Priority level" }
   ],
   "outputSchema": [
-    { "displayName": "issueKey", "type": "string", "required": true, "description": "Created issue key (e.g., PROJ-123)" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether issue was created" }
+    { "display_name": "issueKey", "type": "string", "required": true, "description": "Created issue key (e.g., PROJ-123)" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether issue was created" }
   ]
 }

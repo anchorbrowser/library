@@ -6,15 +6,15 @@
   "file": "create-lead.ts",
   "app": "salesforce",
   "inputSchema": [
-    { "displayName": "firstName", "type": "string", "required": true, "description": "Lead's first name" },
-    { "displayName": "lastName", "type": "string", "required": true, "description": "Lead's last name" },
-    { "displayName": "email", "type": "string", "required": true, "description": "Lead's email address" },
-    { "displayName": "company", "type": "string", "required": true, "description": "Company name" },
-    { "displayName": "phone", "type": "string", "required": false, "description": "Phone number" },
-    { "displayName": "title", "type": "string", "required": false, "description": "Job title" }
+    { "display_name": "firstName", "type": "string", "required": true, "description": "Lead's first name" },
+    { "display_name": "lastName", "type": "string", "required": true, "description": "Lead's last name" },
+    { "display_name": "email", "type": "string", "required": true, "description": "Lead's email address" },
+    { "display_name": "company", "type": "string", "required": true, "description": "Company name" },
+    { "display_name": "phone", "type": "string", "required": false, "description": "Phone number" },
+    { "display_name": "title", "type": "string", "required": false, "description": "Job title" }
   ],
   "outputSchema": [
-    { "displayName": "leadId", "type": "string", "required": true, "description": "Created lead ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether lead was created" }
+    { "display_name": "leadId", "type": "string", "required": true, "description": "Created lead ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether lead was created" }
   ]
 }

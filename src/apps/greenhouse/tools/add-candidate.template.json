@@ -6,14 +6,14 @@
   "file": "add-candidate.ts",
   "app": "greenhouse",
   "inputSchema": [
-    { "displayName": "firstName", "type": "string", "required": true, "description": "Candidate first name" },
-    { "displayName": "lastName", "type": "string", "required": true, "description": "Candidate last name" },
-    { "displayName": "email", "type": "string", "required": true, "description": "Email address" },
-    { "displayName": "jobTitle", "type": "string", "required": true, "description": "Job title to apply for" },
-    { "displayName": "source", "type": "string", "required": false, "description": "Candidate source", "defaultValue": "Referral" }
+    { "display_name": "firstName", "type": "string", "required": true, "description": "Candidate first name" },
+    { "display_name": "lastName", "type": "string", "required": true, "description": "Candidate last name" },
+    { "display_name": "email", "type": "string", "required": true, "description": "Email address" },
+    { "display_name": "jobTitle", "type": "string", "required": true, "description": "Job title to apply for" },
+    { "display_name": "source", "type": "string", "required": false, "description": "Candidate source", "defaultValue": "Referral" }
   ],
   "outputSchema": [
-    { "displayName": "candidateId", "type": "string", "required": true, "description": "Created candidate ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether candidate was added" }
+    { "display_name": "candidateId", "type": "string", "required": true, "description": "Created candidate ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether candidate was added" }
   ]
 }

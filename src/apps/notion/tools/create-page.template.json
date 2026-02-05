@@ -6,13 +6,13 @@
   "file": "create-page.ts",
   "app": "notion",
   "inputSchema": [
-    { "displayName": "parentPage", "type": "string", "required": false, "description": "Parent page name (optional)" },
-    { "displayName": "title", "type": "string", "required": true, "description": "Page title" },
-    { "displayName": "content", "type": "string", "required": false, "description": "Initial page content" },
-    { "displayName": "icon", "type": "string", "required": false, "description": "Page icon emoji" }
+    { "display_name": "parentPage", "type": "string", "required": false, "description": "Parent page name (optional)" },
+    { "display_name": "title", "type": "string", "required": true, "description": "Page title" },
+    { "display_name": "content", "type": "string", "required": false, "description": "Initial page content" },
+    { "display_name": "icon", "type": "string", "required": false, "description": "Page icon emoji" }
   ],
   "outputSchema": [
-    { "displayName": "pageUrl", "type": "string", "required": true, "description": "Created page URL" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether page was created" }
+    { "display_name": "pageUrl", "type": "string", "required": true, "description": "Created page URL" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether page was created" }
   ]
 }

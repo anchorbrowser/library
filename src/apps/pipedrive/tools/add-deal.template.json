@@ -6,14 +6,14 @@
   "file": "add-deal.ts",
   "app": "pipedrive",
   "inputSchema": [
-    { "displayName": "title", "type": "string", "required": true, "description": "Deal title" },
-    { "displayName": "value", "type": "number", "required": true, "description": "Deal value" },
-    { "displayName": "currency", "type": "string", "required": false, "description": "Currency code", "defaultValue": "USD" },
-    { "displayName": "personName", "type": "string", "required": false, "description": "Contact person name" },
-    { "displayName": "orgName", "type": "string", "required": false, "description": "Organization name" }
+    { "display_name": "title", "type": "string", "required": true, "description": "Deal title" },
+    { "display_name": "value", "type": "number", "required": true, "description": "Deal value" },
+    { "display_name": "currency", "type": "string", "required": false, "description": "Currency code", "defaultValue": "USD" },
+    { "display_name": "personName", "type": "string", "required": false, "description": "Contact person name" },
+    { "display_name": "orgName", "type": "string", "required": false, "description": "Organization name" }
   ],
   "outputSchema": [
-    { "displayName": "dealId", "type": "string", "required": true, "description": "Created deal ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether deal was created" }
+    { "display_name": "dealId", "type": "string", "required": true, "description": "Created deal ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether deal was created" }
   ]
 }

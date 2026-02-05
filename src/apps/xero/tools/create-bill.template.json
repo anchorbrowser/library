@@ -6,14 +6,14 @@
   "file": "create-bill.ts",
   "app": "xero",
   "inputSchema": [
-    { "displayName": "contactName", "type": "string", "required": true, "description": "Supplier/vendor name" },
-    { "displayName": "description", "type": "string", "required": true, "description": "Bill description" },
-    { "displayName": "amount", "type": "number", "required": true, "description": "Bill amount" },
-    { "displayName": "dueDate", "type": "date", "required": false, "description": "Due date" },
-    { "displayName": "accountCode", "type": "string", "required": false, "description": "Account code" }
+    { "display_name": "contactName", "type": "string", "required": true, "description": "Supplier/vendor name" },
+    { "display_name": "description", "type": "string", "required": true, "description": "Bill description" },
+    { "display_name": "amount", "type": "number", "required": true, "description": "Bill amount" },
+    { "display_name": "dueDate", "type": "date", "required": false, "description": "Due date" },
+    { "display_name": "accountCode", "type": "string", "required": false, "description": "Account code" }
   ],
   "outputSchema": [
-    { "displayName": "billId", "type": "string", "required": true, "description": "Created bill ID" },
-    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether bill was created" }
+    { "display_name": "billId", "type": "string", "required": true, "description": "Created bill ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether bill was created" }
   ]
 }
