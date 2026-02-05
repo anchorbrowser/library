@@ -1,0 +1,10 @@
+{
+  "slug": "auth-facebook",
+  "name": "Facebook Login",
+  "description": "Login to Facebook using username and password with optional 2FA support.",
+  "type": "auth",
+  "file": "auth-facebook.ts",
+  "app": "facebook",
+  "requiredCredentials": ["username_password"],
+  "optionalCredentials": ["authenticator"]
+}
