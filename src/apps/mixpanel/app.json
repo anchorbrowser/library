@@ -1,0 +1,6 @@
+{
+  "id": "mixpanel",
+  "name": "Mixpanel",
+  "description": "Mixpanel is a product analytics platform.",
+  "allowedDomains": ["mixpanel.com"]
+}

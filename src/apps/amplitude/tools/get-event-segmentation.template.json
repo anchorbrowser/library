@@ -1,0 +1,16 @@
+{
+  "slug": "get-event-segmentation",
+  "name": "Get Event Segmentation",
+  "description": "Get event segmentation data from Amplitude.",
+  "type": "tool",
+  "file": "get-event-segmentation.ts",
+  "app": "amplitude",
+  "inputSchema": [
+    { "displayName": "eventName", "type": "string", "required": true, "description": "Event to analyze" },
+    { "displayName": "dateRange", "type": "string", "required": false, "description": "Date range", "defaultValue": "Last 30 days" }
+  ],
+  "outputSchema": [
+    { "displayName": "eventCount", "type": "number", "required": true, "description": "Total event count" },
+    { "displayName": "userCount", "type": "number", "required": true, "description": "Unique users" }
+  ]
+}

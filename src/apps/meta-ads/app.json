@@ -1,0 +1,6 @@
+{
+  "id": "meta-ads",
+  "name": "Meta Ads",
+  "description": "Meta Ads Manager for Facebook and Instagram advertising.",
+  "allowedDomains": ["facebook.com", "business.facebook.com", "adsmanager.facebook.com"]
+}

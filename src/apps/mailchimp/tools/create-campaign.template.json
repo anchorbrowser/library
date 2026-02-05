@@ -1,0 +1,18 @@
+{
+  "slug": "create-campaign",
+  "name": "Create Campaign",
+  "description": "Create a new email campaign in Mailchimp.",
+  "type": "tool",
+  "file": "create-campaign.ts",
+  "app": "mailchimp",
+  "inputSchema": [
+    { "displayName": "campaignName", "type": "string", "required": true, "description": "Campaign name" },
+    { "displayName": "subject", "type": "string", "required": true, "description": "Email subject line" },
+    { "displayName": "audienceId", "type": "string", "required": true, "description": "Audience/list ID" },
+    { "displayName": "fromName", "type": "string", "required": false, "description": "From name" }
+  ],
+  "outputSchema": [
+    { "displayName": "campaignId", "type": "string", "required": true, "description": "Created campaign ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether campaign was created" }
+  ]
+}
