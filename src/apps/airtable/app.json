@@ -1,6 +1,0 @@
-{
-  "id": "airtable",
-  "name": "Airtable",
-  "description": "Airtable is a cloud-based database and spreadsheet hybrid platform.",
-  "allowedDomains": ["airtable.com"]
-}

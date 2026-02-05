@@ -1,6 +1,0 @@
-{
-  "id": "sendgrid",
-  "name": "SendGrid",
-  "description": "SendGrid is a cloud-based email delivery platform.",
-  "allowedDomains": ["sendgrid.com", "app.sendgrid.com"]
-}

@@ -1,6 +1,0 @@
-{
-  "id": "xero",
-  "name": "Xero",
-  "description": "Xero is a cloud-based accounting software for small businesses.",
-  "allowedDomains": ["xero.com", "go.xero.com", "login.xero.com"]
-}

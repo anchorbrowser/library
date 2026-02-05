@@ -1,6 +1,0 @@
-{
-  "id": "freshdesk",
-  "name": "Freshdesk",
-  "description": "Freshdesk is a cloud-based customer support software.",
-  "allowedDomains": ["freshdesk.com"]
-}

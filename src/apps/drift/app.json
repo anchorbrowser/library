@@ -1,6 +1,0 @@
-{
-  "id": "drift",
-  "name": "Drift",
-  "description": "Drift is a conversational marketing and sales platform.",
-  "allowedDomains": ["drift.com", "app.drift.com"]
-}

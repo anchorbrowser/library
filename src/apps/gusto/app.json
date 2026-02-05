@@ -1,6 +1,0 @@
-{
-  "id": "gusto",
-  "name": "Gusto",
-  "description": "Gusto is a cloud-based payroll, benefits, and HR platform.",
-  "allowedDomains": ["gusto.com", "app.gusto.com"]
-}

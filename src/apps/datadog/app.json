@@ -1,6 +1,0 @@
-{
-  "id": "datadog",
-  "name": "Datadog",
-  "description": "Datadog is a monitoring and analytics platform.",
-  "allowedDomains": ["datadoghq.com", "app.datadoghq.com", "datadoghq.eu"]
-}

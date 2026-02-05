@@ -1,6 +1,0 @@
-{
-  "id": "amazon-seller",
-  "name": "Amazon Seller Central",
-  "description": "Amazon Seller Central is the platform for selling on Amazon marketplace.",
-  "allowedDomains": ["sellercentral.amazon.com", "sellercentral.amazon.co.uk", "sellercentral.amazon.de"]
-}
