@@ -6,11 +6,13 @@ const PLATFORM_URL = 'https://platform.openai.com/';
 
 const LOGIN_PROMPT = `You are logging into OpenAI platform. Follow these steps precisely:
 
-1. You should already be on the OpenAI login page (auth.openai.com/log-in)
-2. IMPORTANT: First triple-click on the email field to select any existing text, then type the email address
-3. Click "Continue" button
+1. You are on or navigating to the OpenAI login page (auth.openai.com/log-in)
+2. IMPORTANT: If you see a "Your session has ended" or "Session expired" page, click the "Log in" button first to get to the actual login form
+3. Once you see the login form with an email field:
+   - Triple-click on the email field to select any existing text, then type the email address
+   - Click "Continue" button
 4. Wait for the password field to appear
-5. IMPORTANT: Triple-click on the password field to select any existing text, then type the password
+5. Triple-click on the password field to select any existing text, then type the password
 6. Click "Continue" or "Log in" button
 7. Wait for navigation to complete
 
@@ -22,6 +24,7 @@ After login attempt, classify the outcome and respond with EXACTLY ONE of these 
 Rules:
 - Return only one of: "true", "false", "attempt_failed" (lowercase, no extra text)
 - Be patient and wait for elements to load before interacting
+- If you see "session has ended" or similar, click the "Log in" button to proceed
 - Always triple-click to select all before typing to ensure the field is cleared
 - Do not click any button more than once unless clearly necessary (e.g., separate Continue for email and password)
 `;
