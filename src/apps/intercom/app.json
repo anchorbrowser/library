@@ -1,0 +1,6 @@
+{
+  "id": "intercom",
+  "name": "Intercom",
+  "description": "Intercom is a customer messaging and engagement platform.",
+  "allowedDomains": ["intercom.com", "app.intercom.com", "app.intercom.io"]
+}

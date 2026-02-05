@@ -1,0 +1,16 @@
+{
+  "slug": "send-message",
+  "name": "Send Message",
+  "description": "Send a message to a user/lead in Intercom.",
+  "type": "tool",
+  "file": "send-message.ts",
+  "app": "intercom",
+  "inputSchema": [
+    { "displayName": "userEmail", "type": "string", "required": true, "description": "User email to message" },
+    { "displayName": "message", "type": "string", "required": true, "description": "Message content" }
+  ],
+  "outputSchema": [
+    { "displayName": "conversationId", "type": "string", "required": true, "description": "Conversation ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether message was sent" }
+  ]
+}
