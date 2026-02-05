@@ -1,8 +1,30 @@
 import AnchorBrowser, { type Anchorbrowser } from 'anchorbrowser';
-import type { Browser, Page } from 'playwright';
+import type { Browser } from 'playwright';
 
 const LOGIN_URL = 'https://auth.openai.com/log-in';
 const PLATFORM_URL = 'https://platform.openai.com/';
+
+const LOGIN_PROMPT = `You are logging into OpenAI platform. Follow these steps precisely:
+
+1. You should already be on the OpenAI login page (auth.openai.com/log-in)
+2. IMPORTANT: First triple-click on the email field to select any existing text, then type the email address
+3. Click "Continue" button
+4. Wait for the password field to appear
+5. IMPORTANT: Triple-click on the password field to select any existing text, then type the password
+6. Click "Continue" or "Log in" button
+7. Wait for navigation to complete
+
+After login attempt, classify the outcome and respond with EXACTLY ONE of these strings:
+- "true" - Login succeeded: you see the OpenAI platform dashboard, organization selector, or any authenticated page
+- "false" - Login failed: credentials were rejected, you see an error message about invalid email/password
+- "attempt_failed" - Could not complete login: CAPTCHA appeared, page didn't load, elements not found, or other technical issue
+
+Rules:
+- Return only one of: "true", "false", "attempt_failed" (lowercase, no extra text)
+- Be patient and wait for elements to load before interacting
+- Always triple-click to select all before typing to ensure the field is cleared
+- Do not click any button more than once unless clearly necessary (e.g., separate Continue for email and password)
+`;
 
 interface LoginResult {
   success: boolean;
@@ -70,134 +92,6 @@ function parseCredentials(credentials: { type: string; username?: string; passwo
   return { username, password };
 }
 
-async function isAuthenticated(page: Page): Promise<boolean> {
-  const currentUrl = page.url();
-  
-  // If we're on auth page, not authenticated
-  if (currentUrl.includes('auth.openai.com') || currentUrl.includes('/login')) {
-    return false;
-  }
-  
-  // Check for authenticated indicators on platform
-  const authIndicators = [
-    '[data-testid="user-menu"]',
-    '[aria-label="Open settings"]',
-    'nav[aria-label]',
-    'a[href*="/settings"]',
-    '[data-testid="sidebar"]',
-  ];
-
-  for (const selector of authIndicators) {
-    if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
-      return true;
-    }
-  }
-  
-  return false;
-}
-
-async function performLogin(page: Page, email: string, password: string, timeoutMs: number): Promise<{ success: boolean; error?: string }> {
-  // Wait for email field and enter email
-  console.log('[LOGIN] Entering email...');
-  const emailInput = page.locator('input[name="email"], input[type="email"], input[id="email"]').first();
-  await emailInput.waitFor({ state: 'visible', timeout: timeoutMs });
-  
-  // Clear and type email using robust method
-  await emailInput.click();
-  await page.keyboard.press('Control+a');
-  await page.keyboard.press('Backspace');
-  await page.waitForTimeout(100);
-  await emailInput.fill(email);
-  await page.waitForTimeout(300);
-  
-  // Click Continue for email
-  console.log('[LOGIN] Clicking Continue...');
-  const continueButton = page.locator('button:has-text("Continue")').first();
-  await continueButton.click();
-  
-  // Wait for either password field or error
-  console.log('[LOGIN] Waiting for password field...');
-  await page.waitForTimeout(2000);
-  
-  // Check for email error
-  const emailError = page.locator('text="Email is not valid"');
-  if (await emailError.isVisible({ timeout: 1000 }).catch(() => false)) {
-    return { success: false, error: 'Email is not valid - check email format' };
-  }
-  
-  // Wait for password field
-  const passwordInput = page.locator('input[name="password"], input[type="password"]').first();
-  try {
-    await passwordInput.waitFor({ state: 'visible', timeout: 10000 });
-  } catch {
-    // Check if we got an error message
-    const errorMessages = [
-      'text="Email is not valid"',
-      'text="User does not exist"',
-      'text="Invalid email"',
-      '[role="alert"]',
-    ];
-    
-    for (const errorSelector of errorMessages) {
-      const errorEl = page.locator(errorSelector);
-      if (await errorEl.isVisible({ timeout: 500 }).catch(() => false)) {
-        const errorText = await errorEl.textContent().catch(() => 'Unknown error');
-        return { success: false, error: `Login error: ${errorText}` };
-      }
-    }
-    
-    return { success: false, error: 'Password field did not appear - email may not be registered' };
-  }
-  
-  // Enter password
-  console.log('[LOGIN] Entering password...');
-  await passwordInput.click();
-  await page.keyboard.press('Control+a');
-  await page.keyboard.press('Backspace');
-  await page.waitForTimeout(100);
-  await passwordInput.fill(password);
-  await page.waitForTimeout(300);
-  
-  // Click Continue/Log in for password
-  console.log('[LOGIN] Submitting credentials...');
-  const submitButton = page.locator('button:has-text("Continue"), button:has-text("Log in")').first();
-  await submitButton.click();
-  
-  // Wait for navigation or error
-  console.log('[LOGIN] Waiting for result...');
-  await page.waitForTimeout(3000);
-  
-  // Check for password error
-  const passwordErrors = [
-    'text="Wrong email or password"',
-    'text="Invalid password"',
-    'text="Incorrect password"',
-    'text="credentials"',
-  ];
-  
-  for (const errorSelector of passwordErrors) {
-    const errorEl = page.locator(errorSelector);
-    if (await errorEl.isVisible({ timeout: 500 }).catch(() => false)) {
-      return { success: false, error: 'Invalid credentials - wrong email or password' };
-    }
-  }
-  
-  // Check if we're now authenticated
-  await page.waitForTimeout(2000);
-  const currentUrl = page.url();
-  
-  if (!currentUrl.includes('auth.openai.com') && !currentUrl.includes('/login')) {
-    return { success: true };
-  }
-  
-  // Check for 2FA or verification
-  if (currentUrl.includes('verify') || currentUrl.includes('2fa') || currentUrl.includes('mfa')) {
-    return { success: false, error: '2FA verification required - manual intervention needed' };
-  }
-  
-  return { success: false, error: 'Login failed - unknown reason' };
-}
-
 export default async function LoginToOpenAI(): Promise<LoginResult> {
   console.log('\n========================================');
   console.log('  OpenAI Platform Login Automation');
@@ -205,6 +99,7 @@ export default async function LoginToOpenAI(): Promise<LoginResult> {
 
   try {
     const config = getConfig();
+    const client = getAnchorClient();
 
     console.log('[VALIDATE] ✓ IDENTITY_ID present');
 
@@ -232,9 +127,22 @@ export default async function LoginToOpenAI(): Promise<LoginResult> {
     await page.goto(PLATFORM_URL, { waitUntil: 'domcontentloaded', timeout: config.timeoutMs });
     await page.waitForTimeout(3000);
 
-    if (await isAuthenticated(page)) {
-      console.log('[STEP 1] ✓ Already authenticated');
-      return { success: true, message: 'Already authenticated' };
+    const currentUrl = page.url();
+    if (!currentUrl.includes('auth.openai.com') && !currentUrl.includes('/login')) {
+      // Check for authenticated indicators
+      const authIndicators = [
+        '[data-testid="user-menu"]',
+        '[aria-label="Open settings"]',
+        'nav[aria-label]',
+        'a[href*="/settings"]',
+      ];
+
+      for (const selector of authIndicators) {
+        if (await page.locator(selector).first().isVisible({ timeout: 2000 }).catch(() => false)) {
+          console.log('[STEP 1] ✓ Already authenticated');
+          return { success: true, message: 'Already authenticated' };
+        }
+      }
     }
     console.log('[STEP 1] ⚠ Not logged in, proceeding to login');
 
@@ -244,11 +152,23 @@ export default async function LoginToOpenAI(): Promise<LoginResult> {
     await page.waitForTimeout(2000);
     console.log('[STEP 2] ✓ Login page loaded');
 
-    // Perform login with direct Playwright interactions
-    console.log('[STEP 3] ▶ Performing login...');
-    const loginResult = await performLogin(page, credentials.username, credentials.password, config.timeoutMs);
-    
-    if (loginResult.success) {
+    // Use agent to perform login with credentials
+    console.log('[STEP 3] ▶ Performing login via agent...');
+    const agentPrompt = `${LOGIN_PROMPT}
+
+Credentials to use:
+- Email: ${credentials.username}
+- Password: ${credentials.password}
+
+Start by triple-clicking the email field to select all, then type the email and click Continue.`;
+
+    const result = await client.agent.task(agentPrompt, { sessionId: config.sessionId });
+    console.log(`[STEP 3] Agent result: ${result}`);
+
+    // Parse agent result
+    const resultStr = String(result).toLowerCase().trim();
+
+    if (resultStr === 'true') {
       const successMsg = `Logged in to OpenAI as ${credentials.username}`;
       console.log('\n========================================');
       console.log('[RESULT] ✓ SUCCESS!');
@@ -256,10 +176,12 @@ export default async function LoginToOpenAI(): Promise<LoginResult> {
       console.log('========================================\n');
       return { success: true, message: successMsg };
     }
-    
-    console.log(`[STEP 3] ✗ Login failed: ${loginResult.error}`);
-    return { success: false, message: loginResult.error || 'Login failed' };
-    
+
+    if (resultStr === 'false') {
+      return { success: false, message: 'Login failed: Invalid credentials' };
+    }
+
+    return { success: false, message: `Login attempt failed: ${result}` };
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('\n[RESULT] ✗ FAILED');
