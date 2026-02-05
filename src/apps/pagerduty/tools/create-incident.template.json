@@ -1,0 +1,19 @@
+{
+  "slug": "create-incident",
+  "name": "Create Incident",
+  "description": "Create a new incident in PagerDuty.",
+  "type": "tool",
+  "file": "create-incident.ts",
+  "app": "pagerduty",
+  "inputSchema": [
+    { "display_name": "title", "type": "string", "required": true, "description": "Incident title" },
+    { "display_name": "serviceId", "type": "string", "required": true, "description": "Service ID" },
+    { "display_name": "urgency", "type": "string", "required": false, "description": "Urgency (high, low)" },
+    { "display_name": "description", "type": "string", "required": false, "description": "Incident description" }
+  ],
+  "outputSchema": [
+    { "display_name": "incidentId", "type": "string", "required": true, "description": "Created incident ID" },
+    { "display_name": "incidentUrl", "type": "string", "required": true, "description": "Incident URL" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether incident was created" }
+  ]
+}

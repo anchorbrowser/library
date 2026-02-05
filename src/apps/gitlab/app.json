@@ -1,0 +1,6 @@
+{
+  "id": "gitlab",
+  "name": "GitLab",
+  "description": "GitLab is a DevOps platform for source code management and CI/CD.",
+  "allowedDomains": ["gitlab.com"]
+}

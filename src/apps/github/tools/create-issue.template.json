@@ -1,0 +1,19 @@
+{
+  "slug": "create-issue",
+  "name": "Create Issue",
+  "description": "Create a new issue in a GitHub repository.",
+  "type": "tool",
+  "file": "create-issue.ts",
+  "app": "github",
+  "inputSchema": [
+    { "display_name": "repo", "type": "string", "required": true, "description": "Repository (owner/repo)" },
+    { "display_name": "title", "type": "string", "required": true, "description": "Issue title" },
+    { "display_name": "body", "type": "string", "required": false, "description": "Issue body" },
+    { "display_name": "labels", "type": "string", "required": false, "description": "Comma-separated labels" }
+  ],
+  "outputSchema": [
+    { "display_name": "issueNumber", "type": "number", "required": true, "description": "Created issue number" },
+    { "display_name": "issueUrl", "type": "string", "required": true, "description": "Issue URL" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether issue was created" }
+  ]
+}

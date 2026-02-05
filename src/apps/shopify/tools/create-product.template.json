@@ -1,0 +1,18 @@
+{
+  "slug": "create-product",
+  "name": "Create Product",
+  "description": "Create a new product in Shopify store.",
+  "type": "tool",
+  "file": "create-product.ts",
+  "app": "shopify",
+  "inputSchema": [
+    { "display_name": "title", "type": "string", "required": true, "description": "Product title" },
+    { "display_name": "description", "type": "string", "required": false, "description": "Product description" },
+    { "display_name": "price", "type": "number", "required": true, "description": "Product price" },
+    { "display_name": "sku", "type": "string", "required": false, "description": "SKU" }
+  ],
+  "outputSchema": [
+    { "display_name": "productId", "type": "string", "required": true, "description": "Created product ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether product was created" }
+  ]
+}

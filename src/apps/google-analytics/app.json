@@ -1,0 +1,6 @@
+{
+  "id": "google-analytics",
+  "name": "Google Analytics",
+  "description": "Google Analytics is a web analytics service for tracking and reporting website traffic.",
+  "allowedDomains": ["analytics.google.com"]
+}

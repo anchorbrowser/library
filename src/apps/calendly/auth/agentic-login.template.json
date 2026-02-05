@@ -1,0 +1,10 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to calendly using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "calendly",
+  "requiredCredentials": ["username_password"],
+  "optionalCredentials": ["authenticator"]
+}

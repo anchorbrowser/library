@@ -1,0 +1,16 @@
+{
+  "slug": "get-campaign-stats",
+  "name": "Get Campaign Stats",
+  "description": "Get performance statistics for Google Ads campaigns.",
+  "type": "tool",
+  "file": "get-campaign-stats.ts",
+  "app": "google-ads",
+  "inputSchema": [
+    { "display_name": "campaignId", "type": "string", "required": false, "description": "Campaign ID (all if empty)" },
+    { "display_name": "dateRange", "type": "string", "required": false, "description": "Date range (e.g., LAST_7_DAYS)" }
+  ],
+  "outputSchema": [
+    { "display_name": "stats", "type": "string", "required": true, "description": "JSON campaign stats" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether stats were retrieved" }
+  ]
+}

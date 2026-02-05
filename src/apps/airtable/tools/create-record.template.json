@@ -1,0 +1,17 @@
+{
+  "slug": "create-record",
+  "name": "Create Record",
+  "description": "Create a new record in an Airtable base.",
+  "type": "tool",
+  "file": "create-record.ts",
+  "app": "airtable",
+  "inputSchema": [
+    { "display_name": "baseId", "type": "string", "required": true, "description": "Base ID" },
+    { "display_name": "tableName", "type": "string", "required": true, "description": "Table name" },
+    { "display_name": "fields", "type": "string", "required": true, "description": "JSON fields object" }
+  ],
+  "outputSchema": [
+    { "display_name": "recordId", "type": "string", "required": true, "description": "Created record ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether record was created" }
+  ]
+}

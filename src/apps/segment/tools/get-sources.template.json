@@ -1,0 +1,15 @@
+{
+  "slug": "get-sources",
+  "name": "Get Sources",
+  "description": "Get data sources from Segment workspace.",
+  "type": "tool",
+  "file": "get-sources.ts",
+  "app": "segment",
+  "inputSchema": [
+    { "display_name": "workspaceId", "type": "string", "required": true, "description": "Workspace ID" }
+  ],
+  "outputSchema": [
+    { "display_name": "sources", "type": "string", "required": true, "description": "JSON array of sources" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether sources were retrieved" }
+  ]
+}

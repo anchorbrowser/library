@@ -1,0 +1,18 @@
+{
+  "slug": "create-product",
+  "name": "Create Product",
+  "description": "Create a new product in BigCommerce store.",
+  "type": "tool",
+  "file": "create-product.ts",
+  "app": "bigcommerce",
+  "inputSchema": [
+    { "display_name": "name", "type": "string", "required": true, "description": "Product name" },
+    { "display_name": "price", "type": "number", "required": true, "description": "Product price" },
+    { "display_name": "sku", "type": "string", "required": false, "description": "SKU" },
+    { "display_name": "description", "type": "string", "required": false, "description": "Product description" }
+  ],
+  "outputSchema": [
+    { "display_name": "productId", "type": "string", "required": true, "description": "Created product ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether product was created" }
+  ]
+}

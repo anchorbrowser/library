@@ -1,0 +1,16 @@
+{
+  "slug": "get-domain-overview",
+  "name": "Get Domain Overview",
+  "description": "Get SEO overview for a domain in Semrush.",
+  "type": "tool",
+  "file": "get-domain-overview.ts",
+  "app": "semrush",
+  "inputSchema": [
+    { "display_name": "domain", "type": "string", "required": true, "description": "Domain to analyze" },
+    { "display_name": "country", "type": "string", "required": false, "description": "Country code" }
+  ],
+  "outputSchema": [
+    { "display_name": "overview", "type": "string", "required": true, "description": "JSON domain overview" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether data was retrieved" }
+  ]
+}

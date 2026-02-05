@@ -1,0 +1,17 @@
+{
+  "slug": "get-insights",
+  "name": "Get Insights",
+  "description": "Get analytics insights from Mixpanel.",
+  "type": "tool",
+  "file": "get-insights.ts",
+  "app": "mixpanel",
+  "inputSchema": [
+    { "display_name": "projectId", "type": "string", "required": true, "description": "Project ID" },
+    { "display_name": "event", "type": "string", "required": false, "description": "Event name to analyze" },
+    { "display_name": "dateRange", "type": "string", "required": false, "description": "Date range" }
+  ],
+  "outputSchema": [
+    { "display_name": "insights", "type": "string", "required": true, "description": "JSON insights data" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether insights were retrieved" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "get-deployments",
+  "name": "Get Deployments",
+  "description": "Get deployments for a Vercel project.",
+  "type": "tool",
+  "file": "get-deployments.ts",
+  "app": "vercel",
+  "inputSchema": [
+    { "display_name": "projectName", "type": "string", "required": true, "description": "Project name" },
+    { "display_name": "limit", "type": "number", "required": false, "description": "Max deployments to return" }
+  ],
+  "outputSchema": [
+    { "display_name": "deployments", "type": "string", "required": true, "description": "JSON array of deployments" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether deployments were retrieved" }
+  ]
+}
