@@ -1,0 +1,38 @@
+{
+  "slug": "get-invoices",
+  "name": "Get OpenAI Invoices",
+  "description": "Retrieve invoices from OpenAI platform billing for a specified time range.",
+  "type": "tool",
+  "file": "get-invoices.ts",
+  "app": "open-ai",
+  "inputSchema": [
+    {
+      "display_name": "startDate",
+      "type": "date",
+      "required": true,
+      "description": "Start date for the invoice search range"
+    },
+    {
+      "display_name": "endDate",
+      "type": "date",
+      "required": false,
+      "description": "End date for the invoice search range"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "invoices",
+      "type": "string",
+      "required": true,
+      "description": "JSON array of invoices containing date, amount, and status"
+    },
+    {
+      "display_name": "totalAmount",
+      "type": "number",
+      "required": false,
+      "description": "Total amount across all invoices in the period"
+    }
+  ],
+  "requiredCredentials": [],
+  "optionalCredentials": []
+}
