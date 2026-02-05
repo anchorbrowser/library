@@ -1,0 +1,6 @@
+{
+  "id": "quickbooks",
+  "name": "QuickBooks",
+  "description": "QuickBooks is an accounting software for small businesses.",
+  "allowedDomains": ["quickbooks.intuit.com", "intuit.com", "qbo.intuit.com"]
+}

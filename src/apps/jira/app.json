@@ -1,0 +1,6 @@
+{
+  "id": "jira",
+  "name": "Jira",
+  "description": "Jira is a project management and issue tracking tool by Atlassian.",
+  "allowedDomains": ["atlassian.net", "atlassian.com", "jira.com"]
+}

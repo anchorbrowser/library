@@ -1,0 +1,6 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "description": "Stripe is a payment processing platform for online businesses.",
+  "allowedDomains": ["stripe.com", "dashboard.stripe.com"]
+}
