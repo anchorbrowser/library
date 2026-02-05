@@ -14,7 +14,10 @@ const LOGIN_PROMPT = `You are logging into OpenAI platform. Follow these steps p
 4. Wait for the password field to appear
 5. Triple-click on the password field to select any existing text, then type the password
 6. Click "Continue" or "Log in" button
-7. Wait for navigation to complete
+7. If prompted for a verification code sent to email/inbox:
+   - Wait 20 seconds for human intervention to enter the code
+   - After waiting, check if login succeeded
+8. Wait for navigation to complete
 
 After login attempt, classify the outcome and respond with EXACTLY ONE of these strings:
 - "true" - Login succeeded: you see the OpenAI platform dashboard, organization selector, or any authenticated page
@@ -25,6 +28,7 @@ Rules:
 - Return only one of: "true", "false", "attempt_failed" (lowercase, no extra text)
 - Be patient and wait for elements to load before interacting
 - If you see "session has ended" or similar, click the "Log in" button to proceed
+- If you see a verification code / OTP input field (code sent to email), wait 20 seconds for human to enter the code
 - Always triple-click to select all before typing to ensure the field is cleared
 - Do not click any button more than once unless clearly necessary (e.g., separate Continue for email and password)
 `;
