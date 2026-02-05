@@ -1,0 +1,6 @@
+{
+  "id": "open-ai",
+  "name": "OpenAI",
+  "description": "OpenAI is an AI research and deployment company.",
+  "allowedDomains": ["openai.com", "chatgpt.com", "platform.openai.com"]
+}
