@@ -1,0 +1,16 @@
+{
+  "slug": "get-message-logs",
+  "name": "Get Message Logs",
+  "description": "Get SMS/message logs from Twilio console.",
+  "type": "tool",
+  "file": "get-message-logs.ts",
+  "app": "twilio",
+  "inputSchema": [
+    { "displayName": "dateRange", "type": "string", "required": false, "description": "Date range filter", "defaultValue": "today" },
+    { "displayName": "limit", "type": "number", "required": false, "description": "Max messages to return", "defaultValue": "20" }
+  ],
+  "outputSchema": [
+    { "displayName": "messages", "type": "string", "required": true, "description": "JSON array of messages" },
+    { "displayName": "totalCount", "type": "number", "required": true, "description": "Total count" }
+  ]
+}

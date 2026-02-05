@@ -1,0 +1,6 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "description": "Vercel is a cloud platform for static sites and serverless functions.",
+  "allowedDomains": ["vercel.com"]
+}
