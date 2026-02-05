@@ -1,0 +1,33 @@
+{
+  "slug": "read-pending-messages",
+  "name": "Read Pending Messages",
+  "description": "Opens LinkedIn messaging and reads up to 5 pending (unread) messages.",
+  "type": "tool",
+  "file": "read-pending-messages.ts",
+  "app": "linkedin",
+  "inputSchema": [
+    {
+      "display_name": "maxMessages",
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of pending messages to open (1-5, defaults to 5)",
+      "default_value": "5"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "messagesOpened",
+      "type": "number",
+      "required": true,
+      "description": "Number of pending messages that were opened"
+    },
+    {
+      "display_name": "conversations",
+      "type": "string",
+      "required": true,
+      "description": "JSON array of conversation details (sender name, preview)"
+    }
+  ],
+  "requiredCredentials": [],
+  "optionalCredentials": []
+}
