@@ -1,0 +1,16 @@
+{
+  "slug": "domain-overview",
+  "name": "Domain Overview",
+  "description": "Get SEO overview for a domain from Semrush.",
+  "type": "tool",
+  "file": "domain-overview.ts",
+  "app": "semrush",
+  "inputSchema": [
+    { "displayName": "domain", "type": "string", "required": true, "description": "Domain to analyze" }
+  ],
+  "outputSchema": [
+    { "displayName": "organicTraffic", "type": "number", "required": true, "description": "Monthly organic traffic" },
+    { "displayName": "organicKeywords", "type": "number", "required": true, "description": "Number of ranking keywords" },
+    { "displayName": "domainAuthority", "type": "number", "required": true, "description": "Domain authority score" }
+  ]
+}

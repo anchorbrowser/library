@@ -1,0 +1,6 @@
+{
+  "id": "clickup",
+  "name": "ClickUp",
+  "description": "ClickUp is a productivity and project management platform.",
+  "allowedDomains": ["clickup.com", "app.clickup.com"]
+}

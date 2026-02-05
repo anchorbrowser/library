@@ -1,0 +1,19 @@
+{
+  "slug": "create-ticket",
+  "name": "Create Ticket",
+  "description": "Create a new support ticket in Zendesk.",
+  "type": "tool",
+  "file": "create-ticket.ts",
+  "app": "zendesk",
+  "inputSchema": [
+    { "displayName": "requesterEmail", "type": "string", "required": true, "description": "Requester email" },
+    { "displayName": "subject", "type": "string", "required": true, "description": "Ticket subject" },
+    { "displayName": "description", "type": "string", "required": true, "description": "Ticket description" },
+    { "displayName": "priority", "type": "string", "required": false, "description": "Priority (Low, Normal, High, Urgent)" },
+    { "displayName": "type", "type": "string", "required": false, "description": "Ticket type (Question, Incident, Problem, Task)" }
+  ],
+  "outputSchema": [
+    { "displayName": "ticketId", "type": "string", "required": true, "description": "Created ticket ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether ticket was created" }
+  ]
+}

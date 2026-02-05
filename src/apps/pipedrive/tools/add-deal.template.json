@@ -1,0 +1,19 @@
+{
+  "slug": "add-deal",
+  "name": "Add Deal",
+  "description": "Add a new deal to the Pipedrive sales pipeline.",
+  "type": "tool",
+  "file": "add-deal.ts",
+  "app": "pipedrive",
+  "inputSchema": [
+    { "displayName": "title", "type": "string", "required": true, "description": "Deal title" },
+    { "displayName": "value", "type": "number", "required": true, "description": "Deal value" },
+    { "displayName": "currency", "type": "string", "required": false, "description": "Currency code", "defaultValue": "USD" },
+    { "displayName": "personName", "type": "string", "required": false, "description": "Contact person name" },
+    { "displayName": "orgName", "type": "string", "required": false, "description": "Organization name" }
+  ],
+  "outputSchema": [
+    { "displayName": "dealId", "type": "string", "required": true, "description": "Created deal ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether deal was created" }
+  ]
+}

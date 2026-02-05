@@ -1,0 +1,6 @@
+{
+  "id": "etsy",
+  "name": "Etsy",
+  "description": "Etsy is an e-commerce marketplace for handmade and vintage items.",
+  "allowedDomains": ["etsy.com"]
+}

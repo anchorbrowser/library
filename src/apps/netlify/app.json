@@ -1,0 +1,6 @@
+{
+  "id": "netlify",
+  "name": "Netlify",
+  "description": "Netlify is a web development platform for building and deploying sites.",
+  "allowedDomains": ["netlify.com", "app.netlify.com"]
+}

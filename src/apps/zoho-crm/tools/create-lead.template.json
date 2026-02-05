@@ -1,0 +1,19 @@
+{
+  "slug": "create-lead",
+  "name": "Create Lead",
+  "description": "Create a new lead in Zoho CRM.",
+  "type": "tool",
+  "file": "create-lead.ts",
+  "app": "zoho-crm",
+  "inputSchema": [
+    { "displayName": "firstName", "type": "string", "required": true, "description": "Lead first name" },
+    { "displayName": "lastName", "type": "string", "required": true, "description": "Lead last name" },
+    { "displayName": "email", "type": "string", "required": true, "description": "Email address" },
+    { "displayName": "company", "type": "string", "required": true, "description": "Company name" },
+    { "displayName": "phone", "type": "string", "required": false, "description": "Phone number" }
+  ],
+  "outputSchema": [
+    { "displayName": "leadId", "type": "string", "required": true, "description": "Created lead ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether lead was created" }
+  ]
+}

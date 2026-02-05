@@ -1,0 +1,19 @@
+{
+  "slug": "create-invoice",
+  "name": "Create Invoice",
+  "description": "Create a new invoice in QuickBooks.",
+  "type": "tool",
+  "file": "create-invoice.ts",
+  "app": "quickbooks",
+  "inputSchema": [
+    { "displayName": "customerName", "type": "string", "required": true, "description": "Customer name" },
+    { "displayName": "items", "type": "string", "required": true, "description": "JSON array of line items [{description, quantity, rate}]" },
+    { "displayName": "dueDate", "type": "date", "required": false, "description": "Invoice due date" },
+    { "displayName": "memo", "type": "string", "required": false, "description": "Invoice memo/notes" }
+  ],
+  "outputSchema": [
+    { "displayName": "invoiceNumber", "type": "string", "required": true, "description": "Created invoice number" },
+    { "displayName": "totalAmount", "type": "number", "required": true, "description": "Invoice total" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether invoice was created" }
+  ]
+}

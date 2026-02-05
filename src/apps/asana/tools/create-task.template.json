@@ -1,0 +1,19 @@
+{
+  "slug": "create-task",
+  "name": "Create Task",
+  "description": "Create a new task in Asana.",
+  "type": "tool",
+  "file": "create-task.ts",
+  "app": "asana",
+  "inputSchema": [
+    { "displayName": "projectName", "type": "string", "required": true, "description": "Project name" },
+    { "displayName": "taskName", "type": "string", "required": true, "description": "Task name" },
+    { "displayName": "description", "type": "string", "required": false, "description": "Task description" },
+    { "displayName": "assignee", "type": "string", "required": false, "description": "Assignee name/email" },
+    { "displayName": "dueDate", "type": "date", "required": false, "description": "Due date" }
+  ],
+  "outputSchema": [
+    { "displayName": "taskId", "type": "string", "required": true, "description": "Created task ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether task was created" }
+  ]
+}

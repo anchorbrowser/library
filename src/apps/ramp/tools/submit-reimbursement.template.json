@@ -1,0 +1,18 @@
+{
+  "slug": "submit-reimbursement",
+  "name": "Submit Reimbursement",
+  "description": "Submit a reimbursement request in Ramp.",
+  "type": "tool",
+  "file": "submit-reimbursement.ts",
+  "app": "ramp",
+  "inputSchema": [
+    { "displayName": "amount", "type": "number", "required": true, "description": "Reimbursement amount" },
+    { "displayName": "merchant", "type": "string", "required": true, "description": "Merchant name" },
+    { "displayName": "category", "type": "string", "required": true, "description": "Expense category" },
+    { "displayName": "memo", "type": "string", "required": false, "description": "Memo/notes" }
+  ],
+  "outputSchema": [
+    { "displayName": "reimbursementId", "type": "string", "required": true, "description": "Reimbursement ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether submission succeeded" }
+  ]
+}

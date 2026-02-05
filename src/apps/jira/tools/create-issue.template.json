@@ -1,0 +1,20 @@
+{
+  "slug": "create-issue",
+  "name": "Create Issue",
+  "description": "Create a new issue/ticket in Jira.",
+  "type": "tool",
+  "file": "create-issue.ts",
+  "app": "jira",
+  "inputSchema": [
+    { "displayName": "projectKey", "type": "string", "required": true, "description": "Project key (e.g., PROJ)" },
+    { "displayName": "issueType", "type": "string", "required": true, "description": "Issue type (Bug, Story, Task, etc.)" },
+    { "displayName": "summary", "type": "string", "required": true, "description": "Issue summary/title" },
+    { "displayName": "description", "type": "string", "required": false, "description": "Issue description" },
+    { "displayName": "assignee", "type": "string", "required": false, "description": "Assignee email" },
+    { "displayName": "priority", "type": "string", "required": false, "description": "Priority level" }
+  ],
+  "outputSchema": [
+    { "displayName": "issueKey", "type": "string", "required": true, "description": "Created issue key (e.g., PROJ-123)" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether issue was created" }
+  ]
+}
