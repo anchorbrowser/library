@@ -2,7 +2,7 @@ name: Validate Templates
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, staging]
     paths:
       - 'src/apps/**/*.json'
       - 'src/apps/**/*.ts'
