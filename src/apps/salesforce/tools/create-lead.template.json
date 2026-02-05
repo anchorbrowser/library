@@ -1,0 +1,20 @@
+{
+  "slug": "create-lead",
+  "name": "Create Lead",
+  "description": "Create a new lead in Salesforce with contact and company information.",
+  "type": "tool",
+  "file": "create-lead.ts",
+  "app": "salesforce",
+  "inputSchema": [
+    { "displayName": "firstName", "type": "string", "required": true, "description": "Lead's first name" },
+    { "displayName": "lastName", "type": "string", "required": true, "description": "Lead's last name" },
+    { "displayName": "email", "type": "string", "required": true, "description": "Lead's email address" },
+    { "displayName": "company", "type": "string", "required": true, "description": "Company name" },
+    { "displayName": "phone", "type": "string", "required": false, "description": "Phone number" },
+    { "displayName": "title", "type": "string", "required": false, "description": "Job title" }
+  ],
+  "outputSchema": [
+    { "displayName": "leadId", "type": "string", "required": true, "description": "Created lead ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether lead was created" }
+  ]
+}

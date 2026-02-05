@@ -1,0 +1,6 @@
+{
+  "id": "hubspot",
+  "name": "HubSpot",
+  "description": "HubSpot is an inbound marketing, sales, and CRM platform.",
+  "allowedDomains": ["hubspot.com", "app.hubspot.com"]
+}

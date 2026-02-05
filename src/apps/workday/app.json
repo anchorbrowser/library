@@ -1,0 +1,6 @@
+{
+  "id": "workday",
+  "name": "Workday",
+  "description": "Workday is a cloud-based HR, finance, and planning system.",
+  "allowedDomains": ["workday.com", "myworkday.com"]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "lookup-employee",
+  "name": "Lookup Employee",
+  "description": "Search for an employee in Workday by name or email.",
+  "type": "tool",
+  "file": "lookup-employee.ts",
+  "app": "workday",
+  "inputSchema": [
+    { "displayName": "searchQuery", "type": "string", "required": true, "description": "Employee name or email to search" }
+  ],
+  "outputSchema": [
+    { "displayName": "employeeId", "type": "string", "required": true, "description": "Employee ID" },
+    { "displayName": "name", "type": "string", "required": true, "description": "Full name" },
+    { "displayName": "email", "type": "string", "required": true, "description": "Email address" },
+    { "displayName": "department", "type": "string", "required": false, "description": "Department" },
+    { "displayName": "title", "type": "string", "required": false, "description": "Job title" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "create-lead",
+  "name": "Create Lead",
+  "description": "Create a new lead in Close CRM.",
+  "type": "tool",
+  "file": "create-lead.ts",
+  "app": "close",
+  "inputSchema": [
+    { "displayName": "companyName", "type": "string", "required": true, "description": "Company/Lead name" },
+    { "displayName": "contactName", "type": "string", "required": false, "description": "Contact person name" },
+    { "displayName": "email", "type": "string", "required": false, "description": "Email address" },
+    { "displayName": "phone", "type": "string", "required": false, "description": "Phone number" }
+  ],
+  "outputSchema": [
+    { "displayName": "leadId", "type": "string", "required": true, "description": "Created lead ID" },
+    { "displayName": "success", "type": "boolean", "required": true, "description": "Whether lead was created" }
+  ]
+}
