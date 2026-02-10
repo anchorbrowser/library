@@ -1,0 +1,9 @@
+{
+  "id": "lightspeed",
+  "name": "Lightspeed",
+  "description": "Automation templates for Lightspeed.",
+  "allowedDomains": [
+    "lightspeedhq.com",
+    "*.lightspeedhq.com"
+  ]
+}

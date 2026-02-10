@@ -1,0 +1,23 @@
+{
+  "slug": "export-saved-jobs",
+  "name": "Export Saved Job Listings",
+  "description": "Export saved job listings from LinkedIn.",
+  "type": "tool",
+  "file": "export-saved-jobs.ts",
+  "app": "linkedin",
+  "inputSchema": [],
+  "outputSchema": [
+    {
+      "display_name": "jobs",
+      "type": "string",
+      "required": true,
+      "description": "Saved jobs JSON"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

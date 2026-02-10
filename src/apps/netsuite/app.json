@@ -1,0 +1,9 @@
+{
+  "id": "netsuite",
+  "name": "NetSuite",
+  "description": "Automation templates for NetSuite.",
+  "allowedDomains": [
+    "netsuite.com",
+    "*.netsuite.com"
+  ]
+}

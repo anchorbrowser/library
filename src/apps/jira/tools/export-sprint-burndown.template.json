@@ -1,0 +1,36 @@
+{
+  "slug": "export-sprint-burndown",
+  "name": "Export Sprint Burndown Chart",
+  "description": "Export sprint burndown chart from Jira.",
+  "type": "tool",
+  "file": "export-sprint-burndown.ts",
+  "app": "jira",
+  "inputSchema": [
+    {
+      "display_name": "boardId",
+      "type": "string",
+      "required": true,
+      "description": "Board ID"
+    },
+    {
+      "display_name": "sprintId",
+      "type": "string",
+      "required": true,
+      "description": "Sprint ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to burndown chart"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}
