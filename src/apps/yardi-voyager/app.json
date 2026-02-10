@@ -1,9 +1,0 @@
-{
-  "id": "yardi-voyager",
-  "name": "Yardi Voyager",
-  "description": "Automation templates for Yardi Voyager.",
-  "allowedDomains": [
-    "yardi.com",
-    "*.yardi.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "wells-fargo-ceo",
-  "name": "Wells Fargo CEO",
-  "description": "Wells Fargo CEO is a commercial banking portal for business accounts.",
-  "allowedDomains": [
-    "wellsfargo.com"
-  ]
-}

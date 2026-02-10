@@ -1,8 +1,0 @@
-{
-  "id": "accela",
-  "name": "Accela",
-  "description": "Accela is a government technology platform for permits, licensing, and inspections.",
-  "allowedDomains": [
-    "accela.com"
-  ]
-}

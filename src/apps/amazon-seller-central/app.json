@@ -1,9 +1,0 @@
-{
-  "id": "amazon-seller-central",
-  "name": "Amazon Seller Central",
-  "description": "Automation templates for Amazon Seller Central.",
-  "allowedDomains": [
-    "sellercentral.amazon.com",
-    "sellercentral-europe.amazon.com"
-  ]
-}

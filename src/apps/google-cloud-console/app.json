@@ -1,8 +1,0 @@
-{
-  "id": "google-cloud-console",
-  "name": "Google Cloud Console",
-  "description": "Google Cloud Console is the web interface for Google Cloud Platform.",
-  "allowedDomains": [
-    "console.cloud.google.com"
-  ]
-}

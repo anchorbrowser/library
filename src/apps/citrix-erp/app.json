@@ -1,8 +1,0 @@
-{
-  "id": "citrix-erp",
-  "name": "Citrix-hosted ERP",
-  "description": "Citrix-hosted ERP provides virtualized access to enterprise resource planning systems.",
-  "allowedDomains": [
-    "citrix.com"
-  ]
-}

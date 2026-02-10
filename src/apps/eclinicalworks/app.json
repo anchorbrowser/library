@@ -1,8 +1,0 @@
-{
-  "id": "eclinicalworks",
-  "name": "eClinicalWorks",
-  "description": "eClinicalWorks is an EHR and practice management solution.",
-  "allowedDomains": [
-    "eclinicalworks.com"
-  ]
-}
