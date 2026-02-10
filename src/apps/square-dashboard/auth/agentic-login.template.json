@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to Square Dashboard using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "square-dashboard",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}

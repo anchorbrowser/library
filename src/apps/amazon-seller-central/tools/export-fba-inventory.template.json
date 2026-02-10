@@ -1,0 +1,30 @@
+{
+  "slug": "export-fba-inventory",
+  "name": "Export FBA Inventory Report",
+  "description": "Export FBA inventory report from Amazon Seller Central.",
+  "type": "tool",
+  "file": "export-fba-inventory.ts",
+  "app": "amazon-seller-central",
+  "inputSchema": [
+    {
+      "display_name": "marketplaceId",
+      "type": "string",
+      "required": false,
+      "description": "Marketplace filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to inventory report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}
