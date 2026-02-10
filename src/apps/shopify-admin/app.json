@@ -1,9 +1,0 @@
-{
-  "id": "shopify-admin",
-  "name": "Shopify Admin",
-  "description": "Automation templates for Shopify Admin.",
-  "allowedDomains": [
-    "admin.shopify.com",
-    "*.myshopify.com"
-  ]
-}

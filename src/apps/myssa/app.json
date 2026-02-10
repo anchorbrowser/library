@@ -1,9 +1,0 @@
-{
-  "id": "myssa",
-  "name": "MySSA",
-  "description": "Automation templates for MySSA.",
-  "allowedDomains": [
-    "ssa.gov",
-    "secure.ssa.gov"
-  ]
-}

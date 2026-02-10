@@ -1,9 +1,0 @@
-{
-  "id": "entrata",
-  "name": "Entrata",
-  "description": "Automation templates for Entrata.",
-  "allowedDomains": [
-    "entrata.com",
-    "*.entrata.com"
-  ]
-}
