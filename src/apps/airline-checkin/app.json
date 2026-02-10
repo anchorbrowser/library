@@ -1,0 +1,8 @@
+{
+  "id": "airline-checkin",
+  "name": "Airline Check-in Sites",
+  "description": "Automation templates for Airline Check-in Sites.",
+  "allowedDomains": [
+    "*.com"
+  ]
+}
