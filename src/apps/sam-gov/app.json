@@ -1,8 +1,0 @@
-{
-  "id": "sam-gov",
-  "name": "SAM.gov",
-  "description": "Automation templates for SAM.gov.",
-  "allowedDomains": [
-    "sam.gov"
-  ]
-}

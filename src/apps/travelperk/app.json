@@ -1,9 +1,0 @@
-{
-  "id": "travelperk",
-  "name": "TravelPerk",
-  "description": "Automation templates for TravelPerk.",
-  "allowedDomains": [
-    "travelperk.com",
-    "app.travelperk.com"
-  ]
-}

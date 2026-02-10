@@ -1,9 +1,0 @@
-{
-  "id": "square-dashboard",
-  "name": "Square Dashboard",
-  "description": "Automation templates for Square Dashboard.",
-  "allowedDomains": [
-    "squareup.com",
-    "squareseller.com"
-  ]
-}
