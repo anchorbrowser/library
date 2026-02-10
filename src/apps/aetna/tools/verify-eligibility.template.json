@@ -1,0 +1,42 @@
+{
+  "slug": "verify-eligibility",
+  "name": "Verify Member Eligibility",
+  "description": "Verify member eligibility in Aetna.",
+  "type": "tool",
+  "file": "verify-eligibility.ts",
+  "app": "aetna",
+  "inputSchema": [
+    {
+      "display_name": "memberId",
+      "type": "string",
+      "required": true,
+      "description": "Member ID"
+    },
+    {
+      "display_name": "dateOfService",
+      "type": "date",
+      "required": false,
+      "description": "Date of service"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "eligible",
+      "type": "boolean",
+      "required": true,
+      "description": "Eligibility status"
+    },
+    {
+      "display_name": "coverageDetails",
+      "type": "string",
+      "required": true,
+      "description": "Coverage details JSON"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether verification completed"
+    }
+  ]
+}

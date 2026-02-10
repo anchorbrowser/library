@@ -1,0 +1,8 @@
+{
+  "id": "terminal-banking",
+  "name": "Terminal Banking Systems",
+  "description": "Terminal banking systems for legacy financial settlement processing.",
+  "allowedDomains": [
+    "terminal-banking.example.com"
+  ]
+}

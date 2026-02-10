@@ -1,0 +1,8 @@
+{
+  "id": "neogov",
+  "name": "NEOGOV",
+  "description": "NEOGOV is a human resources management platform for government agencies.",
+  "allowedDomains": [
+    "neogov.com"
+  ]
+}

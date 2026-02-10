@@ -1,0 +1,36 @@
+{
+  "slug": "export-tax-summaries",
+  "name": "Export Tax Summaries",
+  "description": "Export tax filing summaries from Avalara.",
+  "type": "tool",
+  "file": "export-tax-summaries.ts",
+  "app": "avalara",
+  "inputSchema": [
+    {
+      "display_name": "taxPeriod",
+      "type": "string",
+      "required": true,
+      "description": "Tax period identifier"
+    },
+    {
+      "display_name": "jurisdiction",
+      "type": "string",
+      "required": false,
+      "description": "Tax jurisdiction filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported summaries"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

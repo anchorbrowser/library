@@ -1,0 +1,8 @@
+{
+  "id": "procurement-portals",
+  "name": "Procurement Portals",
+  "description": "Vendor procurement portals for purchase order management.",
+  "allowedDomains": [
+    "procurement-portal.example.com"
+  ]
+}

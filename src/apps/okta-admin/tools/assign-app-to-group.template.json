@@ -1,0 +1,36 @@
+{
+  "slug": "assign-app-to-group",
+  "name": "Assign App to User Group",
+  "description": "Assign an app to a user group in Okta Admin.",
+  "type": "tool",
+  "file": "assign-app-to-group.ts",
+  "app": "okta-admin",
+  "inputSchema": [
+    {
+      "display_name": "appId",
+      "type": "string",
+      "required": true,
+      "description": "Application ID"
+    },
+    {
+      "display_name": "groupId",
+      "type": "string",
+      "required": true,
+      "description": "Group ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "assigned",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether app was assigned"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether operation completed"
+    }
+  ]
+}

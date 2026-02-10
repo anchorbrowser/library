@@ -1,0 +1,8 @@
+{
+  "id": "slack-admin",
+  "name": "Slack Admin",
+  "description": "Slack Admin is the administration portal for Slack workspace management.",
+  "allowedDomains": [
+    "slack.com"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "charles-schwab",
+  "name": "Charles Schwab",
+  "description": "Automation templates for Charles Schwab.",
+  "allowedDomains": [
+    "schwab.com",
+    "client.schwab.com"
+  ]
+}

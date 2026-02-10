@@ -1,0 +1,36 @@
+{
+  "slug": "download-test-results",
+  "name": "Download Test Results",
+  "description": "Download test results from LabCorp Beacon.",
+  "type": "tool",
+  "file": "download-test-results.ts",
+  "app": "labcorp-beacon",
+  "inputSchema": [
+    {
+      "display_name": "testId",
+      "type": "string",
+      "required": false,
+      "description": "Test identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded results"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

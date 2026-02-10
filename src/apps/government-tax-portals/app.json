@@ -1,0 +1,8 @@
+{
+  "id": "government-tax-portals",
+  "name": "Government Tax Portals",
+  "description": "Legacy government tax portals for filings and confirmations.",
+  "allowedDomains": [
+    "tax.gov.example.com"
+  ]
+}
