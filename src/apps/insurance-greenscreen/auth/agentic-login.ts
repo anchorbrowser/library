@@ -1,5 +1,6 @@
 import AnchorBrowser, { type Anchorbrowser } from 'anchorbrowser';
 import { z } from 'zod';
+
 import type { Browser } from 'playwright';
 
 const RUN_AGENTIC_LOGIN_PROMPT = `Attempt to log in to Insurance Green-screen Apps using the provided credentials.
@@ -42,6 +43,7 @@ function getAnchorClient(): Anchorbrowser {
 
 async function setupBrowser(config: Config): Promise<Browser> {
   const client = getAnchorClient();
+
   return client.browser.connect(config.sessionId);
 }
 
@@ -59,14 +61,22 @@ export default async function login(): Promise<LoginResult> {
     });
 
     const resultStr = String(result).toLowerCase().trim();
+
     if (resultStr === 'true') {
-      return { success: true, message: `Logged in to Insurance Green-screen Apps as ${credentials.username}` };
-    } else if (resultStr === 'false') {
+      return {
+        success: true,
+        message: `Logged in to Insurance Green-screen Apps as ${credentials.username}`,
+      };
+    }
+
+    if (resultStr === 'false') {
       return { success: false, message: 'Invalid credentials' };
     }
+
     return { success: false, message: 'Login attempt failed' };
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
+
     return { success: false, message: errorMessage };
   }
 }

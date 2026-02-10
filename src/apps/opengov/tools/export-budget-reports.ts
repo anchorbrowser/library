@@ -18,12 +18,15 @@ interface ToolResult {
 }
 
 function getConfig(): Config {
-  const toolInputRaw = process.env.ANCHOR_TOOL_INPUT;
-  if (!toolInputRaw) throw new Error('ANCHOR_TOOL_INPUT is required');
+  const toolInputRaw = process.env['ANCHOR_TOOL_INPUT'];
+
+  if (!toolInputRaw) {
+    throw new Error('ANCHOR_TOOL_INPUT is required');
+  }
 
   return ConfigSchema.parse({
-    sessionId: process.env.ANCHOR_SESSION_ID,
-    toolInput: JSON.parse(toolInputRaw),
+    sessionId: process.env['ANCHOR_SESSION_ID'],
+    toolInput: JSON.parse(toolInputRaw) as Record<string, unknown>,
   });
 }
 
@@ -34,8 +37,8 @@ function getAnchorClient(): Anchorbrowser {
 function buildPrompt(input: Config['toolInput']): string {
   return `Export Budget Reports in OpenGov:
 
-- fiscalYear: ${input.fiscalYear || 'N/A'}
-- department: ${input.department || 'N/A'}
+- fiscalYear: ${input.fiscalYear ?? 'N/A'}
+- department: ${input.department ?? 'N/A'}
 
 Steps:
 1. Navigate to the relevant section
@@ -56,22 +59,19 @@ export default async function run(): Promise<ToolResult> {
     const result = await client.agent.task(prompt, {
       sessionId: config.sessionId,
       taskOptions: {
-        outputSchema: {
-          type: 'object',
-          properties: {
-            filePath: { type: 'string' },
-            success: { type: 'boolean' },
-          },
-          required: ['filePath', 'success'],
-        },
         maxSteps: 30,
       },
     });
 
-    const output = typeof result === 'string' ? JSON.parse(result) : result;
-    return { success: output.success, output };
+    const output = (typeof result === 'string' ? JSON.parse(result) : result) as Record<
+      string,
+      unknown
+    >;
+
+    return { success: Boolean(output['success']), output };
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
+
     return { success: false, error: errorMessage };
   }
 }

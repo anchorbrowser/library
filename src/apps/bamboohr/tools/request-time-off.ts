@@ -21,11 +21,14 @@ interface ToolResult {
 
 function getConfig(): Config {
   const toolInputRaw = process.env['ANCHOR_TOOL_INPUT'];
-  if (!toolInputRaw) throw new Error('ANCHOR_TOOL_INPUT is required');
+
+  if (!toolInputRaw) {
+    throw new Error('ANCHOR_TOOL_INPUT is required');
+  }
 
   return ConfigSchema.parse({
     sessionId: process.env['ANCHOR_SESSION_ID'],
-    toolInput: JSON.parse(toolInputRaw),
+    toolInput: JSON.parse(toolInputRaw) as Record<string, unknown>,
   });
 }
 
@@ -74,10 +77,15 @@ export default async function requestTimeOff(): Promise<ToolResult> {
       },
     });
 
-    const output = typeof result === 'string' ? JSON.parse(result) : result;
+    const output = (typeof result === 'string' ? JSON.parse(result) : result) as {
+      requestId: string;
+      success: boolean;
+    };
+
     return { success: output.success, output };
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
+
     return { success: false, error: errorMessage };
   }
 }
