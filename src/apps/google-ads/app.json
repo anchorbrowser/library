@@ -1,6 +1,0 @@
-{
-  "id": "google-ads",
-  "name": "Google Ads",
-  "description": "Google Ads is an online advertising platform for pay-per-click campaigns.",
-  "allowedDomains": ["ads.google.com"]
-}

@@ -20,11 +20,11 @@ interface ToolResult {
 }
 
 function getConfig(): Config {
-  const toolInputRaw = process.env.ANCHOR_TOOL_INPUT;
+  const toolInputRaw = process.env['ANCHOR_TOOL_INPUT'];
   if (!toolInputRaw) throw new Error('ANCHOR_TOOL_INPUT is required');
 
   return ConfigSchema.parse({
-    sessionId: process.env.ANCHOR_SESSION_ID,
+    sessionId: process.env['ANCHOR_SESSION_ID'],
     toolInput: JSON.parse(toolInputRaw),
   });
 }

@@ -1,6 +1,0 @@
-{
-  "id": "zoho-crm",
-  "name": "Zoho CRM",
-  "description": "Zoho CRM is a cloud-based customer relationship management platform.",
-  "allowedDomains": ["zoho.com", "crm.zoho.com", "zoho.eu"]
-}

@@ -1,6 +1,0 @@
-{
-  "id": "salesforce",
-  "name": "Salesforce",
-  "description": "Salesforce is a cloud-based CRM platform for sales, service, marketing, and analytics.",
-  "allowedDomains": ["salesforce.com", "force.com", "lightning.force.com"]
-}

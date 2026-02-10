@@ -1,6 +1,0 @@
-{
-  "id": "pagerduty",
-  "name": "PagerDuty",
-  "description": "PagerDuty is an incident management and on-call scheduling platform.",
-  "allowedDomains": ["pagerduty.com"]
-}

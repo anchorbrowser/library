@@ -1,6 +1,0 @@
-{
-  "id": "mailchimp",
-  "name": "Mailchimp",
-  "description": "Mailchimp is an email marketing and automation platform.",
-  "allowedDomains": ["mailchimp.com", "login.mailchimp.com"]
-}

@@ -1,6 +1,0 @@
-{
-  "id": "amplitude",
-  "name": "Amplitude",
-  "description": "Amplitude is a product analytics platform for digital optimization.",
-  "allowedDomains": ["amplitude.com"]
-}

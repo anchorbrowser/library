@@ -1,6 +1,0 @@
-{
-  "id": "klaviyo",
-  "name": "Klaviyo",
-  "description": "Klaviyo is an email and SMS marketing automation platform for e-commerce.",
-  "allowedDomains": ["klaviyo.com"]
-}

@@ -1,6 +1,0 @@
-{
-  "id": "docusign",
-  "name": "DocuSign",
-  "description": "DocuSign is an electronic signature and agreement management platform.",
-  "allowedDomains": ["docusign.com", "app.docusign.com"]
-}

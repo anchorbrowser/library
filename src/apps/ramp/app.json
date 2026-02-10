@@ -1,6 +1,0 @@
-{
-  "id": "ramp",
-  "name": "Ramp",
-  "description": "Ramp is a corporate card and spend management platform.",
-  "allowedDomains": ["ramp.com", "app.ramp.com"]
-}

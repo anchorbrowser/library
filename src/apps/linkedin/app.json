@@ -1,7 +1,0 @@
-{
-  "id": "linkedin",
-  "name": "LinkedIn",
-  "description": "LinkedIn is a professional networking platform.",
-  "allowedDomains": ["linkedin.com"]
-}
-

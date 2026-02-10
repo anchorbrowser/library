@@ -1,6 +1,0 @@
-{
-  "id": "greenhouse",
-  "name": "Greenhouse",
-  "description": "Greenhouse is an applicant tracking system and recruiting software.",
-  "allowedDomains": ["greenhouse.io", "app.greenhouse.io"]
-}

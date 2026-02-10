@@ -1,6 +1,0 @@
-{
-  "id": "brex",
-  "name": "Brex",
-  "description": "Brex is a corporate credit card and spend management platform.",
-  "allowedDomains": ["brex.com", "dashboard.brex.com"]
-}

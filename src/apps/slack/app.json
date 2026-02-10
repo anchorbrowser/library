@@ -1,6 +1,0 @@
-{
-  "id": "slack",
-  "name": "Slack",
-  "description": "Slack is a business communication platform with messaging, channels, and integrations.",
-  "allowedDomains": ["slack.com", "app.slack.com"]
-}
