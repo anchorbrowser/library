@@ -1,0 +1,30 @@
+{
+  "slug": "export-expense-report-pdf",
+  "name": "Export Expense Report to PDF",
+  "description": "Export expense report to PDF from Expensify.",
+  "type": "tool",
+  "file": "export-expense-report-pdf.ts",
+  "app": "expensify",
+  "inputSchema": [
+    {
+      "display_name": "reportId",
+      "type": "string",
+      "required": true,
+      "description": "Report ID to export"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported PDF"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

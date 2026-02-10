@@ -1,0 +1,36 @@
+{
+  "slug": "export-visit-summary",
+  "name": "Export Visit Summary",
+  "description": "Export visit summary from Epic MyChart.",
+  "type": "tool",
+  "file": "export-visit-summary.ts",
+  "app": "epic-mychart",
+  "inputSchema": [
+    {
+      "display_name": "visitId",
+      "type": "string",
+      "required": false,
+      "description": "Visit identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported summary"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}
