@@ -1,8 +1,0 @@
-{
-  "id": "centralsquare",
-  "name": "CentralSquare",
-  "description": "CentralSquare provides public safety and administration technology for government.",
-  "allowedDomains": [
-    "centralsquare.com"
-  ]
-}
