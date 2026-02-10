@@ -1,0 +1,8 @@
+{
+  "id": "chase-business",
+  "name": "Chase Business Online",
+  "description": "Chase Business Online is a banking portal for business account management.",
+  "allowedDomains": [
+    "chase.com"
+  ]
+}

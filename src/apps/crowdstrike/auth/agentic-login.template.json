@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to CrowdStrike using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "crowdstrike",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}
