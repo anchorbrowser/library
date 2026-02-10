@@ -1,0 +1,8 @@
+{
+  "id": "morgan-stanley",
+  "name": "Morgan Stanley Online",
+  "description": "Morgan Stanley Online is a wealth management and brokerage portal.",
+  "allowedDomains": [
+    "morganstanley.com"
+  ]
+}

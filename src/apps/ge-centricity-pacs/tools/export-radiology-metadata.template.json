@@ -1,0 +1,48 @@
+{
+  "slug": "export-radiology-metadata",
+  "name": "Export Radiology Metadata",
+  "description": "Export radiology study metadata from GE Centricity PACS.",
+  "type": "tool",
+  "file": "export-radiology-metadata.ts",
+  "app": "ge-centricity-pacs",
+  "inputSchema": [
+    {
+      "display_name": "studyDateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Study start date"
+    },
+    {
+      "display_name": "studyDateTo",
+      "type": "date",
+      "required": true,
+      "description": "Study end date"
+    },
+    {
+      "display_name": "modality",
+      "type": "string",
+      "required": false,
+      "description": "Imaging modality filter (CT, MRI, etc.)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported metadata"
+    },
+    {
+      "display_name": "studyCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of studies exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

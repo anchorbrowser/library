@@ -1,0 +1,48 @@
+{
+  "slug": "extract-po-status",
+  "name": "Extract PO Status",
+  "description": "Extract purchase order status updates from procurement portals.",
+  "type": "tool",
+  "file": "extract-po-status.ts",
+  "app": "procurement-portals",
+  "inputSchema": [
+    {
+      "display_name": "poNumber",
+      "type": "string",
+      "required": false,
+      "description": "Purchase order number"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to extracted status data"
+    },
+    {
+      "display_name": "poCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of POs in report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether extraction completed"
+    }
+  ]
+}
