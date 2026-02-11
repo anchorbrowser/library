@@ -1,0 +1,36 @@
+{
+  "slug": "retrieve-ar-aging-reports",
+  "name": "Retrieve AR Aging Reports",
+  "description": "Retrieve accounts receivable aging reports from Kareo.",
+  "type": "tool",
+  "file": "retrieve-ar-aging-reports.ts",
+  "app": "kareo",
+  "inputSchema": [
+    {
+      "display_name": "asOfDate",
+      "type": "date",
+      "required": true,
+      "description": "As-of date for the aging report"
+    },
+    {
+      "display_name": "agingBucket",
+      "type": "string",
+      "required": false,
+      "description": "Aging bucket filter (30, 60, 90, 120)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether retrieval completed"
+    }
+  ]
+}

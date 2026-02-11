@@ -1,0 +1,42 @@
+{
+  "slug": "bulk-document-downloads",
+  "name": "Bulk Document Downloads",
+  "description": "Bulk document downloads for patient migration from Kaiser Portal.",
+  "type": "tool",
+  "file": "bulk-document-downloads.ts",
+  "app": "kaiser-portal",
+  "inputSchema": [
+    {
+      "display_name": "patientId",
+      "type": "string",
+      "required": true,
+      "description": "Patient identifier"
+    },
+    {
+      "display_name": "documentTypes",
+      "type": "string",
+      "required": false,
+      "description": "Comma-separated document type filters"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded documents"
+    },
+    {
+      "display_name": "documentCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of documents downloaded"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "zoho-books",
+  "name": "Zoho Books",
+  "description": "Zoho Books is an online accounting platform for small businesses.",
+  "allowedDomains": [
+    "books.zoho.com"
+  ]
+}

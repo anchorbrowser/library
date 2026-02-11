@@ -1,0 +1,42 @@
+{
+  "slug": "reconcile-transactions",
+  "name": "Reconcile Bank Transactions",
+  "description": "Reconcile bank transactions in QuickBooks Online.",
+  "type": "tool",
+  "file": "reconcile-transactions.ts",
+  "app": "quickbooks-online",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Bank account ID"
+    },
+    {
+      "display_name": "statementDate",
+      "type": "date",
+      "required": true,
+      "description": "Statement end date"
+    },
+    {
+      "display_name": "statementBalance",
+      "type": "string",
+      "required": true,
+      "description": "Statement ending balance"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "reconciledCount",
+      "type": "string",
+      "required": true,
+      "description": "Number of reconciled transactions"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether reconciliation completed"
+    }
+  ]
+}

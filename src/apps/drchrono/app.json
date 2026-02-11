@@ -1,0 +1,8 @@
+{
+  "id": "drchrono",
+  "name": "DrChrono",
+  "description": "DrChrono is a cloud-based EHR and medical billing platform.",
+  "allowedDomains": [
+    "drchrono.com"
+  ]
+}

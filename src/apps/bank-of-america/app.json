@@ -1,0 +1,9 @@
+{
+  "id": "bank-of-america",
+  "name": "Bank of America",
+  "description": "Automation templates for Bank of America.",
+  "allowedDomains": [
+    "bankofamerica.com",
+    "secure.bankofamerica.com"
+  ]
+}

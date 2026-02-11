@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to IBM AS/400 using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "ibm-as400",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}
