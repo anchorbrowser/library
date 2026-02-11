@@ -1,0 +1,42 @@
+{
+  "slug": "export-cost-reports",
+  "name": "Export Cost Reports",
+  "description": "Export cost explorer reports from AWS Console.",
+  "type": "tool",
+  "file": "export-cost-reports.ts",
+  "app": "aws-console",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "serviceFilter",
+      "type": "string",
+      "required": false,
+      "description": "Filter by AWS service"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

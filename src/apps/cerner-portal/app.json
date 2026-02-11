@@ -1,0 +1,8 @@
+{
+  "id": "cerner-portal",
+  "name": "Cerner Portal",
+  "description": "Cerner Portal is a patient portal for accessing clinical records and visit history.",
+  "allowedDomains": [
+    "cernerhealth.com"
+  ]
+}

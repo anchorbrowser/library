@@ -1,0 +1,8 @@
+{
+  "id": "state-farm",
+  "name": "State Farm",
+  "description": "State Farm is an insurance and financial services portal.",
+  "allowedDomains": [
+    "statefarm.com"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "export-apm-reports",
+  "name": "Export APM Reports",
+  "description": "Export APM reports from New Relic.",
+  "type": "tool",
+  "file": "export-apm-reports.ts",
+  "app": "new-relic",
+  "inputSchema": [
+    {
+      "display_name": "appId",
+      "type": "string",
+      "required": true,
+      "description": "Application identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "auto-checkin",
+  "name": "Auto Check-in at T-24h",
+  "description": "Automatically check in at T-24h on airline sites.",
+  "type": "tool",
+  "file": "auto-checkin.ts",
+  "app": "airline-checkin",
+  "inputSchema": [
+    {
+      "display_name": "airline",
+      "type": "string",
+      "required": true,
+      "description": "Airline name"
+    },
+    {
+      "display_name": "confirmationNumber",
+      "type": "string",
+      "required": true,
+      "description": "Confirmation number"
+    },
+    {
+      "display_name": "firstName",
+      "type": "string",
+      "required": true,
+      "description": "First name"
+    },
+    {
+      "display_name": "lastName",
+      "type": "string",
+      "required": true,
+      "description": "Last name"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "boardingPass",
+      "type": "string",
+      "required": true,
+      "description": "Boarding pass URL or file"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether check-in succeeded"
+    }
+  ]
+}
