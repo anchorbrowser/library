@@ -1,8 +1,0 @@
-{
-  "id": "granicus",
-  "name": "Granicus",
-  "description": "Granicus is a civic engagement and government communications platform.",
-  "allowedDomains": [
-    "granicus.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "github",
-  "name": "GitHub",
-  "description": "GitHub is a platform for version control and collaborative software development.",
-  "allowedDomains": [
-    "github.com"
-  ]
-}

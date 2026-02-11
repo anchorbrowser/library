@@ -1,9 +1,0 @@
-{
-  "id": "aetna",
-  "name": "Aetna",
-  "description": "Automation templates for Aetna.",
-  "allowedDomains": [
-    "aetna.com",
-    "member.aetna.com"
-  ]
-}

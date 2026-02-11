@@ -1,9 +1,0 @@
-{
-  "id": "sap-concur",
-  "name": "SAP Concur",
-  "description": "Automation templates for SAP Concur.",
-  "allowedDomains": [
-    "concur.com",
-    "*.concursolutions.com"
-  ]
-}

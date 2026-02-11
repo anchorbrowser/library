@@ -1,8 +1,0 @@
-{
-  "id": "opengov",
-  "name": "OpenGov",
-  "description": "OpenGov is a cloud platform for government budgeting and financial planning.",
-  "allowedDomains": [
-    "opengov.com"
-  ]
-}
