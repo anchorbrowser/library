@@ -1,0 +1,9 @@
+{
+  "id": "reddit",
+  "name": "Reddit",
+  "description": "Automation templates for Reddit.",
+  "allowedDomains": [
+    "reddit.com",
+    "www.reddit.com"
+  ]
+}

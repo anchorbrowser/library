@@ -1,0 +1,8 @@
+{
+  "id": "atlassian-admin",
+  "name": "Atlassian Admin",
+  "description": "Automation templates for Atlassian Admin.",
+  "allowedDomains": [
+    "admin.atlassian.com"
+  ]
+}

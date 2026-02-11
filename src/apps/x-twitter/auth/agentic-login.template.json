@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to X (Twitter) using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "x-twitter",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}

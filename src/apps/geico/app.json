@@ -1,0 +1,8 @@
+{
+  "id": "geico",
+  "name": "Geico",
+  "description": "Geico is an auto insurance portal for policy and billing management.",
+  "allowedDomains": [
+    "geico.com"
+  ]
+}
