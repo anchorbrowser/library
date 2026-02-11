@@ -1,9 +1,0 @@
-{
-  "id": "wells-fargo",
-  "name": "Wells Fargo",
-  "description": "Automation templates for Wells Fargo.",
-  "allowedDomains": [
-    "wellsfargo.com",
-    "connect.wellsfargo.com"
-  ]
-}

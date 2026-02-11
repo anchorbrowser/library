@@ -1,8 +1,0 @@
-{
-  "id": "blackline",
-  "name": "BlackLine",
-  "description": "BlackLine is a financial close management and accounting automation platform.",
-  "allowedDomains": [
-    "blackline.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "sentinelone",
-  "name": "SentinelOne",
-  "description": "SentinelOne is an endpoint detection and response security platform.",
-  "allowedDomains": [
-    "sentinelone.com"
-  ]
-}

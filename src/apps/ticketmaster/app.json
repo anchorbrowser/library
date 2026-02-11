@@ -1,8 +1,0 @@
-{
-  "id": "ticketmaster",
-  "name": "Ticketmaster",
-  "description": "Automation templates for Ticketmaster.",
-  "allowedDomains": [
-    "ticketmaster.com"
-  ]
-}

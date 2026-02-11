@@ -1,9 +1,0 @@
-{
-  "id": "bill-com",
-  "name": "Bill.com",
-  "description": "Automation templates for Bill.com.",
-  "allowedDomains": [
-    "bill.com",
-    "app.bill.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "youtube-studio",
-  "name": "YouTube Studio",
-  "description": "Automation templates for YouTube Studio.",
-  "allowedDomains": [
-    "studio.youtube.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "kaiser-portal",
-  "name": "Kaiser Portal",
-  "description": "Kaiser Permanente patient portal for accessing care documents and records.",
-  "allowedDomains": [
-    "kp.org"
-  ]
-}

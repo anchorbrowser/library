@@ -1,8 +1,0 @@
-{
-  "id": "microsoft-dynamics",
-  "name": "Microsoft Dynamics",
-  "description": "Microsoft Dynamics is an ERP and CRM platform for enterprise operations.",
-  "allowedDomains": [
-    "dynamics.microsoft.com"
-  ]
-}

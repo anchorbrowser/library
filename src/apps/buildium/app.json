@@ -1,9 +1,0 @@
-{
-  "id": "buildium",
-  "name": "Buildium",
-  "description": "Automation templates for Buildium.",
-  "allowedDomains": [
-    "buildium.com",
-    "*.buildium.com"
-  ]
-}

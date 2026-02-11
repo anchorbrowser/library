@@ -1,8 +1,0 @@
-{
-  "id": "guidewire",
-  "name": "Guidewire",
-  "description": "Guidewire is an insurance platform for policy, claims, and billing management.",
-  "allowedDomains": [
-    "guidewire.com"
-  ]
-}

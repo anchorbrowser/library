@@ -1,9 +1,0 @@
-{
-  "id": "snowflake",
-  "name": "Snowflake",
-  "description": "Automation templates for Snowflake.",
-  "allowedDomains": [
-    "snowflake.com",
-    "app.snowflake.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "farmers-insurance",
-  "name": "Farmers Insurance",
-  "description": "Farmers Insurance is an insurance claims and policy management portal.",
-  "allowedDomains": [
-    "farmers.com"
-  ]
-}
