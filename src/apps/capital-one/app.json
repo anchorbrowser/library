@@ -1,0 +1,9 @@
+{
+  "id": "capital-one",
+  "name": "Capital One",
+  "description": "Automation templates for Capital One.",
+  "allowedDomains": [
+    "capitalone.com",
+    "myaccounts.capitalone.com"
+  ]
+}

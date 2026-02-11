@@ -1,0 +1,9 @@
+{
+  "id": "ebay-seller-hub",
+  "name": "eBay Seller Hub",
+  "description": "Automation templates for eBay Seller Hub.",
+  "allowedDomains": [
+    "ebay.com",
+    "sellercentre.ebay.com"
+  ]
+}

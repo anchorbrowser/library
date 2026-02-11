@@ -1,0 +1,36 @@
+{
+  "slug": "send-connection-request",
+  "name": "Send Connection Request",
+  "description": "Send a connection request on LinkedIn.",
+  "type": "tool",
+  "file": "send-connection-request.ts",
+  "app": "linkedin",
+  "inputSchema": [
+    {
+      "display_name": "profileUrl",
+      "type": "string",
+      "required": true,
+      "description": "Profile URL"
+    },
+    {
+      "display_name": "message",
+      "type": "string",
+      "required": false,
+      "description": "Connection message"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "sent",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether request was sent"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether operation completed"
+    }
+  ]
+}

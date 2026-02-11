@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to SAP GUI using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "sap-gui",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}

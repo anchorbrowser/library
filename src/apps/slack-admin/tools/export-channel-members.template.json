@@ -1,0 +1,30 @@
+{
+  "slug": "export-channel-members",
+  "name": "Export Channel Members List",
+  "description": "Export channel members list from Slack Admin.",
+  "type": "tool",
+  "file": "export-channel-members.ts",
+  "app": "slack-admin",
+  "inputSchema": [
+    {
+      "display_name": "channelId",
+      "type": "string",
+      "required": true,
+      "description": "Channel ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to members list"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}
