@@ -1,9 +1,0 @@
-{
-  "id": "fidelity",
-  "name": "Fidelity",
-  "description": "Automation templates for Fidelity.",
-  "allowedDomains": [
-    "fidelity.com",
-    "netbenefits.fidelity.com"
-  ]
-}

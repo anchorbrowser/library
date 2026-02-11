@@ -1,9 +1,0 @@
-{
-  "id": "blue-cross",
-  "name": "Blue Cross",
-  "description": "Automation templates for Blue Cross.",
-  "allowedDomains": [
-    "bcbs.com",
-    "*.bcbs.com"
-  ]
-}

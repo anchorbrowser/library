@@ -1,8 +1,0 @@
-{
-  "id": "oracle-forms",
-  "name": "Oracle Forms Apps",
-  "description": "Oracle Forms is a legacy UI framework for enterprise application development.",
-  "allowedDomains": [
-    "oracle.com"
-  ]
-}

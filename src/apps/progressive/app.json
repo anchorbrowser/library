@@ -1,8 +1,0 @@
-{
-  "id": "progressive",
-  "name": "Progressive",
-  "description": "Progressive is an insurance portal for policy and claims management.",
-  "allowedDomains": [
-    "progressive.com"
-  ]
-}

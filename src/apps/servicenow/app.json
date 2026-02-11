@@ -1,8 +1,0 @@
-{
-  "id": "servicenow",
-  "name": "ServiceNow",
-  "description": "ServiceNow is an IT service management and workflow automation platform.",
-  "allowedDomains": [
-    "servicenow.com"
-  ]
-}

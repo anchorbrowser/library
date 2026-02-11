@@ -1,8 +1,0 @@
-{
-  "id": "oracle-netsuite",
-  "name": "Oracle NetSuite",
-  "description": "Oracle NetSuite is a cloud-based ERP for finance, operations, and commerce.",
-  "allowedDomains": [
-    "netsuite.com"
-  ]
-}

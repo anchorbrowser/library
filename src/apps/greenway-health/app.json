@@ -1,8 +1,0 @@
-{
-  "id": "greenway-health",
-  "name": "Greenway Health",
-  "description": "Greenway Health provides EHR and practice management solutions.",
-  "allowedDomains": [
-    "greenwayhealth.com"
-  ]
-}
