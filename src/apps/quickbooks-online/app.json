@@ -1,8 +1,0 @@
-{
-  "id": "quickbooks-online",
-  "name": "QuickBooks Online",
-  "description": "QuickBooks Online is a cloud-based accounting platform for small businesses.",
-  "allowedDomains": [
-    "quickbooks.intuit.com"
-  ]
-}

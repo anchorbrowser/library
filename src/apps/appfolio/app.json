@@ -1,9 +1,0 @@
-{
-  "id": "appfolio",
-  "name": "AppFolio",
-  "description": "Automation templates for AppFolio.",
-  "allowedDomains": [
-    "appfolio.com",
-    "*.appfolio.com"
-  ]
-}

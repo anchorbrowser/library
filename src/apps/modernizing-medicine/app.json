@@ -1,8 +1,0 @@
-{
-  "id": "modernizing-medicine",
-  "name": "Modernizing Medicine",
-  "description": "Modernizing Medicine is a specialty-specific EHR platform.",
-  "allowedDomains": [
-    "modmed.com"
-  ]
-}

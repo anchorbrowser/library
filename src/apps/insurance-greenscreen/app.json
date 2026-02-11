@@ -1,8 +1,0 @@
-{
-  "id": "insurance-greenscreen",
-  "name": "Insurance Green-screen Apps",
-  "description": "Legacy green-screen terminal applications for insurance claim processing.",
-  "allowedDomains": [
-    "insurance-legacy.example.com"
-  ]
-}

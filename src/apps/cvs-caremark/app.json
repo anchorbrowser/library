@@ -1,8 +1,0 @@
-{
-  "id": "cvs-caremark",
-  "name": "CVS Caremark",
-  "description": "CVS Caremark is a pharmacy benefits management portal.",
-  "allowedDomains": [
-    "caremark.cvs.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "ibm-as400",
-  "name": "IBM AS/400",
-  "description": "IBM AS/400 is a midrange server platform for business applications.",
-  "allowedDomains": [
-    "as400.ibm.com"
-  ]
-}

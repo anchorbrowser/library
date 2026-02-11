@@ -1,8 +1,0 @@
-{
-  "id": "ukg-gov",
-  "name": "UKG Gov",
-  "description": "UKG is a workforce management and HR platform for government agencies.",
-  "allowedDomains": [
-    "ukg.com"
-  ]
-}

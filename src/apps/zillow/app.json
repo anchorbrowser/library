@@ -1,8 +1,0 @@
-{
-  "id": "zillow",
-  "name": "Zillow",
-  "description": "Automation templates for Zillow.",
-  "allowedDomains": [
-    "zillow.com"
-  ]
-}
