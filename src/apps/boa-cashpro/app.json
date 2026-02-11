@@ -1,0 +1,8 @@
+{
+  "id": "boa-cashpro",
+  "name": "Bank of America CashPro",
+  "description": "Bank of America CashPro is a treasury management banking portal.",
+  "allowedDomains": [
+    "cashpro.bankofamerica.com"
+  ]
+}

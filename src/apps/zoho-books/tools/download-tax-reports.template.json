@@ -1,0 +1,36 @@
+{
+  "slug": "download-tax-reports",
+  "name": "Download Tax Reports",
+  "description": "Download tax reports for filing from Zoho Books.",
+  "type": "tool",
+  "file": "download-tax-reports.ts",
+  "app": "zoho-books",
+  "inputSchema": [
+    {
+      "display_name": "taxYear",
+      "type": "string",
+      "required": true,
+      "description": "Tax year"
+    },
+    {
+      "display_name": "reportType",
+      "type": "string",
+      "required": false,
+      "description": "Type of tax report"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

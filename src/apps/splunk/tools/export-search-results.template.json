@@ -1,0 +1,48 @@
+{
+  "slug": "export-search-results",
+  "name": "Export Search Results",
+  "description": "Export search results periodically from Splunk.",
+  "type": "tool",
+  "file": "export-search-results.ts",
+  "app": "splunk",
+  "inputSchema": [
+    {
+      "display_name": "searchQuery",
+      "type": "string",
+      "required": true,
+      "description": "Splunk search query"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported results"
+    },
+    {
+      "display_name": "resultCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of results exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "asana",
+  "name": "Asana",
+  "description": "Asana is a project management and team collaboration platform.",
+  "allowedDomains": [
+    "asana.com"
+  ]
+}
