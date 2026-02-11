@@ -1,0 +1,48 @@
+{
+  "slug": "export-audit-logs",
+  "name": "Export Audit Logs",
+  "description": "Export audit logs from Slack Admin.",
+  "type": "tool",
+  "file": "export-audit-logs.ts",
+  "app": "slack-admin",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "eventType",
+      "type": "string",
+      "required": false,
+      "description": "Event type filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported logs"
+    },
+    {
+      "display_name": "eventCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of events exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

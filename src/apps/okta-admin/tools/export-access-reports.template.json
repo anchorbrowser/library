@@ -1,0 +1,48 @@
+{
+  "slug": "export-access-reports",
+  "name": "Export Access Reports",
+  "description": "Export user access reports from Okta Admin.",
+  "type": "tool",
+  "file": "export-access-reports.ts",
+  "app": "okta-admin",
+  "inputSchema": [
+    {
+      "display_name": "reportType",
+      "type": "string",
+      "required": true,
+      "description": "Type of access report"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "userCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of users in report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

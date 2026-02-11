@@ -1,0 +1,8 @@
+{
+  "id": "payit",
+  "name": "PayIt",
+  "description": "PayIt is a government payment and citizen engagement platform.",
+  "allowedDomains": [
+    "payitgov.com"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "agentic-login",
+  "name": "Agentic Login",
+  "description": "AI-powered login to Epic MyChart using credentials.",
+  "type": "auth",
+  "file": "agentic-login.ts",
+  "app": "epic-mychart",
+  "requiredCredentials": [
+    "username_password"
+  ],
+  "optionalCredentials": [
+    "authenticator"
+  ]
+}

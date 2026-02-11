@@ -1,0 +1,30 @@
+{
+  "slug": "pull-mail-scans",
+  "name": "Pull Daily Mail Scans",
+  "description": "Pull daily mail scans from USPS Informed Delivery.",
+  "type": "tool",
+  "file": "pull-mail-scans.ts",
+  "app": "usps-informed-delivery",
+  "inputSchema": [
+    {
+      "display_name": "date",
+      "type": "date",
+      "required": false,
+      "description": "Date to pull scans for"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "scans",
+      "type": "string",
+      "required": true,
+      "description": "Mail scans JSON/URLs"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ]
+}

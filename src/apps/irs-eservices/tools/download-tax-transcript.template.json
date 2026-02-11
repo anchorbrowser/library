@@ -1,0 +1,36 @@
+{
+  "slug": "download-tax-transcript",
+  "name": "Download Tax Transcript",
+  "description": "Download tax transcript from IRS e-Services.",
+  "type": "tool",
+  "file": "download-tax-transcript.ts",
+  "app": "irs-eservices",
+  "inputSchema": [
+    {
+      "display_name": "transcriptType",
+      "type": "string",
+      "required": true,
+      "description": "Transcript type"
+    },
+    {
+      "display_name": "taxYear",
+      "type": "string",
+      "required": true,
+      "description": "Tax year"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to transcript"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

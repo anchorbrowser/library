@@ -1,0 +1,8 @@
+{
+  "id": "fidelity-wealthscape",
+  "name": "Fidelity Wealthscape",
+  "description": "Fidelity Wealthscape is a wealth management platform for advisors.",
+  "allowedDomains": [
+    "wealthscape.fidelity.com"
+  ]
+}

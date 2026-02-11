@@ -1,0 +1,8 @@
+{
+  "id": "datadog",
+  "name": "Datadog",
+  "description": "Datadog is a monitoring and analytics platform for cloud-scale applications.",
+  "allowedDomains": [
+    "datadoghq.com"
+  ]
+}

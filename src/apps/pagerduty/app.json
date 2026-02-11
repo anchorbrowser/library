@@ -1,0 +1,8 @@
+{
+  "id": "pagerduty",
+  "name": "PagerDuty",
+  "description": "PagerDuty is an incident management and response platform.",
+  "allowedDomains": [
+    "pagerduty.com"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "retrieve-prescription-history",
+  "name": "Retrieve Prescription History",
+  "description": "Retrieve prescription history for audits from CVS Caremark.",
+  "type": "tool",
+  "file": "retrieve-prescription-history.ts",
+  "app": "cvs-caremark",
+  "inputSchema": [
+    {
+      "display_name": "memberId",
+      "type": "string",
+      "required": true,
+      "description": "Member identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to prescription history"
+    },
+    {
+      "display_name": "prescriptionCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of prescriptions found"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether retrieval completed"
+    }
+  ]
+}
