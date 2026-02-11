@@ -1,8 +1,0 @@
-{
-  "id": "ibm-mainframe-tn3270",
-  "name": "IBM Mainframe TN3270",
-  "description": "IBM Mainframe TN3270 terminal emulator for legacy transaction systems.",
-  "allowedDomains": [
-    "ibm.com"
-  ]
-}

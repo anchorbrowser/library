@@ -1,9 +1,0 @@
-{
-  "id": "farmers",
-  "name": "Farmers Insurance",
-  "description": "Automation templates for Farmers Insurance.",
-  "allowedDomains": [
-    "farmers.com",
-    "farmersinsurance.com"
-  ]
-}

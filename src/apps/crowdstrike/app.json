@@ -1,8 +1,0 @@
-{
-  "id": "crowdstrike",
-  "name": "CrowdStrike",
-  "description": "CrowdStrike is an endpoint detection and response security platform.",
-  "allowedDomains": [
-    "crowdstrike.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "zscaler-admin",
-  "name": "Zscaler Admin",
-  "description": "Zscaler is a cloud security platform for network and application protection.",
-  "allowedDomains": [
-    "zscaler.com"
-  ]
-}

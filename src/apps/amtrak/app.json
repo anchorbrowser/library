@@ -1,8 +1,0 @@
-{
-  "id": "amtrak",
-  "name": "Amtrak",
-  "description": "Automation templates for Amtrak.",
-  "allowedDomains": [
-    "amtrak.com"
-  ]
-}

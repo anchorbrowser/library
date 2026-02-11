@@ -1,8 +1,0 @@
-{
-  "id": "avalara",
-  "name": "Avalara",
-  "description": "Avalara is a cloud-based tax compliance and automation platform.",
-  "allowedDomains": [
-    "avalara.com"
-  ]
-}
