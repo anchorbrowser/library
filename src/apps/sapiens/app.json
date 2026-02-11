@@ -1,8 +1,0 @@
-{
-  "id": "sapiens",
-  "name": "Sapiens",
-  "description": "Sapiens is an insurance technology platform for claims and policy management.",
-  "allowedDomains": [
-    "sapiens.com"
-  ]
-}

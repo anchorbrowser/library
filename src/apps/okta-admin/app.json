@@ -1,8 +1,0 @@
-{
-  "id": "okta-admin",
-  "name": "Okta Admin",
-  "description": "Okta is an identity and access management platform.",
-  "allowedDomains": [
-    "okta.com"
-  ]
-}

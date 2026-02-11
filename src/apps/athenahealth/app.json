@@ -1,8 +1,0 @@
-{
-  "id": "athenahealth",
-  "name": "Athenahealth",
-  "description": "Athenahealth is a cloud-based EHR and practice management platform.",
-  "allowedDomains": [
-    "athenahealth.com"
-  ]
-}

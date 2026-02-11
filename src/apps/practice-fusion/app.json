@@ -1,8 +1,0 @@
-{
-  "id": "practice-fusion",
-  "name": "Practice Fusion",
-  "description": "Practice Fusion is a cloud-based EHR for small medical practices.",
-  "allowedDomains": [
-    "practicefusion.com"
-  ]
-}

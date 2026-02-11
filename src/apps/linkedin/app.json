@@ -1,9 +1,0 @@
-{
-  "id": "linkedin",
-  "name": "LinkedIn",
-  "description": "Automation templates for LinkedIn.",
-  "allowedDomains": [
-    "linkedin.com",
-    "www.linkedin.com"
-  ]
-}

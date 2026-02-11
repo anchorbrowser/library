@@ -1,9 +1,0 @@
-{
-  "id": "instagram",
-  "name": "Instagram",
-  "description": "Automation templates for Instagram.",
-  "allowedDomains": [
-    "instagram.com",
-    "www.instagram.com"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "id": "quest-quanum",
-  "name": "Quest Quanum",
-  "description": "Quest Quanum is a laboratory information system for diagnostic results and analytics.",
-  "allowedDomains": [
-    "quanum.questdiagnostics.com"
-  ]
-}

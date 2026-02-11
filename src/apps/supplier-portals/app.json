@@ -1,8 +1,0 @@
-{
-  "id": "supplier-portals",
-  "name": "Supplier Portals",
-  "description": "Vendor supplier portals for invoice and purchase order management.",
-  "allowedDomains": [
-    "supplier-portal.example.com"
-  ]
-}

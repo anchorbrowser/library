@@ -1,8 +1,0 @@
-{
-  "id": "kareo",
-  "name": "Kareo",
-  "description": "Kareo is a cloud-based EHR and practice management platform.",
-  "allowedDomains": [
-    "kareo.com"
-  ]
-}
