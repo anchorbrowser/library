@@ -1,0 +1,29 @@
+{
+  "slug": "count-active-contracts",
+  "name": "Count Active Contracts",
+  "description": "Navigate to Data Center and count the number of active contracts.",
+  "type": "tool",
+  "file": "count-active-contracts.ts",
+  "app": "net-sweet",
+  "inputSchema": [],
+  "outputSchema": [
+    {
+      "display_name": "Success",
+      "description": "Whether the operation completed successfully.",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "display_name": "Message",
+      "description": "Summary message of the operation.",
+      "type": "string",
+      "required": true
+    },
+    {
+      "display_name": "Active Contracts Count",
+      "description": "Number of active contracts found.",
+      "type": "number",
+      "required": true
+    }
+  ]
+}

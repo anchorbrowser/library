@@ -1,0 +1,36 @@
+{
+  "slug": "download-reports",
+  "name": "Download Reports",
+  "description": "Download NetSweet reports filtered by specified report types.",
+  "type": "tool",
+  "file": "download-reports.ts",
+  "app": "net-sweet",
+  "inputSchema": [
+    {
+      "display_name": "Report Types",
+      "description": "Comma-separated list of report types to download (e.g., 'financial,sales,inventory'). Leave empty to download all reports.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "Success",
+      "description": "Whether the download operation completed successfully.",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "display_name": "Message",
+      "description": "Summary message of the download operation.",
+      "type": "string",
+      "required": true
+    },
+    {
+      "display_name": "Downloaded Count",
+      "description": "Number of reports successfully downloaded.",
+      "type": "number",
+      "required": true
+    }
+  ]
+}
