@@ -1,0 +1,6 @@
+{
+    "id": "net-sweet",
+    "name": "Net Sweet",
+    "description": "Net Sweet is a demo app for Anchor Browser.",
+    "allowedDomains": ["netsweet.co"]
+}  
