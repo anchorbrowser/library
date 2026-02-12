@@ -1,0 +1,8 @@
+{
+  "id": "expensify",
+  "name": "Expensify",
+  "description": "Expensify is an expense management and receipt tracking platform.",
+  "allowedDomains": [
+    "expensify.com"
+  ]
+}

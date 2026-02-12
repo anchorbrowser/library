@@ -1,0 +1,8 @@
+{
+  "id": "splunk",
+  "name": "Splunk",
+  "description": "Splunk is a SIEM and data analytics platform for security and IT operations.",
+  "allowedDomains": [
+    "splunk.com"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "labcorp-beacon",
+  "name": "LabCorp Beacon",
+  "description": "LabCorp Beacon is a laboratory information system for managing diagnostic results.",
+  "allowedDomains": [
+    "beacon.labcorp.com"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "check-suppression-alerts",
+  "name": "Check Listing Suppression Alerts",
+  "description": "Check listing suppression alerts in Amazon Seller Central.",
+  "type": "tool",
+  "file": "check-suppression-alerts.ts",
+  "app": "amazon-seller-central",
+  "inputSchema": [],
+  "outputSchema": [
+    {
+      "display_name": "alerts",
+      "type": "string",
+      "required": true,
+      "description": "Suppression alerts JSON"
+    },
+    {
+      "display_name": "alertCount",
+      "type": "string",
+      "required": true,
+      "description": "Number of alerts"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether check completed"
+    }
+  ]
+}

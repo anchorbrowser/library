@@ -1,0 +1,30 @@
+{
+  "slug": "bulk-revise-prices",
+  "name": "Bulk Revise Listing Prices",
+  "description": "Bulk revise listing prices in eBay Seller Hub.",
+  "type": "tool",
+  "file": "bulk-revise-prices.ts",
+  "app": "ebay-seller-hub",
+  "inputSchema": [
+    {
+      "display_name": "priceUpdates",
+      "type": "string",
+      "required": true,
+      "description": "Price updates JSON (listing ID to new price)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "updatedCount",
+      "type": "string",
+      "required": true,
+      "description": "Number of listings updated"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether revision completed"
+    }
+  ]
+}

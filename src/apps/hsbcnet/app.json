@@ -1,0 +1,8 @@
+{
+  "id": "hsbcnet",
+  "name": "HSBCnet",
+  "description": "HSBCnet is a global banking portal for corporate treasury and cash management.",
+  "allowedDomains": [
+    "hsbcnet.com"
+  ]
+}

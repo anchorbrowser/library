@@ -1,0 +1,54 @@
+{
+  "slug": "book-cheapest-ticket",
+  "name": "Book Cheapest Train Ticket",
+  "description": "Book the cheapest train ticket on Amtrak.",
+  "type": "tool",
+  "file": "book-cheapest-ticket.ts",
+  "app": "amtrak",
+  "inputSchema": [
+    {
+      "display_name": "origin",
+      "type": "string",
+      "required": true,
+      "description": "Origin station"
+    },
+    {
+      "display_name": "destination",
+      "type": "string",
+      "required": true,
+      "description": "Destination station"
+    },
+    {
+      "display_name": "travelDate",
+      "type": "date",
+      "required": true,
+      "description": "Travel date"
+    },
+    {
+      "display_name": "passengers",
+      "type": "string",
+      "required": false,
+      "description": "Number of passengers"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "confirmationNumber",
+      "type": "string",
+      "required": true,
+      "description": "Booking confirmation"
+    },
+    {
+      "display_name": "price",
+      "type": "string",
+      "required": true,
+      "description": "Ticket price"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether booking succeeded"
+    }
+  ]
+}

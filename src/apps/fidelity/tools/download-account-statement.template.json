@@ -1,0 +1,36 @@
+{
+  "slug": "download-account-statement",
+  "name": "Download Account Statement",
+  "description": "Download account statement from Fidelity.",
+  "type": "tool",
+  "file": "download-account-statement.ts",
+  "app": "fidelity",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Account ID"
+    },
+    {
+      "display_name": "statementMonth",
+      "type": "string",
+      "required": true,
+      "description": "Statement month (YYYY-MM)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to statement"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

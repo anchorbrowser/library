@@ -1,0 +1,8 @@
+{
+  "id": "sap-s4hana",
+  "name": "SAP S/4HANA",
+  "description": "SAP S/4HANA is an enterprise resource planning suite for large organizations.",
+  "allowedDomains": [
+    "sap.com"
+  ]
+}

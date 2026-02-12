@@ -1,0 +1,36 @@
+{
+  "slug": "export-gl-trial-balance",
+  "name": "Export GL Trial Balance",
+  "description": "Export GL trial balance from Sage Intacct.",
+  "type": "tool",
+  "file": "export-gl-trial-balance.ts",
+  "app": "sage-intacct",
+  "inputSchema": [
+    {
+      "display_name": "asOfDate",
+      "type": "date",
+      "required": true,
+      "description": "Trial balance as-of date"
+    },
+    {
+      "display_name": "department",
+      "type": "string",
+      "required": false,
+      "description": "Department filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to trial balance"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

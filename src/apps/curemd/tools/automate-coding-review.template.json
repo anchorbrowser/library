@@ -1,0 +1,36 @@
+{
+  "slug": "automate-coding-review",
+  "name": "Automate Coding Review",
+  "description": "Automate coding review workflows in CureMD.",
+  "type": "tool",
+  "file": "automate-coding-review.ts",
+  "app": "curemd",
+  "inputSchema": [
+    {
+      "display_name": "reviewDateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date for review period"
+    },
+    {
+      "display_name": "reviewDateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date for review period"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "reviewedCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of records reviewed"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether review completed"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "tipalti",
+  "name": "Tipalti",
+  "description": "Tipalti is an accounts payable and payment automation platform.",
+  "allowedDomains": [
+    "tipalti.com"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "walmart-seller-center",
+  "name": "Walmart Seller Center",
+  "description": "Automation templates for Walmart Seller Center.",
+  "allowedDomains": [
+    "seller.walmart.com"
+  ]
+}

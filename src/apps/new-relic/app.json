@@ -1,0 +1,8 @@
+{
+  "id": "new-relic",
+  "name": "New Relic",
+  "description": "New Relic is an observability platform for application performance monitoring.",
+  "allowedDomains": [
+    "newrelic.com"
+  ]
+}

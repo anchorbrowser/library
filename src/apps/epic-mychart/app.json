@@ -1,0 +1,8 @@
+{
+  "id": "epic-mychart",
+  "name": "Epic MyChart",
+  "description": "Epic MyChart is a patient portal for accessing medical records, lab results, and visit summaries.",
+  "allowedDomains": [
+    "mychart.org"
+  ]
+}

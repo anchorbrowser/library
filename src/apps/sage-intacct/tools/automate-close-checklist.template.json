@@ -1,0 +1,42 @@
+{
+  "slug": "automate-close-checklist",
+  "name": "Automate Close Checklist",
+  "description": "Automate close checklist exports from Sage Intacct.",
+  "type": "tool",
+  "file": "automate-close-checklist.ts",
+  "app": "sage-intacct",
+  "inputSchema": [
+    {
+      "display_name": "closePeriod",
+      "type": "date",
+      "required": true,
+      "description": "Period for the close checklist"
+    },
+    {
+      "display_name": "checklistType",
+      "type": "string",
+      "required": false,
+      "description": "Type of close checklist"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported checklist"
+    },
+    {
+      "display_name": "itemCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of checklist items"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

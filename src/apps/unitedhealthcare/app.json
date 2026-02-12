@@ -1,0 +1,9 @@
+{
+  "id": "unitedhealthcare",
+  "name": "UnitedHealthcare",
+  "description": "Automation templates for UnitedHealthcare.",
+  "allowedDomains": [
+    "uhc.com",
+    "myuhc.com"
+  ]
+}

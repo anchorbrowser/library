@@ -1,0 +1,8 @@
+{
+  "id": "govpilot",
+  "name": "GovPilot",
+  "description": "GovPilot is a government management platform for permits and case management.",
+  "allowedDomains": [
+    "govpilot.com"
+  ]
+}

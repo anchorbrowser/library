@@ -1,0 +1,30 @@
+{
+  "slug": "download-payment-statement",
+  "name": "Download Payment Statement",
+  "description": "Download payment statement from Walmart Seller Center.",
+  "type": "tool",
+  "file": "download-payment-statement.ts",
+  "app": "walmart-seller-center",
+  "inputSchema": [
+    {
+      "display_name": "statementMonth",
+      "type": "string",
+      "required": true,
+      "description": "Statement month (YYYY-MM)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to payment statement"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

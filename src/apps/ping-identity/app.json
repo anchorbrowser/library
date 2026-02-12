@@ -1,0 +1,8 @@
+{
+  "id": "ping-identity",
+  "name": "Ping Identity",
+  "description": "Ping Identity is an identity security and access management platform.",
+  "allowedDomains": [
+    "pingidentity.com"
+  ]
+}

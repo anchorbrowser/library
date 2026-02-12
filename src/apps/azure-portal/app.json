@@ -1,0 +1,8 @@
+{
+  "id": "azure-portal",
+  "name": "Azure Portal",
+  "description": "Azure Portal is the web interface for Microsoft Azure cloud services.",
+  "allowedDomains": [
+    "portal.azure.com"
+  ]
+}

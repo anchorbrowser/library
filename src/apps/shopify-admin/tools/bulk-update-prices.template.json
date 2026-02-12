@@ -1,0 +1,30 @@
+{
+  "slug": "bulk-update-prices",
+  "name": "Bulk Update Product Prices",
+  "description": "Bulk update product prices in Shopify Admin.",
+  "type": "tool",
+  "file": "bulk-update-prices.ts",
+  "app": "shopify-admin",
+  "inputSchema": [
+    {
+      "display_name": "priceUpdates",
+      "type": "string",
+      "required": true,
+      "description": "Price updates JSON (product ID to new price)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "updatedCount",
+      "type": "string",
+      "required": true,
+      "description": "Number of products updated"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether update completed"
+    }
+  ]
+}

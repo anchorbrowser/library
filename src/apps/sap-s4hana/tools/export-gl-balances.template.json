@@ -1,0 +1,42 @@
+{
+  "slug": "export-gl-balances",
+  "name": "Export GL Account Balances",
+  "description": "Export GL account balances from SAP S/4HANA.",
+  "type": "tool",
+  "file": "export-gl-balances.ts",
+  "app": "sap-s4hana",
+  "inputSchema": [
+    {
+      "display_name": "companyCode",
+      "type": "string",
+      "required": true,
+      "description": "Company code"
+    },
+    {
+      "display_name": "fiscalYear",
+      "type": "string",
+      "required": true,
+      "description": "Fiscal year"
+    },
+    {
+      "display_name": "period",
+      "type": "string",
+      "required": false,
+      "description": "Period filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported balances"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

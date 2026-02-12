@@ -1,0 +1,8 @@
+{
+  "id": "duck-creek",
+  "name": "Duck Creek",
+  "description": "Duck Creek is a SaaS insurance platform for underwriting and policy management.",
+  "allowedDomains": [
+    "duckcreek.com"
+  ]
+}

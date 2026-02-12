@@ -1,0 +1,8 @@
+{
+  "id": "insync-ehr",
+  "name": "InSync EHR",
+  "description": "InSync EHR is a cloud-based electronic health records system.",
+  "allowedDomains": [
+    "insynchcs.com"
+  ]
+}

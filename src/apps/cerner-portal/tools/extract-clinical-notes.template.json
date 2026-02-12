@@ -1,0 +1,48 @@
+{
+  "slug": "extract-clinical-notes",
+  "name": "Extract Clinical Notes",
+  "description": "Extract clinical notes from visit history in Cerner Portal.",
+  "type": "tool",
+  "file": "extract-clinical-notes.ts",
+  "app": "cerner-portal",
+  "inputSchema": [
+    {
+      "display_name": "patientId",
+      "type": "string",
+      "required": true,
+      "description": "Patient identifier"
+    },
+    {
+      "display_name": "visitDateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "visitDateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to extracted notes"
+    },
+    {
+      "display_name": "noteCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of notes extracted"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether extraction completed"
+    }
+  ]
+}

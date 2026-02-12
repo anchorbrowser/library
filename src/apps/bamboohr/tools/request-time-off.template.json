@@ -1,0 +1,18 @@
+{
+  "slug": "request-time-off",
+  "name": "Request Time Off",
+  "description": "Submit a time off request in BambooHR.",
+  "type": "tool",
+  "file": "request-time-off.ts",
+  "app": "bamboohr",
+  "inputSchema": [
+    { "display_name": "startDate", "type": "date", "required": true, "description": "Start date of time off" },
+    { "display_name": "endDate", "type": "date", "required": true, "description": "End date of time off" },
+    { "display_name": "timeOffType", "type": "string", "required": true, "description": "Type of time off (Vacation, Sick, etc.)" },
+    { "display_name": "notes", "type": "string", "required": false, "description": "Additional notes" }
+  ],
+  "outputSchema": [
+    { "display_name": "requestId", "type": "string", "required": true, "description": "Time off request ID" },
+    { "display_name": "success", "type": "boolean", "required": true, "description": "Whether request was submitted" }
+  ]
+}

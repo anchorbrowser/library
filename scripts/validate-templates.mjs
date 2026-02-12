@@ -134,8 +134,12 @@ function getExpectedSlug(filePath) {
 
 function getTypeDir(filePath) {
   // src/apps/linkedin/auth/basic-login.template.json → auth
+  // src/apps/bamboohr/tools/request-time-off.template.json → tool
   const dir = dirname(filePath);
-  return basename(dir);
+  const dirName = basename(dir);
+  // Normalize plural directory names to singular type (tools → tool)
+  if (dirName === 'tools') return 'tool';
+  return dirName;
 }
 
 function validateTemplateJson(filePath) {

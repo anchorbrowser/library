@@ -1,0 +1,9 @@
+{
+  "id": "tiktok",
+  "name": "TikTok",
+  "description": "Automation templates for TikTok.",
+  "allowedDomains": [
+    "tiktok.com",
+    "www.tiktok.com"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "southwest-airlines",
+  "name": "Southwest Airlines",
+  "description": "Automation templates for Southwest Airlines.",
+  "allowedDomains": [
+    "southwest.com"
+  ]
+}

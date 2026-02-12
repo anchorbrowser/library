@@ -1,0 +1,9 @@
+{
+  "id": "etsy-seller",
+  "name": "Etsy Seller",
+  "description": "Automation templates for Etsy Seller.",
+  "allowedDomains": [
+    "etsy.com",
+    "www.etsy.com"
+  ]
+}

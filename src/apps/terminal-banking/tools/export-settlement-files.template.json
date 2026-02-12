@@ -1,0 +1,42 @@
+{
+  "slug": "export-settlement-files",
+  "name": "Export Settlement Files",
+  "description": "Export settlement files from terminal banking systems.",
+  "type": "tool",
+  "file": "export-settlement-files.ts",
+  "app": "terminal-banking",
+  "inputSchema": [
+    {
+      "display_name": "settlementDate",
+      "type": "date",
+      "required": true,
+      "description": "Settlement date"
+    },
+    {
+      "display_name": "bankCode",
+      "type": "string",
+      "required": true,
+      "description": "Bank code"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported files"
+    },
+    {
+      "display_name": "fileCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of files exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

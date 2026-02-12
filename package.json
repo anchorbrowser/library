@@ -58,7 +58,7 @@
     "node": ">=22.0.0"
   },
   "dependencies": {
-    "anchorbrowser": "^0.12.0",
+    "anchorbrowser": "^0.12.1",
     "playwright": "^1.52.0",
     "playwright-core": "^1.52.0",
     "zod": "^3.25.0"

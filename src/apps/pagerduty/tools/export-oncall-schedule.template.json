@@ -1,0 +1,42 @@
+{
+  "slug": "export-oncall-schedule",
+  "name": "Export On-Call Schedule",
+  "description": "Export on-call schedule from PagerDuty.",
+  "type": "tool",
+  "file": "export-oncall-schedule.ts",
+  "app": "pagerduty",
+  "inputSchema": [
+    {
+      "display_name": "scheduleId",
+      "type": "string",
+      "required": true,
+      "description": "Schedule ID"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to schedule export"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "process-intake-forms",
+  "name": "Process Intake Forms",
+  "description": "Process patient intake forms into external systems from Athenahealth.",
+  "type": "tool",
+  "file": "process-intake-forms.ts",
+  "app": "athenahealth",
+  "inputSchema": [
+    {
+      "display_name": "formType",
+      "type": "string",
+      "required": true,
+      "description": "Type of intake form to process"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "processedCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of forms processed"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether processing completed"
+    }
+  ]
+}

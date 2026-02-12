@@ -1,0 +1,8 @@
+{
+  "id": "nextgen",
+  "name": "NextGen",
+  "description": "NextGen Healthcare provides ambulatory EHR and practice management solutions.",
+  "allowedDomains": [
+    "nextgen.com"
+  ]
+}

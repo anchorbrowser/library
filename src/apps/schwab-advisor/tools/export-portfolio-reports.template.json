@@ -1,0 +1,42 @@
+{
+  "slug": "export-portfolio-reports",
+  "name": "Export Portfolio Reports",
+  "description": "Export portfolio performance reports from Schwab Advisor Center.",
+  "type": "tool",
+  "file": "export-portfolio-reports.ts",
+  "app": "schwab-advisor",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Client account ID"
+    },
+    {
+      "display_name": "periodFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start of reporting period"
+    },
+    {
+      "display_name": "periodTo",
+      "type": "date",
+      "required": true,
+      "description": "End of reporting period"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

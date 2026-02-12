@@ -1,0 +1,42 @@
+{
+  "slug": "export-financial-statements",
+  "name": "Export Financial Statements",
+  "description": "Export P&L and balance sheet automatically from Xero.",
+  "type": "tool",
+  "file": "export-financial-statements.ts",
+  "app": "xero",
+  "inputSchema": [
+    {
+      "display_name": "statementType",
+      "type": "string",
+      "required": true,
+      "description": "Statement type (P&L, Balance Sheet)"
+    },
+    {
+      "display_name": "periodFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start of reporting period"
+    },
+    {
+      "display_name": "periodTo",
+      "type": "date",
+      "required": true,
+      "description": "End of reporting period"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported statement"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

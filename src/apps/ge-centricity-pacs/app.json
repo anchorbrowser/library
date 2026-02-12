@@ -1,0 +1,8 @@
+{
+  "id": "ge-centricity-pacs",
+  "name": "GE Centricity PACS",
+  "description": "GE Centricity PACS is an imaging archive and communication system.",
+  "allowedDomains": [
+    "gehealthcare.com"
+  ]
+}

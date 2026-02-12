@@ -1,0 +1,36 @@
+{
+  "slug": "export-customer-list",
+  "name": "Export Customer List",
+  "description": "Export customer list from NetSuite.",
+  "type": "tool",
+  "file": "export-customer-list.ts",
+  "app": "netsuite",
+  "inputSchema": [
+    {
+      "display_name": "subsidiary",
+      "type": "string",
+      "required": false,
+      "description": "Subsidiary filter"
+    },
+    {
+      "display_name": "status",
+      "type": "string",
+      "required": false,
+      "description": "Customer status filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported list"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

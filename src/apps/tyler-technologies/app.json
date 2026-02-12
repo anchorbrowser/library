@@ -1,0 +1,8 @@
+{
+  "id": "tyler-technologies",
+  "name": "Tyler Technologies",
+  "description": "Tyler Technologies provides court and justice management solutions for government.",
+  "allowedDomains": [
+    "tylertech.com"
+  ]
+}

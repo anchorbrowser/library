@@ -1,0 +1,8 @@
+{
+  "id": "express-scripts",
+  "name": "Express Scripts",
+  "description": "Express Scripts is a pharmacy benefits management portal.",
+  "allowedDomains": [
+    "express-scripts.com"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "sync-portal-messages",
+  "name": "Sync Portal Messages",
+  "description": "Sync patient portal messages to CRM from NextGen.",
+  "type": "tool",
+  "file": "sync-portal-messages.ts",
+  "app": "nextgen",
+  "inputSchema": [
+    {
+      "display_name": "crmTarget",
+      "type": "string",
+      "required": true,
+      "description": "Target CRM system identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "syncedCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of messages synced"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether sync completed"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "export-dashboard-pdf",
+  "name": "Export Dashboard as PDF",
+  "description": "Export dashboard as PDF from Datadog.",
+  "type": "tool",
+  "file": "export-dashboard-pdf.ts",
+  "app": "datadog",
+  "inputSchema": [
+    {
+      "display_name": "dashboardId",
+      "type": "string",
+      "required": true,
+      "description": "Dashboard ID"
+    },
+    {
+      "display_name": "timeRange",
+      "type": "string",
+      "required": false,
+      "description": "Time range (e.g., 1h, 1d)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported PDF"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

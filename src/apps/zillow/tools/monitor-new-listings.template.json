@@ -1,0 +1,42 @@
+{
+  "slug": "monitor-new-listings",
+  "name": "Monitor New Listings in Zip Code",
+  "description": "Monitor new listings in a zip code on Zillow.",
+  "type": "tool",
+  "file": "monitor-new-listings.ts",
+  "app": "zillow",
+  "inputSchema": [
+    {
+      "display_name": "zipCode",
+      "type": "string",
+      "required": true,
+      "description": "ZIP code to monitor"
+    },
+    {
+      "display_name": "priceMax",
+      "type": "string",
+      "required": false,
+      "description": "Maximum price filter"
+    },
+    {
+      "display_name": "propertyType",
+      "type": "string",
+      "required": false,
+      "description": "Property type filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "listings",
+      "type": "string",
+      "required": true,
+      "description": "New listings JSON"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether monitor completed"
+    }
+  ]
+}

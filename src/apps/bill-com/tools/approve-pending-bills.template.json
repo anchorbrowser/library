@@ -1,0 +1,36 @@
+{
+  "slug": "approve-pending-bills",
+  "name": "Approve Pending Bills",
+  "description": "Approve pending bills in Bill.com.",
+  "type": "tool",
+  "file": "approve-pending-bills.ts",
+  "app": "bill-com",
+  "inputSchema": [
+    {
+      "display_name": "billIds",
+      "type": "string",
+      "required": false,
+      "description": "Comma-separated bill IDs"
+    },
+    {
+      "display_name": "approveAll",
+      "type": "boolean",
+      "required": false,
+      "description": "Approve all pending"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "approvedCount",
+      "type": "string",
+      "required": true,
+      "description": "Number of bills approved"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether approval completed"
+    }
+  ]
+}

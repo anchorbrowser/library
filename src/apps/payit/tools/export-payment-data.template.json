@@ -1,0 +1,48 @@
+{
+  "slug": "export-payment-data",
+  "name": "Export Payment Data",
+  "description": "Export payment reconciliation data from PayIt.",
+  "type": "tool",
+  "file": "export-payment-data.ts",
+  "app": "payit",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "paymentType",
+      "type": "string",
+      "required": false,
+      "description": "Payment type filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported data"
+    },
+    {
+      "display_name": "transactionCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of transactions"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ]
+}

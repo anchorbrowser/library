@@ -1,0 +1,42 @@
+{
+  "slug": "extract-financial-reports",
+  "name": "Extract Financial Reports",
+  "description": "Extract financial reports via browser gateway from SAP GUI.",
+  "type": "tool",
+  "file": "extract-financial-reports.ts",
+  "app": "sap-gui",
+  "inputSchema": [
+    {
+      "display_name": "reportCode",
+      "type": "string",
+      "required": true,
+      "description": "SAP report transaction code"
+    },
+    {
+      "display_name": "companyCode",
+      "type": "string",
+      "required": true,
+      "description": "Company code"
+    },
+    {
+      "display_name": "fiscalYear",
+      "type": "string",
+      "required": true,
+      "description": "Fiscal year"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to extracted report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether extraction completed"
+    }
+  ]
+}

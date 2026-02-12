@@ -1,0 +1,8 @@
+{
+  "id": "sage-intacct",
+  "name": "Sage Intacct",
+  "description": "Sage Intacct is a cloud-based ERP and financial management platform.",
+  "allowedDomains": [
+    "intacct.com"
+  ]
+}

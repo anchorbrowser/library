@@ -1,0 +1,9 @@
+{
+  "id": "x-twitter",
+  "name": "X (Twitter)",
+  "description": "Automation templates for X (Twitter).",
+  "allowedDomains": [
+    "x.com",
+    "twitter.com"
+  ]
+}

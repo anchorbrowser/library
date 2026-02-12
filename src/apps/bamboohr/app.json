@@ -1,0 +1,6 @@
+{
+  "id": "bamboohr",
+  "name": "BambooHR",
+  "description": "BambooHR is a cloud-based HR software for small and medium businesses.",
+  "allowedDomains": ["bamboohr.com"]
+}

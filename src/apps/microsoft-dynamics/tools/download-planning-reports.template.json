@@ -1,0 +1,42 @@
+{
+  "slug": "download-planning-reports",
+  "name": "Download Planning Reports",
+  "description": "Download manufacturing planning reports from Microsoft Dynamics.",
+  "type": "tool",
+  "file": "download-planning-reports.ts",
+  "app": "microsoft-dynamics",
+  "inputSchema": [
+    {
+      "display_name": "reportType",
+      "type": "string",
+      "required": true,
+      "description": "Type of planning report"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

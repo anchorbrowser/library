@@ -1,0 +1,9 @@
+{
+  "id": "usps-informed-delivery",
+  "name": "USPS Informed Delivery",
+  "description": "Automation templates for USPS Informed Delivery.",
+  "allowedDomains": [
+    "usps.com",
+    "informeddelivery.usps.com"
+  ]
+}

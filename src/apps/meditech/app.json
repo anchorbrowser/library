@@ -1,0 +1,8 @@
+{
+  "id": "meditech",
+  "name": "Meditech",
+  "description": "Meditech is an integrated EHR platform for hospitals and health systems.",
+  "allowedDomains": [
+    "meditech.com"
+  ]
+}

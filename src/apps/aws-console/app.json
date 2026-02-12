@@ -1,0 +1,8 @@
+{
+  "id": "aws-console",
+  "name": "AWS Console",
+  "description": "AWS Management Console is the web interface for Amazon Web Services.",
+  "allowedDomains": [
+    "aws.amazon.com"
+  ]
+}

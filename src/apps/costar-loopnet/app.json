@@ -1,0 +1,9 @@
+{
+  "id": "costar-loopnet",
+  "name": "CoStar / LoopNet",
+  "description": "Automation templates for CoStar / LoopNet.",
+  "allowedDomains": [
+    "costar.com",
+    "loopnet.com"
+  ]
+}

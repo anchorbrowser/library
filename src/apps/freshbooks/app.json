@@ -1,0 +1,8 @@
+{
+  "id": "freshbooks",
+  "name": "FreshBooks",
+  "description": "FreshBooks is a cloud-based accounting and invoicing platform.",
+  "allowedDomains": [
+    "freshbooks.com"
+  ]
+}

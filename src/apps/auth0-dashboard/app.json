@@ -1,0 +1,8 @@
+{
+  "id": "auth0-dashboard",
+  "name": "Auth0 Dashboard",
+  "description": "Auth0 is an identity platform for application authentication and authorization.",
+  "allowedDomains": [
+    "auth0.com"
+  ]
+}

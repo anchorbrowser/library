@@ -1,0 +1,42 @@
+{
+  "slug": "download-analytics-csv",
+  "name": "Download Channel Analytics CSV",
+  "description": "Download channel analytics CSV from YouTube Studio.",
+  "type": "tool",
+  "file": "download-analytics-csv.ts",
+  "app": "youtube-studio",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "metrics",
+      "type": "string",
+      "required": false,
+      "description": "Metrics to include"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to analytics CSV"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ]
+}

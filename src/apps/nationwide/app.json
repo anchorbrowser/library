@@ -1,0 +1,8 @@
+{
+  "id": "nationwide",
+  "name": "Nationwide Portal",
+  "description": "Nationwide is an insurance and financial services portal.",
+  "allowedDomains": [
+    "nationwide.com"
+  ]
+}
