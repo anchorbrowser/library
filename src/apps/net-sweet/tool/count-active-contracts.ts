@@ -88,11 +88,7 @@ async function navigateToDataCenter(page: Page): Promise<void> {
   console.log('[STEP 1] Data Center page loaded');
 }
 
-async function countActiveContracts(page: Page): Promise<number> {
-  console.log('[STEP 2] Counting active contracts...');
-
-  await page.waitForTimeout(1000);
-
+async function countActiveOnCurrentPage(page: Page): Promise<number> {
   const count = await page.evaluate(() => {
     let activeCount = 0;
 
@@ -129,7 +125,6 @@ async function countActiveContracts(page: Page): Promise<number> {
     allElements.forEach((el) => {
       const text = el.textContent?.trim();
       if (text === 'Active' || text === 'active' || text === 'ACTIVE') {
-        // Verify it's a leaf node or small element (not a container)
         if (el.children.length === 0 || el.textContent!.length < 20) {
           activeCount++;
         }
@@ -139,8 +134,98 @@ async function countActiveContracts(page: Page): Promise<number> {
     return activeCount;
   });
 
-  console.log(`[STEP 2] Found ${count} active contracts`);
   return count;
+}
+
+async function hasNextPage(page: Page): Promise<boolean> {
+  const nextButtonSelectors = [
+    'button:has-text("Next")',
+    'a:has-text("Next")',
+    '[aria-label="Next page"]',
+    '[aria-label="Go to next page"]',
+    'button[aria-label*="next" i]',
+    '.pagination-next:not([disabled])',
+    '.next-page:not([disabled])',
+    'button:has(svg[class*="chevron-right"])',
+    'button:has(svg[class*="arrow-right"])',
+    '[data-testid="next-page"]',
+    'nav[aria-label="pagination"] button:last-child:not([disabled])',
+  ];
+
+  for (const selector of nextButtonSelectors) {
+    const btn = page.locator(selector).first();
+    if (await btn.isVisible({ timeout: 1000 }).catch(() => false)) {
+      const isDisabled = await btn.isDisabled().catch(() => true);
+      if (!isDisabled) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+async function clickNextPage(page: Page): Promise<boolean> {
+  const nextButtonSelectors = [
+    'button:has-text("Next")',
+    'a:has-text("Next")',
+    '[aria-label="Next page"]',
+    '[aria-label="Go to next page"]',
+    'button[aria-label*="next" i]',
+    '.pagination-next:not([disabled])',
+    '.next-page:not([disabled])',
+    'button:has(svg[class*="chevron-right"])',
+    'button:has(svg[class*="arrow-right"])',
+    '[data-testid="next-page"]',
+    'nav[aria-label="pagination"] button:last-child:not([disabled])',
+  ];
+
+  for (const selector of nextButtonSelectors) {
+    const btn = page.locator(selector).first();
+    if (await btn.isVisible({ timeout: 1000 }).catch(() => false)) {
+      const isDisabled = await btn.isDisabled().catch(() => true);
+      if (!isDisabled) {
+        await btn.click();
+        await page.waitForTimeout(1500);
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+async function countActiveContracts(page: Page): Promise<number> {
+  console.log('[STEP 2] Counting active contracts across all pages...');
+
+  await page.waitForTimeout(1000);
+
+  let totalCount = 0;
+  let currentPage = 1;
+  const maxPages = 50; // Safety limit
+
+  while (currentPage <= maxPages) {
+    const pageCount = await countActiveOnCurrentPage(page);
+    console.log(`[STEP 2] Page ${currentPage}: found ${pageCount} active contracts`);
+    totalCount += pageCount;
+
+    const hasMore = await hasNextPage(page);
+    if (!hasMore) {
+      console.log(`[STEP 2] No more pages after page ${currentPage}`);
+      break;
+    }
+
+    const clicked = await clickNextPage(page);
+    if (!clicked) {
+      console.log(`[STEP 2] Could not click next page button`);
+      break;
+    }
+
+    currentPage++;
+  }
+
+  console.log(`[STEP 2] Total active contracts across ${currentPage} pages: ${totalCount}`);
+  return totalCount;
 }
 
 export default async function CountActiveContracts() {
