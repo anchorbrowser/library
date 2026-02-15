@@ -1,0 +1,38 @@
+{
+  "slug": "like-my-first-post",
+  "name": "Like My First Post",
+  "description": "Navigate to a LinkedIn profile and like their first post. Requires an authenticated LinkedIn identity.",
+  "type": "tool",
+  "file": "like-my-first-post.ts",
+  "app": "linkedin",
+  "inputSchema": [
+    {
+      "displayName": "profileUrl",
+      "type": "string",
+      "required": true,
+      "description": "The LinkedIn profile URL to visit (e.g., https://www.linkedin.com/in/username)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "displayName": "postLiked",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the post was successfully liked"
+    },
+    {
+      "displayName": "postTitle",
+      "type": "string",
+      "required": false,
+      "description": "Brief description or first few words of the post that was liked"
+    },
+    {
+      "displayName": "alreadyLiked",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the post was already liked before this action"
+    }
+  ],
+  "requiredCredentials": [],
+  "optionalCredentials": []
+}

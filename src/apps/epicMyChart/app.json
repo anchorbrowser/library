@@ -1,0 +1,6 @@
+{
+    "id": "epicMyChart",
+    "name": "Epic MyChart",
+    "description": "Epic MyChart is a healthcare platform.",
+    "allowedDomains": ["mychart.org"]
+}
