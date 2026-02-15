@@ -129,41 +129,83 @@ async function navigateToReports(page: Page): Promise<void> {
   console.log('[STEP 1] Navigating to Reports page...');
 
   await page.goto('https://netsweet.co/reports', {
-    waitUntil: 'domcontentloaded',
+    waitUntil: 'networkidle',
     timeout: getConfig().timeoutMs,
   });
 
-  await page.waitForTimeout(2000);
+  // Wait for React to render the content
+  await page.waitForTimeout(3000);
+
+  // Try to wait for actual content indicators
+  try {
+    await page.waitForSelector('h1, h2, [data-testid*="report"], a[href*="/reports/rpt-"]', { timeout: 5000 });
+  } catch {
+    // Content may already be loaded, continue
+  }
+
   console.log('[STEP 1] Reports page loaded');
 }
 
 async function extractReportsFromPage(page: Page): Promise<ReportInfo[]> {
   console.log('[STEP 2] Extracting reports from page...');
 
-  // Wait for reports to load
+  // Wait for the reports table to actually render (React SPA)
+  try {
+    await page.waitForSelector('a[href*="/reports/rpt-"]', { timeout: 10000 });
+    console.log('[STEP 2] Report links detected in DOM');
+  } catch {
+    console.log('[STEP 2] No report links found after waiting, checking table structure...');
+  }
+
+  // Additional wait for React to fully render
   await page.waitForTimeout(1000);
 
   const reports = await page.evaluate(() => {
-    const reportElements = document.querySelectorAll('[data-report-id], [data-testid*="report"], .report-item, .report-row, tr[data-id], a[href*="/reports/rpt-"]');
-    const results: ReportInfo[] = [];
+    const results: { id: string; name: string; type: string; url: string }[] = [];
 
-    reportElements.forEach((el: Element) => {
-      const link = el.querySelector('a[href*="/reports/"]') || (el.tagName === 'A' ? el : null);
-      const href = link?.getAttribute('href') || '';
+    // Strategy 1: Find all links to report detail pages
+    const reportLinks = document.querySelectorAll('a[href*="/reports/rpt-"]');
+    console.log(`[DEBUG] Found ${reportLinks.length} report links`);
 
-      // Extract report ID from URL
+    reportLinks.forEach((link) => {
+      const href = link.getAttribute('href') || '';
       const idMatch = href.match(/\/reports\/(rpt-\d+)/);
-      const id = idMatch?.[1] || el.getAttribute('data-report-id') || el.getAttribute('data-id') || '';
-
+      const id = idMatch?.[1] || '';
       if (!id) return;
 
-      // Try to find report name
-      const nameEl = el.querySelector('.report-name, [data-testid="report-name"], .name, h3, h4, td:first-child');
-      const name = nameEl?.textContent?.trim() || el.textContent?.trim().split('\n')[0] || id;
+      // Walk up to find the row/container
+      let container: Element | null = link;
+      for (let i = 0; i < 5 && container; i++) {
+        if (
+          container.tagName === 'TR' ||
+          container.classList.contains('report-row') ||
+          container.getAttribute('role') === 'row'
+        ) {
+          break;
+        }
+        container = container.parentElement;
+      }
 
-      // Try to find report type
-      const typeEl = el.querySelector('.report-type, [data-testid="report-type"], .type, .badge, td:nth-child(2)');
-      const type = typeEl?.textContent?.trim().toLowerCase() || el.getAttribute('data-type')?.toLowerCase() || 'unknown';
+      // Get name from link text or first text content
+      const name = link.textContent?.trim() || id;
+
+      // Try to find type in the container
+      let type = 'unknown';
+      if (container) {
+        // Look for cells or spans that might contain the type
+        const cells = container.querySelectorAll('td, [role="cell"], span, div');
+        cells.forEach((cell) => {
+          const text = cell.textContent?.trim().toLowerCase() || '';
+          // Common report types
+          const knownTypes = ['hr', 'financial', 'operations', 'marketing', 'client services', 'technology'];
+          for (const kt of knownTypes) {
+            if (text === kt || text.includes(kt)) {
+              type = kt;
+              return;
+            }
+          }
+        });
+      }
 
       results.push({
         id,
@@ -172,6 +214,32 @@ async function extractReportsFromPage(page: Page): Promise<ReportInfo[]> {
         url: href.startsWith('http') ? href : `https://netsweet.co${href}`,
       });
     });
+
+    // Strategy 2: If no links found, try table rows
+    if (results.length === 0) {
+      console.log('[DEBUG] Trying table row strategy');
+      const rows = document.querySelectorAll('table tbody tr, [role="row"]');
+      rows.forEach((row) => {
+        const link = row.querySelector('a[href*="/reports"]');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+        const idMatch = href.match(/\/reports\/(rpt-\d+)/);
+        const id = idMatch?.[1] || '';
+        if (!id) return;
+
+        const cells = row.querySelectorAll('td, [role="cell"]');
+        const name = cells[0]?.textContent?.trim() || id;
+        const type = cells[2]?.textContent?.trim().toLowerCase() || 'unknown';
+
+        results.push({
+          id,
+          name: name.substring(0, 100),
+          type,
+          url: href.startsWith('http') ? href : `https://netsweet.co${href}`,
+        });
+      });
+    }
 
     return results;
   });
@@ -183,6 +251,9 @@ async function extractReportsFromPage(page: Page): Promise<ReportInfo[]> {
   }, []);
 
   console.log(`[STEP 2] Found ${uniqueReports.length} reports on page`);
+  if (uniqueReports.length > 0) {
+    console.log('[STEP 2] Report types found:', [...new Set(uniqueReports.map((r: ReportInfo) => r.type))].join(', '));
+  }
   return uniqueReports;
 }
 
