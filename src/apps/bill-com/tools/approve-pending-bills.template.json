@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether approval completed"
     }
+  ],
+  "tags": [
+    "finance",
+    "payments"
   ]
 }

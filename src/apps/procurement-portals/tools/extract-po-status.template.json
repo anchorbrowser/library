@@ -44,5 +44,9 @@
       "required": true,
       "description": "Whether extraction completed"
     }
+  ],
+  "tags": [
+    "government",
+    "procurement"
   ]
 }

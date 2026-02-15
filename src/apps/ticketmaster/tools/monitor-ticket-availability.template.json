@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether monitor completed"
     }
+  ],
+  "tags": [
+    "travel",
+    "events",
+    "monitoring"
   ]
 }

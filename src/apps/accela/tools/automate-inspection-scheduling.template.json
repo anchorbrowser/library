@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether scheduling completed"
     }
+  ],
+  "tags": [
+    "government",
+    "permits",
+    "automation"
   ]
 }

@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether updates completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "automation"
   ]
 }

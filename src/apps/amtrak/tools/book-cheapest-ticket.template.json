@@ -50,5 +50,9 @@
       "required": true,
       "description": "Whether booking succeeded"
     }
+  ],
+  "tags": [
+    "travel",
+    "rail"
   ]
 }

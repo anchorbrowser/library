@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether extraction completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "reporting"
   ]
 }

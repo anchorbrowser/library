@@ -32,5 +32,10 @@
       "required": true,
       "description": "Whether export completed"
     }
+  ],
+  "tags": [
+    "ecommerce",
+    "marketplace",
+    "export"
   ]
 }

@@ -32,5 +32,10 @@
       "required": true,
       "description": "Whether submission succeeded"
     }
+  ],
+  "tags": [
+    "finance",
+    "expenses",
+    "submission"
   ]
 }

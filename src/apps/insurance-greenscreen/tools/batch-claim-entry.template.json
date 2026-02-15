@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether batch entry completed"
     }
+  ],
+  "tags": [
+    "insurance",
+    "legacy"
   ]
 }

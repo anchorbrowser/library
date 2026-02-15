@@ -44,5 +44,9 @@
       "required": true,
       "description": "Whether scraping completed"
     }
+  ],
+  "tags": [
+    "legacy",
+    "mainframe"
   ]
 }

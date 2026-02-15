@@ -44,5 +44,9 @@
       "required": true,
       "description": "Whether retrieval completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "pharmacy"
   ]
 }

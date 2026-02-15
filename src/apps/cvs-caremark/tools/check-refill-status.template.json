@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether check completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "pharmacy"
   ]
 }

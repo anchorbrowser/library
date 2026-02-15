@@ -32,5 +32,10 @@
       "required": true,
       "description": "Whether monitor completed"
     }
+  ],
+  "tags": [
+    "social-media",
+    "community",
+    "monitoring"
   ]
 }

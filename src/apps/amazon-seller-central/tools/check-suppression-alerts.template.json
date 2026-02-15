@@ -25,5 +25,9 @@
       "required": true,
       "description": "Whether check completed"
     }
+  ],
+  "tags": [
+    "ecommerce",
+    "marketplace"
   ]
 }

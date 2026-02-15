@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether fetch completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "patient-portal"
   ]
 }

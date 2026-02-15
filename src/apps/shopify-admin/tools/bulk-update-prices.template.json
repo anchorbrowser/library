@@ -26,5 +26,10 @@
       "required": true,
       "description": "Whether update completed"
     }
+  ],
+  "tags": [
+    "ecommerce",
+    "retail",
+    "automation"
   ]
 }

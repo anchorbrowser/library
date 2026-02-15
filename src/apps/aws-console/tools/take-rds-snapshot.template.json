@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether snapshot was created"
     }
+  ],
+  "tags": [
+    "cloud",
+    "devops"
   ]
 }

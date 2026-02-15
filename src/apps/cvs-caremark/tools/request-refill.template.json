@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether refill was requested"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "pharmacy"
   ]
 }

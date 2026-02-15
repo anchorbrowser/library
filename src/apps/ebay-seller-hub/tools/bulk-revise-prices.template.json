@@ -26,5 +26,10 @@
       "required": true,
       "description": "Whether revision completed"
     }
+  ],
+  "tags": [
+    "ecommerce",
+    "marketplace",
+    "automation"
   ]
 }

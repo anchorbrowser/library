@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether sync completed"
     }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr"
   ]
 }

@@ -19,5 +19,10 @@
       "required": true,
       "description": "Whether export completed"
     }
+  ],
+  "tags": [
+    "social-media",
+    "professional",
+    "export"
   ]
 }

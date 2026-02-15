@@ -19,5 +19,9 @@
       "required": true,
       "description": "Whether pull completed"
     }
+  ],
+  "tags": [
+    "government",
+    "benefits"
   ]
 }

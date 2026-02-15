@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether pull completed"
     }
+  ],
+  "tags": [
+    "real-estate",
+    "property-management"
   ]
 }

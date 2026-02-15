@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether submission succeeded"
     }
+  ],
+  "tags": [
+    "itsm",
+    "enterprise",
+    "submission"
   ]
 }

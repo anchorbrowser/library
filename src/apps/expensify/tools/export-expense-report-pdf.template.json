@@ -26,5 +26,10 @@
       "required": true,
       "description": "Whether export completed"
     }
+  ],
+  "tags": [
+    "finance",
+    "expenses",
+    "export"
   ]
 }

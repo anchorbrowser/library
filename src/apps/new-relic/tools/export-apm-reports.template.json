@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether export completed"
     }
+  ],
+  "tags": [
+    "monitoring",
+    "devops",
+    "export"
   ]
 }

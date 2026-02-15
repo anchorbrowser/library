@@ -26,5 +26,10 @@
       "required": true,
       "description": "Whether download completed"
     }
+  ],
+  "tags": [
+    "finance",
+    "banking",
+    "export"
   ]
 }

@@ -44,5 +44,10 @@
       "required": true,
       "description": "Whether download completed"
     }
+  ],
+  "tags": [
+    "monitoring",
+    "incidents",
+    "export"
   ]
 }

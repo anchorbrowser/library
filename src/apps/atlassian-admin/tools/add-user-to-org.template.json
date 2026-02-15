@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether user was added"
     }
+  ],
+  "tags": [
+    "collaboration",
+    "admin"
   ]
 }

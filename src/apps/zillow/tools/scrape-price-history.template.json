@@ -26,5 +26,9 @@
       "required": true,
       "description": "Whether scrape completed"
     }
+  ],
+  "tags": [
+    "real-estate",
+    "listings"
   ]
 }

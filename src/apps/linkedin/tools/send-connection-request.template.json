@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether operation completed"
     }
+  ],
+  "tags": [
+    "social-media",
+    "professional"
   ]
 }

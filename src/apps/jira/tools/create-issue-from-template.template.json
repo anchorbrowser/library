@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether creation succeeded"
     }
+  ],
+  "tags": [
+    "developer",
+    "project-management",
+    "submission"
   ]
 }

@@ -32,5 +32,9 @@
       "required": true,
       "description": "Whether tracking completed"
     }
+  ],
+  "tags": [
+    "insurance",
+    "auto"
   ]
 }

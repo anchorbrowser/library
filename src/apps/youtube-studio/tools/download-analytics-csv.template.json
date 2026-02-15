@@ -38,5 +38,10 @@
       "required": true,
       "description": "Whether download completed"
     }
+  ],
+  "tags": [
+    "social-media",
+    "video",
+    "export"
   ]
 }

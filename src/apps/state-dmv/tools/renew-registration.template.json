@@ -38,5 +38,9 @@
       "required": true,
       "description": "Whether renewal succeeded"
     }
+  ],
+  "tags": [
+    "government",
+    "dmv"
   ]
 }

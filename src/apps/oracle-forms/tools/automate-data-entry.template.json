@@ -32,5 +32,10 @@
       "required": true,
       "description": "Whether data entry completed"
     }
+  ],
+  "tags": [
+    "finance",
+    "erp",
+    "automation"
   ]
 }

@@ -44,5 +44,10 @@
       "required": true,
       "description": "Whether download completed"
     }
+  ],
+  "tags": [
+    "government",
+    "courts",
+    "export"
   ]
 }

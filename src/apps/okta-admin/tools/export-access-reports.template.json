@@ -44,5 +44,10 @@
       "required": true,
       "description": "Whether export completed"
     }
+  ],
+  "tags": [
+    "security",
+    "identity",
+    "export"
   ]
 }

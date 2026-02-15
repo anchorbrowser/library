@@ -50,5 +50,10 @@
       "required": true,
       "description": "Whether monitor completed"
     }
+  ],
+  "tags": [
+    "travel",
+    "airlines",
+    "monitoring"
   ]
 }

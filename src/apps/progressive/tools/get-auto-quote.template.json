@@ -44,5 +44,9 @@
       "required": true,
       "description": "Whether quote was retrieved"
     }
+  ],
+  "tags": [
+    "insurance",
+    "auto"
   ]
 }
