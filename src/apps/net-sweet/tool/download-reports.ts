@@ -149,62 +149,109 @@ async function navigateToReports(page: Page): Promise<void> {
 async function extractReportsFromPage(page: Page): Promise<ReportInfo[]> {
   console.log('[STEP 2] Extracting reports from page...');
 
-  // Wait for the reports table to actually render (React SPA)
-  try {
-    await page.waitForSelector('a[href*="/reports/rpt-"]', { timeout: 10000 });
-    console.log('[STEP 2] Report links detected in DOM');
-  } catch {
-    console.log('[STEP 2] No report links found after waiting, checking table structure...');
+  // Debug: log current URL and page title
+  const currentUrl = page.url();
+  const title = await page.title();
+  console.log(`[DEBUG] Current URL: ${currentUrl}`);
+  console.log(`[DEBUG] Page title: ${title}`);
+
+  // Wait for the page content to load - try multiple selectors
+  const contentSelectors = [
+    'a[href*="/reports/rpt-"]',
+    'table',
+    '[class*="report"]',
+    '[data-testid*="report"]',
+    'main table',
+    'main tbody tr',
+  ];
+
+  let foundSelector = '';
+  for (const selector of contentSelectors) {
+    try {
+      await page.waitForSelector(selector, { timeout: 3000 });
+      foundSelector = selector;
+      console.log(`[DEBUG] Found content with selector: ${selector}`);
+      break;
+    } catch {
+      // Try next selector
+    }
+  }
+
+  if (!foundSelector) {
+    console.log('[DEBUG] No expected content selectors found, will try generic extraction');
   }
 
   // Additional wait for React to fully render
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(2000);
+
+  // Debug: dump page structure
+  const debugInfo = await page.evaluate(() => {
+    const info: string[] = [];
+    info.push(`All links on page: ${document.querySelectorAll('a').length}`);
+    info.push(`Links with href containing "report": ${document.querySelectorAll('a[href*="report"]').length}`);
+    info.push(`Tables: ${document.querySelectorAll('table').length}`);
+    info.push(`Table rows: ${document.querySelectorAll('tr').length}`);
+
+    // Sample some links
+    const allLinks = document.querySelectorAll('a');
+    const sampleLinks: string[] = [];
+    allLinks.forEach((a, i) => {
+      if (i < 10) {
+        sampleLinks.push(`${a.textContent?.trim().substring(0, 30)} -> ${a.getAttribute('href')}`);
+      }
+    });
+    info.push(`Sample links: ${sampleLinks.join(' | ')}`);
+
+    // Check for any elements with "report" in class or id
+    const reportElements = document.querySelectorAll('[class*="report" i], [id*="report" i]');
+    info.push(`Elements with "report" in class/id: ${reportElements.length}`);
+
+    return info;
+  });
+
+  debugInfo.forEach((line: string) => console.log(`[DEBUG] ${line}`));
 
   const reports = await page.evaluate(() => {
     const results: { id: string; name: string; type: string; url: string }[] = [];
+    const knownTypes = ['hr', 'financial', 'operations', 'marketing', 'client services', 'technology'];
 
-    // Strategy 1: Find all links to report detail pages
-    const reportLinks = document.querySelectorAll('a[href*="/reports/rpt-"]');
-    console.log(`[DEBUG] Found ${reportLinks.length} report links`);
-
-    reportLinks.forEach((link) => {
+    // Strategy 1: Find all links that might be reports
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach((link) => {
       const href = link.getAttribute('href') || '';
-      const idMatch = href.match(/\/reports\/(rpt-\d+)/);
-      const id = idMatch?.[1] || '';
-      if (!id) return;
 
-      // Walk up to find the row/container
+      // Check if it's a report link
+      const idMatch = href.match(/\/reports\/(rpt-\d+)/);
+      if (!idMatch || !idMatch[1]) return;
+
+      const id = idMatch[1];
+      const name = link.textContent?.trim() || id;
+
+      // Walk up to find row/container for type
       let container: Element | null = link;
-      for (let i = 0; i < 5 && container; i++) {
-        if (
-          container.tagName === 'TR' ||
-          container.classList.contains('report-row') ||
-          container.getAttribute('role') === 'row'
-        ) {
+      for (let i = 0; i < 10 && container; i++) {
+        const tag = container.tagName;
+        if (tag === 'TR' || tag === 'LI' || container.getAttribute('role') === 'row') {
+          break;
+        }
+        // Also check for div that looks like a row
+        if (tag === 'DIV' && container.children.length >= 3) {
           break;
         }
         container = container.parentElement;
       }
 
-      // Get name from link text or first text content
-      const name = link.textContent?.trim() || id;
-
-      // Try to find type in the container
       let type = 'unknown';
-      if (container) {
-        // Look for cells or spans that might contain the type
-        const cells = container.querySelectorAll('td, [role="cell"], span, div');
-        cells.forEach((cell) => {
-          const text = cell.textContent?.trim().toLowerCase() || '';
-          // Common report types
-          const knownTypes = ['hr', 'financial', 'operations', 'marketing', 'client services', 'technology'];
-          for (const kt of knownTypes) {
-            if (text === kt || text.includes(kt)) {
-              type = kt;
-              return;
-            }
+      if (container && container !== link) {
+        const containerText = container.textContent?.toLowerCase() || '';
+        for (const kt of knownTypes) {
+          // Match whole word or as part of compound
+          const regex = new RegExp(`\\b${kt}\\b`);
+          if (regex.test(containerText)) {
+            type = kt;
+            break;
           }
-        });
+        }
       }
 
       results.push({
@@ -215,29 +262,42 @@ async function extractReportsFromPage(page: Page): Promise<ReportInfo[]> {
       });
     });
 
-    // Strategy 2: If no links found, try table rows
+    // Strategy 2: If no links found, look for table rows with report-like content
     if (results.length === 0) {
-      console.log('[DEBUG] Trying table row strategy');
-      const rows = document.querySelectorAll('table tbody tr, [role="row"]');
-      rows.forEach((row) => {
-        const link = row.querySelector('a[href*="/reports"]');
-        if (!link) return;
+      const rows = document.querySelectorAll('table tr, [role="row"]');
+      rows.forEach((row, index) => {
+        if (index === 0) return; // Skip header row
 
-        const href = link.getAttribute('href') || '';
-        const idMatch = href.match(/\/reports\/(rpt-\d+)/);
-        const id = idMatch?.[1] || '';
-        if (!id) return;
+        const cells = row.querySelectorAll('td, [role="cell"], > div');
+        if (cells.length < 2) return;
 
-        const cells = row.querySelectorAll('td, [role="cell"]');
-        const name = cells[0]?.textContent?.trim() || id;
-        const type = cells[2]?.textContent?.trim().toLowerCase() || 'unknown';
+        const firstCellText = cells[0]?.textContent?.trim() || '';
+        const link = row.querySelector('a');
+        const href = link?.getAttribute('href') || '';
 
-        results.push({
-          id,
-          name: name.substring(0, 100),
-          type,
-          url: href.startsWith('http') ? href : `https://netsweet.co${href}`,
-        });
+        // Generate an ID if we can't find one
+        const idMatch = href.match(/\/(rpt-\d+)/);
+        const id = idMatch?.[1] || `row-${index}`;
+
+        // Find type from cells
+        let type = 'unknown';
+        const rowText = row.textContent?.toLowerCase() || '';
+        for (const kt of knownTypes) {
+          const regex = new RegExp(`\\b${kt}\\b`);
+          if (regex.test(rowText)) {
+            type = kt;
+            break;
+          }
+        }
+
+        if (firstCellText && firstCellText.length > 2) {
+          results.push({
+            id,
+            name: firstCellText.substring(0, 100),
+            type,
+            url: href.startsWith('http') ? href : href ? `https://netsweet.co${href}` : '',
+          });
+        }
       });
     }
 
