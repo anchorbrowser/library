@@ -1,0 +1,9 @@
+{
+  "id": "citigroup",
+  "name": "Citigroup",
+  "description": "Automation templates for Citigroup.",
+  "allowedDomains": [
+    "citi.com",
+    "online.citi.com"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "pull-benefit-letter",
+  "name": "Pull Benefit Verification Letter",
+  "description": "Pull benefit verification letter from MySSA.",
+  "type": "tool",
+  "file": "pull-benefit-letter.ts",
+  "app": "myssa",
+  "inputSchema": [],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to benefit letter"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ],
+  "tags": [
+    "government",
+    "benefits"
+  ]
+}

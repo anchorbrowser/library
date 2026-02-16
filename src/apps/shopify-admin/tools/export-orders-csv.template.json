@@ -1,0 +1,47 @@
+{
+  "slug": "export-orders-csv",
+  "name": "Export Orders to CSV",
+  "description": "Export orders to CSV from Shopify Admin.",
+  "type": "tool",
+  "file": "export-orders-csv.ts",
+  "app": "shopify-admin",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "status",
+      "type": "string",
+      "required": false,
+      "description": "Order status filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to orders CSV"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "ecommerce",
+    "retail",
+    "export"
+  ]
+}

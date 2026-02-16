@@ -1,0 +1,52 @@
+{
+  "slug": "book-appointment",
+  "name": "Book Next Available Appointment",
+  "description": "Book the next available appointment in Epic MyChart.",
+  "type": "tool",
+  "file": "book-appointment.ts",
+  "app": "epic-mychart",
+  "inputSchema": [
+    {
+      "display_name": "provider",
+      "type": "string",
+      "required": false,
+      "description": "Provider name or specialty"
+    },
+    {
+      "display_name": "appointmentType",
+      "type": "string",
+      "required": true,
+      "description": "Type of appointment"
+    },
+    {
+      "display_name": "preferredDate",
+      "type": "date",
+      "required": false,
+      "description": "Preferred date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "appointmentId",
+      "type": "string",
+      "required": true,
+      "description": "Booked appointment ID"
+    },
+    {
+      "display_name": "appointmentDate",
+      "type": "date",
+      "required": true,
+      "description": "Scheduled date"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether booking succeeded"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr"
+  ]
+}

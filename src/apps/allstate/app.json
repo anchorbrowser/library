@@ -1,0 +1,8 @@
+{
+  "id": "allstate",
+  "name": "Allstate",
+  "description": "Allstate is an insurance portal for policy and claims management.",
+  "allowedDomains": [
+    "allstate.com"
+  ]
+}

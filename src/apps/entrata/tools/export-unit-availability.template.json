@@ -1,0 +1,41 @@
+{
+  "slug": "export-unit-availability",
+  "name": "Export Unit Availability Report",
+  "description": "Export unit availability report from Entrata.",
+  "type": "tool",
+  "file": "export-unit-availability.ts",
+  "app": "entrata",
+  "inputSchema": [
+    {
+      "display_name": "propertyId",
+      "type": "string",
+      "required": true,
+      "description": "Property ID"
+    },
+    {
+      "display_name": "availableFrom",
+      "type": "date",
+      "required": false,
+      "description": "Available from date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to availability report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "real-estate",
+    "property-management",
+    "export"
+  ]
+}

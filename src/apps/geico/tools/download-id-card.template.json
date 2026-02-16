@@ -1,0 +1,35 @@
+{
+  "slug": "download-id-card",
+  "name": "Download ID Card PDF",
+  "description": "Download ID card PDF from GEICO.",
+  "type": "tool",
+  "file": "download-id-card.ts",
+  "app": "geico",
+  "inputSchema": [
+    {
+      "display_name": "policyNumber",
+      "type": "string",
+      "required": true,
+      "description": "Policy number"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to ID card PDF"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "insurance",
+    "auto",
+    "export"
+  ]
+}

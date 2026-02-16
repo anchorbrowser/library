@@ -1,0 +1,35 @@
+{
+  "slug": "download-claim-status-pdf",
+  "name": "Download Claim Status PDF",
+  "description": "Download claim status PDF from Nationwide.",
+  "type": "tool",
+  "file": "download-claim-status-pdf.ts",
+  "app": "nationwide",
+  "inputSchema": [
+    {
+      "display_name": "claimId",
+      "type": "string",
+      "required": true,
+      "description": "Claim ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to claim status PDF"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "insurance",
+    "auto",
+    "export"
+  ]
+}

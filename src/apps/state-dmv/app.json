@@ -1,0 +1,9 @@
+{
+  "id": "state-dmv",
+  "name": "State DMV Portals",
+  "description": "Automation templates for State DMV Portals.",
+  "allowedDomains": [
+    "*.gov",
+    "dmv.*.gov"
+  ]
+}

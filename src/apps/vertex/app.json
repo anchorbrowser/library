@@ -1,0 +1,8 @@
+{
+  "id": "vertex",
+  "name": "Vertex",
+  "description": "Vertex is an enterprise tax technology and compliance platform.",
+  "allowedDomains": [
+    "vertexinc.com"
+  ]
+}

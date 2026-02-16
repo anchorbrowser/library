@@ -1,0 +1,41 @@
+{
+  "slug": "export-sold-items",
+  "name": "Export Sold Items Report",
+  "description": "Export sold items report from eBay Seller Hub.",
+  "type": "tool",
+  "file": "export-sold-items.ts",
+  "app": "ebay-seller-hub",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to sold items report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "ecommerce",
+    "marketplace",
+    "export"
+  ]
+}

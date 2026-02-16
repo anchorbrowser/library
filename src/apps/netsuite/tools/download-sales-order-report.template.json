@@ -1,0 +1,47 @@
+{
+  "slug": "download-sales-order-report",
+  "name": "Download Sales Order Report",
+  "description": "Download sales order report from NetSuite.",
+  "type": "tool",
+  "file": "download-sales-order-report.ts",
+  "app": "netsuite",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "status",
+      "type": "string",
+      "required": false,
+      "description": "Order status filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "erp",
+    "export"
+  ]
+}

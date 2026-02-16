@@ -1,0 +1,46 @@
+{
+  "slug": "extract-audit-docs",
+  "name": "Extract Audit Docs",
+  "description": "Extract audit documentation from Vertex.",
+  "type": "tool",
+  "file": "extract-audit-docs.ts",
+  "app": "vertex",
+  "inputSchema": [
+    {
+      "display_name": "auditPeriod",
+      "type": "string",
+      "required": true,
+      "description": "Audit period identifier"
+    },
+    {
+      "display_name": "documentType",
+      "type": "string",
+      "required": false,
+      "description": "Document type filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to extracted docs"
+    },
+    {
+      "display_name": "documentCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of documents extracted"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether extraction completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "tax"
+  ]
+}

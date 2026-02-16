@@ -1,0 +1,40 @@
+{
+  "slug": "add-user-to-org",
+  "name": "Add User to Organization",
+  "description": "Add a user to organization in Atlassian Admin.",
+  "type": "tool",
+  "file": "add-user-to-org.ts",
+  "app": "atlassian-admin",
+  "inputSchema": [
+    {
+      "display_name": "email",
+      "type": "string",
+      "required": true,
+      "description": "User email"
+    },
+    {
+      "display_name": "productAccess",
+      "type": "string",
+      "required": false,
+      "description": "Product access to grant"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "userId",
+      "type": "string",
+      "required": true,
+      "description": "Added user ID"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether user was added"
+    }
+  ],
+  "tags": [
+    "collaboration",
+    "admin"
+  ]
+}

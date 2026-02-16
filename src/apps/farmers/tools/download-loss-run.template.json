@@ -1,0 +1,47 @@
+{
+  "slug": "download-loss-run",
+  "name": "Download Loss Run Report",
+  "description": "Download loss run report from Farmers Insurance.",
+  "type": "tool",
+  "file": "download-loss-run.ts",
+  "app": "farmers",
+  "inputSchema": [
+    {
+      "display_name": "policyNumber",
+      "type": "string",
+      "required": true,
+      "description": "Policy number"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to loss run report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "insurance",
+    "auto",
+    "export"
+  ]
+}

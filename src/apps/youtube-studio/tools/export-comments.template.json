@@ -1,0 +1,35 @@
+{
+  "slug": "export-comments",
+  "name": "Export Comments List",
+  "description": "Export comments list from YouTube Studio.",
+  "type": "tool",
+  "file": "export-comments.ts",
+  "app": "youtube-studio",
+  "inputSchema": [
+    {
+      "display_name": "videoId",
+      "type": "string",
+      "required": true,
+      "description": "Video ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to comments export"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "social-media",
+    "video",
+    "export"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "export-followers",
+  "name": "Export Followers List",
+  "description": "Export followers list from X (Twitter).",
+  "type": "tool",
+  "file": "export-followers.ts",
+  "app": "x-twitter",
+  "inputSchema": [
+    {
+      "display_name": "username",
+      "type": "string",
+      "required": true,
+      "description": "Account username"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to followers list"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "social-media",
+    "marketing",
+    "export"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "pull-rent-roll",
+  "name": "Pull Rent Roll Report",
+  "description": "Pull rent roll report from Yardi Voyager.",
+  "type": "tool",
+  "file": "pull-rent-roll.ts",
+  "app": "yardi-voyager",
+  "inputSchema": [
+    {
+      "display_name": "propertyId",
+      "type": "string",
+      "required": true,
+      "description": "Property ID"
+    },
+    {
+      "display_name": "asOfDate",
+      "type": "date",
+      "required": false,
+      "description": "Report as-of date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to rent roll report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ],
+  "tags": [
+    "real-estate",
+    "property-management",
+    "reporting"
+  ]
+}

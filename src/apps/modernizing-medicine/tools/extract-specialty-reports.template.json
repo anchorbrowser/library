@@ -1,0 +1,47 @@
+{
+  "slug": "extract-specialty-reports",
+  "name": "Extract Specialty Reports",
+  "description": "Extract specialty workflow reports from Modernizing Medicine.",
+  "type": "tool",
+  "file": "extract-specialty-reports.ts",
+  "app": "modernizing-medicine",
+  "inputSchema": [
+    {
+      "display_name": "specialty",
+      "type": "string",
+      "required": true,
+      "description": "Medical specialty"
+    },
+    {
+      "display_name": "reportType",
+      "type": "string",
+      "required": true,
+      "description": "Type of report to extract"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to extracted report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether extraction completed"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "reporting"
+  ]
+}

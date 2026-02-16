@@ -1,0 +1,41 @@
+{
+  "slug": "export-maintenance-requests",
+  "name": "Export Maintenance Requests",
+  "description": "Export maintenance requests from AppFolio.",
+  "type": "tool",
+  "file": "export-maintenance-requests.ts",
+  "app": "appfolio",
+  "inputSchema": [
+    {
+      "display_name": "propertyId",
+      "type": "string",
+      "required": false,
+      "description": "Property filter"
+    },
+    {
+      "display_name": "status",
+      "type": "string",
+      "required": false,
+      "description": "Status filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to maintenance requests"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "real-estate",
+    "property-management",
+    "export"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "export-pipeline-history",
+  "name": "Export Pipeline History",
+  "description": "Export pipeline execution history from GitLab.",
+  "type": "tool",
+  "file": "export-pipeline-history.ts",
+  "app": "gitlab",
+  "inputSchema": [
+    {
+      "display_name": "projectId",
+      "type": "string",
+      "required": true,
+      "description": "GitLab project ID"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported history"
+    },
+    {
+      "display_name": "pipelineCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of pipelines exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "developer",
+    "source-control",
+    "export"
+  ]
+}

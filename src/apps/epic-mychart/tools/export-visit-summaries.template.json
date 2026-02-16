@@ -1,0 +1,53 @@
+{
+  "slug": "export-visit-summaries",
+  "name": "Export Visit Summaries",
+  "description": "Export visit summaries for external analytics from Epic MyChart.",
+  "type": "tool",
+  "file": "export-visit-summaries.ts",
+  "app": "epic-mychart",
+  "inputSchema": [
+    {
+      "display_name": "patientId",
+      "type": "string",
+      "required": true,
+      "description": "Patient identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported summaries"
+    },
+    {
+      "display_name": "visitCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of visits exported"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "export"
+  ]
+}

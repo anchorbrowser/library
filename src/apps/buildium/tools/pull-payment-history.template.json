@@ -1,0 +1,46 @@
+{
+  "slug": "pull-payment-history",
+  "name": "Pull Tenant Payment History",
+  "description": "Pull tenant payment history from Buildium.",
+  "type": "tool",
+  "file": "pull-payment-history.ts",
+  "app": "buildium",
+  "inputSchema": [
+    {
+      "display_name": "tenantId",
+      "type": "string",
+      "required": true,
+      "description": "Tenant ID"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "payments",
+      "type": "string",
+      "required": true,
+      "description": "Payment history JSON"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ],
+  "tags": [
+    "real-estate",
+    "property-management"
+  ]
+}

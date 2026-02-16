@@ -1,0 +1,40 @@
+{
+  "slug": "deactivate-user",
+  "name": "Deactivate Terminated User",
+  "description": "Deactivate a terminated user in Okta Admin.",
+  "type": "tool",
+  "file": "deactivate-user.ts",
+  "app": "okta-admin",
+  "inputSchema": [
+    {
+      "display_name": "userId",
+      "type": "string",
+      "required": true,
+      "description": "User ID to deactivate"
+    },
+    {
+      "display_name": "reason",
+      "type": "string",
+      "required": false,
+      "description": "Deactivation reason"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "deactivated",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether user was deactivated"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether operation completed"
+    }
+  ],
+  "tags": [
+    "security",
+    "identity"
+  ]
+}

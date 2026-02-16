@@ -1,0 +1,41 @@
+{
+  "slug": "download-statement",
+  "name": "Download Monthly Statement",
+  "description": "Download monthly statement from Chase Online.",
+  "type": "tool",
+  "file": "download-statement.ts",
+  "app": "chase-online",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Account ID"
+    },
+    {
+      "display_name": "statementMonth",
+      "type": "string",
+      "required": true,
+      "description": "Statement month (YYYY-MM)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded statement"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "banking",
+    "export"
+  ]
+}

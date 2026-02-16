@@ -1,0 +1,8 @@
+{
+  "id": "schwab-advisor",
+  "name": "Schwab Advisor Center",
+  "description": "Schwab Advisor Center is a wealth management portal for financial advisors.",
+  "allowedDomains": [
+    "international.schwab.com"
+  ]
+}

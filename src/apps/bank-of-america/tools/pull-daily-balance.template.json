@@ -1,0 +1,40 @@
+{
+  "slug": "pull-daily-balance",
+  "name": "Pull Daily Account Balance",
+  "description": "Pull daily account balance from Bank of America.",
+  "type": "tool",
+  "file": "pull-daily-balance.ts",
+  "app": "bank-of-america",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Account ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "balance",
+      "type": "string",
+      "required": true,
+      "description": "Current balance"
+    },
+    {
+      "display_name": "asOfDate",
+      "type": "date",
+      "required": true,
+      "description": "Balance date"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "banking"
+  ]
+}

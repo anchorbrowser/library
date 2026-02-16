@@ -1,0 +1,41 @@
+{
+  "slug": "download-billing-reports",
+  "name": "Download Billing Reports",
+  "description": "Download billing reports nightly from Practice Fusion.",
+  "type": "tool",
+  "file": "download-billing-reports.ts",
+  "app": "practice-fusion",
+  "inputSchema": [
+    {
+      "display_name": "reportDate",
+      "type": "date",
+      "required": true,
+      "description": "Date of the billing report"
+    },
+    {
+      "display_name": "format",
+      "type": "string",
+      "required": false,
+      "description": "Export format (CSV, PDF)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "export"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "export-resource-cost",
+  "name": "Export Resource Cost Report",
+  "description": "Export resource cost report from Azure Portal.",
+  "type": "tool",
+  "file": "export-resource-cost.ts",
+  "app": "azure-portal",
+  "inputSchema": [
+    {
+      "display_name": "subscriptionId",
+      "type": "string",
+      "required": true,
+      "description": "Subscription ID"
+    },
+    {
+      "display_name": "month",
+      "type": "string",
+      "required": true,
+      "description": "Billing month (YYYY-MM)"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to cost report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "cloud",
+    "devops",
+    "export"
+  ]
+}

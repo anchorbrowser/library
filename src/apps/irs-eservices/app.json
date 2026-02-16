@@ -1,0 +1,9 @@
+{
+  "id": "irs-eservices",
+  "name": "IRS e-Services",
+  "description": "Automation templates for IRS e-Services.",
+  "allowedDomains": [
+    "irs.gov",
+    "sa.www4.irs.gov"
+  ]
+}

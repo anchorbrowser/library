@@ -1,0 +1,9 @@
+{
+  "id": "chase-online",
+  "name": "Chase Online",
+  "description": "Automation templates for Chase Online.",
+  "allowedDomains": [
+    "chase.com",
+    "secure.chase.com"
+  ]
+}

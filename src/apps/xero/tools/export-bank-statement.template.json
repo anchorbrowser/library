@@ -1,0 +1,47 @@
+{
+  "slug": "export-bank-statement",
+  "name": "Export Bank Statement CSV",
+  "description": "Export bank statement CSV from Xero.",
+  "type": "tool",
+  "file": "export-bank-statement.ts",
+  "app": "xero",
+  "inputSchema": [
+    {
+      "display_name": "accountId",
+      "type": "string",
+      "required": true,
+      "description": "Bank account ID"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported CSV"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "accounting",
+    "export"
+  ]
+}

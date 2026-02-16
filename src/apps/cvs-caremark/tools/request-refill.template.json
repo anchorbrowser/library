@@ -1,0 +1,46 @@
+{
+  "slug": "request-refill",
+  "name": "Request Prescription Refill",
+  "description": "Request a prescription refill in CVS Caremark.",
+  "type": "tool",
+  "file": "request-refill.ts",
+  "app": "cvs-caremark",
+  "inputSchema": [
+    {
+      "display_name": "prescriptionId",
+      "type": "string",
+      "required": true,
+      "description": "Prescription ID to refill"
+    },
+    {
+      "display_name": "pharmacyId",
+      "type": "string",
+      "required": false,
+      "description": "Pharmacy location"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "confirmationNumber",
+      "type": "string",
+      "required": true,
+      "description": "Refill confirmation number"
+    },
+    {
+      "display_name": "pickupDate",
+      "type": "date",
+      "required": true,
+      "description": "Expected pickup date"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether refill was requested"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "pharmacy"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "export-project-reports",
+  "name": "Export Project Reports",
+  "description": "Export project progress reports from Asana.",
+  "type": "tool",
+  "file": "export-project-reports.ts",
+  "app": "asana",
+  "inputSchema": [
+    {
+      "display_name": "projectId",
+      "type": "string",
+      "required": true,
+      "description": "Project identifier"
+    },
+    {
+      "display_name": "reportType",
+      "type": "string",
+      "required": false,
+      "description": "Type of progress report"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "taskCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of tasks in report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "productivity",
+    "project-management",
+    "export"
+  ]
+}

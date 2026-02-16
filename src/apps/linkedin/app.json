@@ -1,7 +1,9 @@
 {
   "id": "linkedin",
   "name": "LinkedIn",
-  "description": "LinkedIn is a professional networking platform.",
-  "allowedDomains": ["linkedin.com"]
+  "description": "Automation templates for LinkedIn.",
+  "allowedDomains": [
+    "linkedin.com",
+    "www.linkedin.com"
+  ]
 }
-

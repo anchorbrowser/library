@@ -1,0 +1,40 @@
+{
+  "slug": "take-rds-snapshot",
+  "name": "Take RDS Snapshot",
+  "description": "Take an RDS snapshot in AWS Console.",
+  "type": "tool",
+  "file": "take-rds-snapshot.ts",
+  "app": "aws-console",
+  "inputSchema": [
+    {
+      "display_name": "dbInstanceId",
+      "type": "string",
+      "required": true,
+      "description": "DB instance ID"
+    },
+    {
+      "display_name": "snapshotName",
+      "type": "string",
+      "required": true,
+      "description": "Snapshot name"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "snapshotId",
+      "type": "string",
+      "required": true,
+      "description": "Created snapshot ID"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether snapshot was created"
+    }
+  ],
+  "tags": [
+    "cloud",
+    "devops"
+  ]
+}

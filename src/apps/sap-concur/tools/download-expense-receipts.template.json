@@ -1,0 +1,35 @@
+{
+  "slug": "download-expense-receipts",
+  "name": "Download Expense Receipts",
+  "description": "Download expense receipts from SAP Concur.",
+  "type": "tool",
+  "file": "download-expense-receipts.ts",
+  "app": "sap-concur",
+  "inputSchema": [
+    {
+      "display_name": "reportId",
+      "type": "string",
+      "required": true,
+      "description": "Expense report ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to receipts"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "expenses",
+    "export"
+  ]
+}

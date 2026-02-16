@@ -1,0 +1,53 @@
+{
+  "slug": "download-lab-results",
+  "name": "Download Lab Results",
+  "description": "Bulk download lab results for research cohorts from Epic MyChart.",
+  "type": "tool",
+  "file": "download-lab-results.ts",
+  "app": "epic-mychart",
+  "inputSchema": [
+    {
+      "display_name": "cohortId",
+      "type": "string",
+      "required": true,
+      "description": "Research cohort identifier"
+    },
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": false,
+      "description": "Start date filter"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": false,
+      "description": "End date filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to downloaded results"
+    },
+    {
+      "display_name": "recordCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of records downloaded"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "ehr",
+    "export"
+  ]
+}

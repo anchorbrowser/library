@@ -1,0 +1,41 @@
+{
+  "slug": "export-diagnostic-report",
+  "name": "Export Diagnostic Report",
+  "description": "Export diagnostic report from Quest Quanum.",
+  "type": "tool",
+  "file": "export-diagnostic-report.ts",
+  "app": "quest-quanum",
+  "inputSchema": [
+    {
+      "display_name": "reportId",
+      "type": "string",
+      "required": false,
+      "description": "Report identifier"
+    },
+    {
+      "display_name": "patientId",
+      "type": "string",
+      "required": false,
+      "description": "Patient identifier"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "healthcare",
+    "diagnostics",
+    "export"
+  ]
+}

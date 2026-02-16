@@ -1,0 +1,41 @@
+{
+  "slug": "automate-data-entry",
+  "name": "Automate Data Entry",
+  "description": "Automate data entry into Oracle Forms applications.",
+  "type": "tool",
+  "file": "automate-data-entry.ts",
+  "app": "oracle-forms",
+  "inputSchema": [
+    {
+      "display_name": "formName",
+      "type": "string",
+      "required": true,
+      "description": "Target form name"
+    },
+    {
+      "display_name": "dataPayload",
+      "type": "string",
+      "required": true,
+      "description": "JSON data payload to enter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "recordsEntered",
+      "type": "number",
+      "required": true,
+      "description": "Number of records entered"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether data entry completed"
+    }
+  ],
+  "tags": [
+    "finance",
+    "erp",
+    "automation"
+  ]
+}

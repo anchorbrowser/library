@@ -1,0 +1,47 @@
+{
+  "slug": "automate-inspection-scheduling",
+  "name": "Automate Inspection Scheduling",
+  "description": "Automate inspection scheduling updates in Accela.",
+  "type": "tool",
+  "file": "automate-inspection-scheduling.ts",
+  "app": "accela",
+  "inputSchema": [
+    {
+      "display_name": "inspectionType",
+      "type": "string",
+      "required": true,
+      "description": "Type of inspection"
+    },
+    {
+      "display_name": "scheduledDate",
+      "type": "date",
+      "required": true,
+      "description": "Scheduled date for inspection"
+    },
+    {
+      "display_name": "address",
+      "type": "string",
+      "required": true,
+      "description": "Inspection address"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "inspectionId",
+      "type": "string",
+      "required": true,
+      "description": "Assigned inspection ID"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether scheduling completed"
+    }
+  ],
+  "tags": [
+    "government",
+    "permits",
+    "automation"
+  ]
+}

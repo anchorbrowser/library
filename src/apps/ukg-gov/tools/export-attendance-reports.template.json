@@ -1,0 +1,53 @@
+{
+  "slug": "export-attendance-reports",
+  "name": "Export Attendance Reports",
+  "description": "Export attendance reports from UKG Gov.",
+  "type": "tool",
+  "file": "export-attendance-reports.ts",
+  "app": "ukg-gov",
+  "inputSchema": [
+    {
+      "display_name": "dateFrom",
+      "type": "date",
+      "required": true,
+      "description": "Start date"
+    },
+    {
+      "display_name": "dateTo",
+      "type": "date",
+      "required": true,
+      "description": "End date"
+    },
+    {
+      "display_name": "department",
+      "type": "string",
+      "required": false,
+      "description": "Department filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to exported report"
+    },
+    {
+      "display_name": "employeeCount",
+      "type": "number",
+      "required": true,
+      "description": "Number of employees in report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether export completed"
+    }
+  ],
+  "tags": [
+    "hr",
+    "workforce",
+    "export"
+  ]
+}

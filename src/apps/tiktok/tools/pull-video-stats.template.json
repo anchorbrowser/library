@@ -1,0 +1,46 @@
+{
+  "slug": "pull-video-stats",
+  "name": "Pull Video Performance Stats",
+  "description": "Pull video performance stats from TikTok.",
+  "type": "tool",
+  "file": "pull-video-stats.ts",
+  "app": "tiktok",
+  "inputSchema": [
+    {
+      "display_name": "videoId",
+      "type": "string",
+      "required": true,
+      "description": "Video ID"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "views",
+      "type": "string",
+      "required": true,
+      "description": "View count"
+    },
+    {
+      "display_name": "likes",
+      "type": "string",
+      "required": true,
+      "description": "Like count"
+    },
+    {
+      "display_name": "shares",
+      "type": "string",
+      "required": true,
+      "description": "Share count"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether pull completed"
+    }
+  ],
+  "tags": [
+    "social-media",
+    "marketing"
+  ]
+}

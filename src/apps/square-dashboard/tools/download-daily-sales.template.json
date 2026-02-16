@@ -1,0 +1,41 @@
+{
+  "slug": "download-daily-sales",
+  "name": "Download Daily Sales Report",
+  "description": "Download daily sales report from Square Dashboard.",
+  "type": "tool",
+  "file": "download-daily-sales.ts",
+  "app": "square-dashboard",
+  "inputSchema": [
+    {
+      "display_name": "date",
+      "type": "date",
+      "required": true,
+      "description": "Report date"
+    },
+    {
+      "display_name": "locationId",
+      "type": "string",
+      "required": false,
+      "description": "Location filter"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "filePath",
+      "type": "string",
+      "required": true,
+      "description": "Path to sales report"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether download completed"
+    }
+  ],
+  "tags": [
+    "ecommerce",
+    "pos",
+    "export"
+  ]
+}

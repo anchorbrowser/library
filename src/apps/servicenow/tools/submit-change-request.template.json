@@ -1,0 +1,47 @@
+{
+  "slug": "submit-change-request",
+  "name": "Submit Change Request",
+  "description": "Submit a change request in ServiceNow.",
+  "type": "tool",
+  "file": "submit-change-request.ts",
+  "app": "servicenow",
+  "inputSchema": [
+    {
+      "display_name": "shortDescription",
+      "type": "string",
+      "required": true,
+      "description": "Short description"
+    },
+    {
+      "display_name": "category",
+      "type": "string",
+      "required": true,
+      "description": "Change category"
+    },
+    {
+      "display_name": "priority",
+      "type": "string",
+      "required": false,
+      "description": "Priority level"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "changeNumber",
+      "type": "string",
+      "required": true,
+      "description": "Change request number"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether submission succeeded"
+    }
+  ],
+  "tags": [
+    "itsm",
+    "enterprise",
+    "submission"
+  ]
+}

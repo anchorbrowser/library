@@ -1,0 +1,46 @@
+{
+  "slug": "check-in-flight",
+  "name": "Check In to Flight",
+  "description": "Check in to flight on Southwest Airlines.",
+  "type": "tool",
+  "file": "check-in-flight.ts",
+  "app": "southwest-airlines",
+  "inputSchema": [
+    {
+      "display_name": "confirmationNumber",
+      "type": "string",
+      "required": true,
+      "description": "Confirmation number"
+    },
+    {
+      "display_name": "firstName",
+      "type": "string",
+      "required": true,
+      "description": "First name"
+    },
+    {
+      "display_name": "lastName",
+      "type": "string",
+      "required": true,
+      "description": "Last name"
+    }
+  ],
+  "outputSchema": [
+    {
+      "display_name": "boardingPosition",
+      "type": "string",
+      "required": true,
+      "description": "Boarding position"
+    },
+    {
+      "display_name": "success",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether check-in succeeded"
+    }
+  ],
+  "tags": [
+    "travel",
+    "airlines"
+  ]
+}
