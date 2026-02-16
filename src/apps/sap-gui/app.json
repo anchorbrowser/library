@@ -3,6 +3,6 @@
   "name": "SAP GUI",
   "description": "SAP GUI is a legacy client interface for SAP ERP systems.",
   "allowedDomains": [
-    "sap-gui.sap.com"
+    "sap.com"
   ]
 }
